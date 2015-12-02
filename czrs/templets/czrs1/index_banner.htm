@@ -1,0 +1,61 @@
+<style>
+/* flashBanner */
+.flashBanner{width:1920px;height:326px;overflow:hidden;margin:0 auto;overflow: hidden;text-align: center;margin-left: -460px}
+.flashBanner{position:relative;}
+.flashBanner .mask{height:32px;line-height:32px;width:100%;text-align:center;position:absolute;left:0;bottom:-32px;filter:alpha(opacity=70);-moz-opacity:0.8;opacity:0.8;overflow:hidden;}
+.flashBanner .mask img{vertical-align:middle;margin-right:10px;cursor:pointer;margin: 0 auto;}
+.flashBanner .mask img.show{margin-bottom:5px;}
+.flashBanner .mask1{height:32px;line-height:32px;width:1000px;text-align:right;margin: 0 auto;}
+</style>
+<script language="javascript" type="text/javascript">
+$(function(){
+	$(".flashBanner").each(function(){
+		var timer;
+		$(".flashBanner .mask img").click(function(){
+			var index = $(".flashBanner .mask img").index($(this));	
+			changeImg(index);
+		}).eq(0).click();
+		$(this).find(".mask").animate({
+			"bottom":"0"	
+		},700);
+		$(".flashBanner").hover(function(){
+			clearInterval(timer);	
+		},function(){
+			timer = setInterval(function(){
+				var show = $(".flashBanner .mask img.show").index();
+				if (show >= $(".flashBanner .mask img").length-1)
+					show = 0;
+				else
+					show ++;
+				changeImg(show);
+			},3000);
+		});
+		function changeImg (index)
+		{
+			$(".flashBanner .mask img").removeClass("show").eq(index).addClass("show");
+			$(".flashBanner .bigImg").parents("a").attr("href",$(".flashBanner .mask img").eq(index).attr("link"));
+			$(".flashBanner .bigImg").hide().attr("src",$(".flashBanner .mask img").eq(index).attr("uri")).fadeIn("slow");
+		}
+		timer = setInterval(function(){
+			var show = $(".flashBanner .mask img.show").index();
+			if (show >= $(".flashBanner .mask img").length-1)
+				show = 0;
+			else
+				show ++;
+			changeImg(show);
+		},5000);
+	});
+});
+</script>
+<div style="width: 1000px;margin: 0 auto">
+<div class="flashBanner" >
+	<a href="{dede:global.cfg_cmsurl/}/"><img class="bigImg" width="1920px" height="326" /></a>
+	<div class="mask">
+		<img src="{dede:global.cfg_templets_skin/}/images/1.jpg" uri="{dede:global.cfg_templets_skin/}/images/1.jpg" link="{dede:global.cfg_cmsurl/}/"  width="60" height="22"/>
+		<img src="{dede:global.cfg_templets_skin/}/images/2.jpg" uri="{dede:global.cfg_templets_skin/}/images/2.jpg" link="{dede:global.cfg_cmsurl/}/"  width="60" height="22"/>
+		<img src="{dede:global.cfg_templets_skin/}/images/3.jpg" uri="{dede:global.cfg_templets_skin/}/images/3.jpg" link="{dede:global.cfg_cmsurl/}/"  width="60" height="22"/>
+		<img src="{dede:global.cfg_templets_skin/}/images/4.jpg" uri="{dede:global.cfg_templets_skin/}/images/4.jpg" link="{dede:global.cfg_cmsurl/}/"  width="60" height="22"/>
+		<img src="{dede:global.cfg_templets_skin/}/images/5.jpg" uri="{dede:global.cfg_templets_skin/}/images/5.jpg" link="{dede:global.cfg_cmsurl/}/"  width="60" height="22"/>
+	</div>
+</div>
+</div>

@@ -1,4 +1,9 @@
 <div id="head">
+	<div id="top_top">
+		<div id="top_wel">
+			<span style="font-size: 12px;">联系电话:<span style="color: #ff3333;font-weight: bold;">027-12345678</span></span>
+		</div>
+	</div>
 	<div id="top">
 		<div id="top_log">
 			<img alt="{dede:global.cfg_webname/}" src="{dede:global.cfg_templets_skin/}/images/logo.png" style="width: 100%;height: 100%">
@@ -6,10 +11,23 @@
 		<div id="top_menu">
 			<ul>
 	      	<li><a href='{dede:global.cfg_cmsurl/}/'><span>主页</span></a></li>
-	      	{dede:channel type='top' row='10' currentstyle="<li class='hover'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
+	      	{dede:channel type='top' row='10' currentstyle="<li class='top_menu_moveon_action'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
 	      	<li><a href='[field:typeurl/]' [field:rel/]><span>[field:typename/]</span></a></li>
 	      	{/dede:channel}
 	    	</ul>
 		</div>
 	</div>
 </div>
+<script>
+$("#top_menu li").hover(
+function () {
+    $(this).addClass("top_menu_moveon");
+  },
+  function () {
+    $(this).removeClass("top_menu_moveon");
+  }
+);
+$(window).scroll(function () {
+    $("#head").css({ "top": parseInt($(window).scrollTop()) })
+});
+</script>
