@@ -9,11 +9,13 @@ $z[3]=Array("global","",414,441);
 $z[3][4]['name']="cfg_keywords";
 $z[4]=Array("include","",447,484);
 $z[4][4]['filename']="css_js.htm";
-$z[5]=Array("include","",585,620);
-$z[5][4]['filename']="head.htm";
-$z[6]=Array("include","",639,682);
-$z[6][4]['filename']="index_banner.htm";
-$z[7]=Array("include","",684,721);
-$z[7][4]['filename']="footer.htm";
+$z[5]=Array("global","",498,530);
+$z[5][4]['name']="cfg_templets_skin";
+$z[6]=Array("include","",697,732);
+$z[6][4]['filename']="head.htm";
+$z[7]=Array("include","",751,794);
+$z[7][4]['filename']="index_banner.htm";
+$z[8]=Array("include","",1349,1386);
+$z[8][4]['filename']="footer.htm";
 
 ?>
