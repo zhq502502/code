@@ -39,12 +39,12 @@
 .itemcontent .item1{
 	width: 220px;
 	height: 250px;
-	padding: 5px;
+	padding: 10px;
 	float: left;
 	
 }
 .itemcontent .item1 .item1_img{
-	width: 150px;
+	width: 220px;
 	height: 195px;
 	float: left;
 }
@@ -77,4 +77,16 @@
 	width: 1000px;
 	height: 395px;
 	margin: 30px auto;
+	color: white;
+}
+.index_model2_1{
+	width: 500px;
+	float: left;
+}
+.index_model2_2{
+	background: #465c71 none repeat scroll 0 0;
+    float: right;
+    padding: 55px 43px 48px;
+    width: 414px;
+    height: 290px;
 }
