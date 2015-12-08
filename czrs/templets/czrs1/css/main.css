@@ -8,6 +8,12 @@
 .w_main{
 	width: 1000px;
 }
+.active{
+	display: block;
+}
+.none{
+	display: none;
+}
 ui,li{
 	list-style: none;
 }

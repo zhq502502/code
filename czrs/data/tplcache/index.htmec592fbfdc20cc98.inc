@@ -15,7 +15,23 @@ $z[6]=Array("include","",697,732);
 $z[6][4]['filename']="head.htm";
 $z[7]=Array("include","",751,794);
 $z[7][4]['filename']="index_banner.htm";
-$z[8]=Array("include","",1349,1386);
-$z[8][4]['filename']="footer.htm";
+$z[8]=Array("global","",1340,1366);
+$z[8][4]['name']="cfg_webname";
+$z[9]=Array("global","",1373,1405);
+$z[9][4]['name']="cfg_templets_skin";
+$z[10]=Array("global","",1676,1702);
+$z[10][4]['name']="cfg_webname";
+$z[11]=Array("global","",1709,1741);
+$z[11][4]['name']="cfg_templets_skin";
+$z[12]=Array("global","",2012,2038);
+$z[12][4]['name']="cfg_webname";
+$z[13]=Array("global","",2045,2077);
+$z[13][4]['name']="cfg_templets_skin";
+$z[14]=Array("global","",2348,2374);
+$z[14][4]['name']="cfg_webname";
+$z[15]=Array("global","",2381,2413);
+$z[15][4]['name']="cfg_templets_skin";
+$z[16]=Array("include","",3070,3107);
+$z[16][4]['filename']="footer.htm";
 
 ?>
