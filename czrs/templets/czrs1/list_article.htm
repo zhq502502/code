@@ -16,7 +16,18 @@ $(function(){
 	    			];
 	var index = parseInt(Math.random()*100)%imagelist.length;
 	$(".list_img img").attr("src",imagelist[index]);
+	
+	list_hover();
 })
+function list_hover(){
+	$(".list_item li").hover(
+		function(){
+			$(this).addClass("list_move");
+		},function(){
+			$(this).removeClass("list_move");
+		}
+	);
+}
 </script>
 </head>
 <body class="articlelist">
@@ -28,11 +39,11 @@ $(function(){
 	<div class="list_main">
 		<div class="list_left">
 			<div class="list_name">
-				{dede:field.title/}
+				{dede:field name='typeid' function="GetTopTypename(@me)" /}
 			</div>
 			<ul class="list_item">
 				{dede:channel type='son' currentstyle="
-			      <li><a href='~typelink~' class='thisclass'>~typename~</a></li>
+			      <li class='list_action'><a href='~typelink~'>~typename~</a></li>
 			      "}
 			      <li><a href='[field:typeurl/]'>[field:typename/]</a></li>
 			      {/dede:channel}
@@ -41,13 +52,15 @@ $(function(){
 		<div class="list_right">
 			<div class="list_top">
 				<div class="list_title">
-					{dede:field.title/}
+					{dede:field name='typename' /}
 				</div>
 				<div class="list_position">
 					{dede:field name='position'/}
 				</div>
 			</div>
-			<div class="list_content">right</div>
+			<div class="list_content">
+				文章列表界面，待完善
+			</div>
 		</div>
 	</div>
 </div>

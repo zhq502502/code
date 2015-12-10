@@ -276,3 +276,39 @@ if( file_exists(DEDEINC.'/extend.func.php') )
 {
     require_once(DEDEINC.'/extend.func.php');
 }
+
+function GetTopTypename($id)
+{
+	global $dsql;
+	$row = $dsql->GetOne("SELECT typename,topid FROM czrs_arctype WHERE id=  $id");
+	if ($row['topid'] == '0')
+	{
+		return  $row['typename'];
+	}
+	else
+	{
+		$row1 =  $dsql->GetOne("SELECT typename FROM czrs_arctype WHERE id=  $row[topid]");
+		return $row1['typename'];
+	}
+}
+function GetParentCategoryNameByID($CurrentID){
+
+	$tsql = new DedeSql(false);
+
+	$typelink2 = '';
+
+	$tsql->SetQuery("Select i.typedir,i.typename From zz5unet_arctype t left join zz5unet_arctype i on i.id=t.reid where t.id='$CurrentID'");
+
+	$tsql->Execute('t');
+
+	while($row = $tsql->GetArray('t',MYSQL_ASSOC))
+
+	{
+
+		$typelink2 .= $row['typename'];
+
+	}
+
+	return $typelink2;
+
+}

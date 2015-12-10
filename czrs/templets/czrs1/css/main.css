@@ -29,6 +29,7 @@ ul,li{
 }
 a{
 	text-decoration:none;
+	color: #666;
 }
 #head{
 	height: 90px;
@@ -135,6 +136,8 @@ a{
 	margin-bottom: 22px;
 	height: 34px;
 	line-height: 34px;
+	padding-bottom:5px;
+	border-bottom: 1px solid #cfcfcf;
 }
 .list_title{
 	font-size:20px;
@@ -152,9 +155,22 @@ a{
 	text-align: right;
 	font-size: 12px;
 }
+.list_item{
+	border:1px solid #cfcfcf; 
+}
 .list_item li{
 	width:181px;
 	height: 57px;
-	line-height: 57px;
 	padding-left: 21px;
+	background-color: #eee;
+	border-bottom: 1px solid #cfcfcf;
+}
+.list_item li a{
+	height: 57px;
+	line-height: 57px;
+	width: 100%;
+	display: block;
+}
+.list_action,.list_move{
+	background-image: url("../images/dt.jpg");
 }
