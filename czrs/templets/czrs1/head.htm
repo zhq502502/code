@@ -11,9 +11,22 @@
 		<div id="top_menu">
 			<ul>
 	      	<li><a href='{dede:global.cfg_cmsurl/}/'><span>主页</span></a></li>
+	      	<!-- 
 	      	{dede:channel type='top' row='10' currentstyle="<li class='top_menu_moveon_action'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
 	      	<li><a href='[field:typeurl/]' [field:rel/]><span>[field:typename/]</span></a></li>
 	      	{/dede:channel}
+	      	 -->
+	    		{dede:channelartlist typeid='top' row='6'}
+				  <li class=""><a href="{dede:field name='typeurl'/}"><span class="arrow"></span>{dede:field name='typename'/}</a> 
+				    <div id="son_{dede:field name='id'/}" class="menu_son"  >
+					{dede:channel type='son' noself='yes' }
+					<a href="[field:typelink/]">[field:typename/]</a>
+						 [field:content/]
+					{/dede:channel}
+				    </div>
+				  </li>
+				  {/dede:channelartlist}
+				  
 	    	</ul>
 		</div>
 	</div>

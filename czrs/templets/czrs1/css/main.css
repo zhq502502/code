@@ -81,6 +81,9 @@ a{
 }
 #top_menu ul li a{
 	color: #666;
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 .top_menu_moveon_action{
 	border-top: 2px solid #0092d7;
@@ -97,9 +100,43 @@ a{
 #top_menu ul li a{
 	text-decoration:none;
 }
+.menu_son{
+	display: none;
+	position: absolute;
+	width: 300px;
+	left: 0px;
+	top: 0px;
+	border-width: 0 1px 1px 1px;
+	border-color: #ccc;
+	border-style: solid;
+}
+
+
+
+
 #main{
 	padding-top: 90px;
+	overflow: hidden;
+}
+/**footer版权信息*/
+.footer{
+	margin-top:50px;
+	width: 100%;
+	background-color: #2b2e34;
+	overflow: hidden;
+	font-size: 12px;
+	font-weight: bold;
+}
+.footer_top{
+	height: 150px;
 	
+}
+.footer_bottom{
+	border-top: 1px solid #666;
+	height: 50px;
+	padding-top: 10px;
+	line-height: 50px;
+	text-align: center;
 }
 
 /**列表界面*/
