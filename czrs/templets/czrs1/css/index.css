@@ -35,6 +35,7 @@
 	width: 100%;
 	overflow: hidden;
 	float: left;
+	display: none;
 }
 .itemcontent .item1{
 	width: 220px;

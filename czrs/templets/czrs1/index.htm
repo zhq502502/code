@@ -21,54 +21,25 @@
 	<div style="height: 2px;width: 100%;background-color: #eee;margin-top: 60px"></div>
 	<div class="center w_main model_content " style="margin-top: -62px;overflow: hidden;">
 		<ul class="model_menu">
-			<li id="tab1" class="active_tab_top">视频会议</li>
-			<li id="tab2" class="">流媒体软件</li>
-			<li id="tab3" class="">周边设备</li>
+			{dede:channel typeid = '1' row='10' currentstyle="<li id='tab[field:id/]' class='active_tab_top'>[field:typename/]</li>"}
+	      	<li id='tab[field:id/]' class=''>[field:typename/]</li>
+	      	{/dede:channel}
 		</ul>
-		<div id="d_tab1" class="itemcontent avtive">
+		{dede:channelartlist typeid='1' row='6'}
+			<div id="d_tab{dede:field name='id'/}" class="itemcontent">
+	      	{dede:arclist typt='son' limit='0,5'}
 			<div class="item1">
 				<div class="item1_img">
-					<img alt="{dede:global.cfg_webname/}" src="http://hcovo.8.ibw.cc//upload/2015-11/2015113031523563.jpg"/>
+					<img alt="" src='[field:picname/] '/>
 				</div>
 				<div class="item1_content">
-					<div class="item1_content_title">流媒体应用平台</div>
-					<div  class="item1_content_text">></div>
+					<div class="item1_content_title"><a href='[field:arcurl/]'>[field:title/]</a></div>
+					<div class="item1_content_text">></div>
 				</div>
 			</div>
-			<div class="item1">
-				<div class="item1_img">
-					<img alt="{dede:global.cfg_webname/}" src="http://hcovo.8.ibw.cc//upload/2015-11/2015113031523563.jpg"/>
-				</div>
-				<div class="item1_content">
-					<div class="item1_content_title">流媒体应用平台</div>
-					<div  class="item1_content_text">></div>
-				</div>
+			{/dede:arclist}
 			</div>
-			<div class="item1">
-				<div class="item1_img">
-					<img alt="{dede:global.cfg_webname/}" src="http://hcovo.8.ibw.cc//upload/2015-11/2015113031523563.jpg"/>
-				</div>
-				<div class="item1_content">
-					<div class="item1_content_title">流媒体应用平台</div>
-					<div  class="item1_content_text">></div>
-				</div>
-			</div>
-			<div class="item1">
-				<div class="item1_img">
-					<img alt="{dede:global.cfg_webname/}" src="http://hcovo.8.ibw.cc//upload/2015-11/2015113031523563.jpg"/>
-				</div>
-				<div class="item1_content">
-					<div class="item1_content_title">流媒体应用平台</div>
-					<div  class="item1_content_text">></div>
-				</div>
-			</div>
-		</div>
-		<div id="d_tab2" class="itemcontent none">
-			
-		</div>
-		<div id="d_tab3" class="itemcontent none">
-			
-		</div>
+      	{/dede:channelartlist}
 	</div>
 	<div style="width: 1000px;height: 30px;line-height:30px;margin: 0 auto;">
 	<div style="margin-right: 10px;cursor: pointer;border: 1px solid #333;width: 80px;text-align: center;float: right">查看更多</div>
@@ -100,6 +71,17 @@
 <!-- /footer -->
 </body>
 <script>
-
+$($(".model_menu li")[0]).addClass("active_tab_top");
+$("#d_"+$($(".model_menu li")[0]).attr("id")).addClass("active");
+$(".model_menu li").hover(
+function(){
+	$(".model_menu li").removeClass("active_tab_top");
+	$(this).addClass("active_tab_top");
+	$(".itemcontent").removeClass("active");
+	$("#d_"+$(this).attr("id")).addClass("active");
+},function(){
+	
+}
+)
 </script>
 </html>

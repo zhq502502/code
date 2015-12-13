@@ -9,10 +9,10 @@
 	width: 1000px;
 }
 .active{
-	display: block;
+	display: block!important;
 }
 .none{
-	display: none;
+	display: none!important;
 }
 ui,li{
 	list-style: none;
