@@ -60,17 +60,20 @@ function list_hover(){
 			</div>
 			<div class="list_content">
 				<div class="listbox">
-				   <ul class="e2">
+				   <div class="list_all">
 				    {dede:list pagesize='10'}
-				    <li> [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<a href='{@me['arcurl']}' class='preview'><img src='{@me['litpic']}'/></a>"); [/field:array]
-				     [<b>[field:typelink/]</b>] <a href="[field:arcurl/]" class="title">[field:title/]</a> <span class="info"> <small>日期：</small>[field:pubdate function="GetDateTimeMK(@me)"/] <small>点击：</small>[field:click/] <small>好评：</small>[field:scores/] </span>
-				     <p class="intro"> [field:description/]... </p>
-				    </li>
+				    <div class="article_list_item">
+				    	<div class="item_image">[field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<a href='{@me['arcurl']}' class='preview'><img src='{@me['litpic']}'/></a>"); [/field:array]</div>
+				    	<div class="item_text">
+				    		<div class="item_title"><a href="[field:arcurl/]" class="title">[field:title/]</a> </div>
+				    		<div class="item_content"> [field:description/]</div>
+				    	</div>
+				    </div>
 				    {/dede:list}
-				   </ul>
+				   </div>
 				  </div>
 				  <!-- /listbox -->
-				  <div class="dede_pages">
+				  <div class="dede_pages" style="display: none">
 				   <ul class="pagelist">
 				    {dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5"/}
 				   </ul>

@@ -1,7 +1,34 @@
 <div class="footer">
+	<div style="height: 50px;background-color: white;"></div>
 	<div class="footer_top w_main center">
 		<div class="contact">
-			
+		<ul>
+		{dede:channelartlist typeid='1,2,3,4,5' row='6' }
+		  <li class="foot_menu" id="top_{dede:field name='id'/}"><a href="{dede:field name='typeurl'/}"><span class="arrow"></span>{dede:field name='typename'/}</a> 
+		    <div id="" class="foot_menu_son"  >
+				{dede:channel type='son' noself='yes' }
+				<a href="[field:typelink/]">[field:typename/]<span style="display: none">[field:content/]</span></a>
+				{/dede:channel}
+		    </div>
+		  </li>
+		 {/dede:channelartlist}
+		 <li  class="foot_menu">
+		 	<a>联系我们</a>
+		 	<div id="footer_lianxi" class="foot_menu_son"  >
+				<p>
+				电话：027-12345678
+				<br>
+				传真：027-12345678
+				<br>
+				ＱＱ：027-12345678
+				<br>
+				邮箱：027-12345678@qq.com
+				<br>
+				地址：湖北省武汉市蔡甸区神仙村天堂大厦109-09
+				</p>
+		    </div>
+		 </li>
+		 </ul>
 		</div>
 	</div>
 	<div class="footer_bottom ">
