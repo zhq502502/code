@@ -52,16 +52,17 @@
 	</div>
 	<div class="index_model2_2">
 		<ul style="position: relative; width: 415px; height: 223px;">
-		{dede:channel typeid='3' type='son' row='6'}
-			<li style="position: absolute; width: 415px; left: 0px; top: 0px; display: list-item;">
-				<h3>[field:typename/]</h3>
-				<p>[field:content/]</p>
-			</li>
-		{/dede:channel}
+		<li style="position: absolute; width: 415px; left: 0px; top: 0px; display: list-item;">
+		<h2>葵花流媒体应用平台</h2>
+		<p> 　 　　葵花流媒体应用平台是一套完整而强大的IP网络流媒体服务引擎，为视频直播、点播、广播、切播、P2P以及管理等众多应用提供强劲的后台服务支撑！ 　　KMS与视频直播软件LiveONE、多路视频直播机AVCaster、信息切播系统KIS、分发服务器系统P2P Server可以进行灵活搭配，提供从文件上传、VOD点播、多路直播、现场直播、文件广播等一整套的专业流媒体服务。 　　作为世纪葵花自主研发的高性能流服务引擎，KMS能够充分保障...</p>
+		</li>
+		<li style="position: absolute; width: 415px; left: 0px; top: 0px; display: none;">
+		
+		</li>
+		<li style="position: absolute; width: 415px; left: 0px; top: 0px; display: none;">
+		
+		</li>
 		</ul>
-		<div style="margin-top: 20px;">
-			<a style="border: 1px solid #fff;display: block;height: 30px;line-height: 30px;width: 100px;text-align: center;color: white;" >更多</a>
-		</div>
 	</div>
 </div>
 
@@ -70,27 +71,17 @@
 <!-- /footer -->
 </body>
 <script>
-//$($(".model_menu li")[0]).addClass("active_tab_top");
+$($(".model_menu li")[0]).addClass("active_tab_top");
 $("#d_"+$($(".model_menu li")[0]).attr("id")).addClass("active");
 $(".model_menu li").hover(
-	function(){
-		$(".model_menu li").removeClass("active_tab_top");
-		$(this).addClass("active_tab_top");
-		$(".itemcontent").removeClass("active");
-		$("#d_"+$(this).attr("id")).addClass("active");
-	},function(){
-		
-	}
-);
-var model2=0;
-$(function(){
-	showmodel2();
-})
-function showmodel2(){
-	$(".index_model2_2 li").hide();
-	$($(".index_model2_2 li")[model2%3]).show();
-	model2++;
-	setTimeout("showmodel2();",5000);
+function(){
+	$(".model_menu li").removeClass("active_tab_top");
+	$(this).addClass("active_tab_top");
+	$(".itemcontent").removeClass("active");
+	$("#d_"+$(this).attr("id")).addClass("active");
+},function(){
+	
 }
+)
 </script>
 </html>
