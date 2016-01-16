@@ -14,6 +14,7 @@
 }
 .model_content{
 	padding-top: 30px;
+	min-height: 302px;
 }
 .model_content ul{
 	height: 30px;

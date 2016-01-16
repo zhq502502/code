@@ -30,7 +30,7 @@
 			    </div>
 			  </li>
 			 {/dede:channelartlist}
-			{dede:channel type='top' row='10' currentstyle="<input type='hidden' id='top_action_menu' value='~id~'/>"}
+			 {dede:channel type='top' row='10' currentstyle="<input type='hidden' id='top_action_menu' value='~id~'/>"}
 	      	{/dede:channel}
 	    	</ul>
 		</div>
@@ -41,7 +41,6 @@ if($("#top_action_menu").val()!=null){
 	$("#top_"+$("#top_action_menu").val()).addClass("top_menu_moveon_action");
 }else{
 	$("#first_menu").addClass("top_menu_moveon_action");
-	
 }
 
 $("#top_menu li").hover(
