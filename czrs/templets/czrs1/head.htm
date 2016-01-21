@@ -55,13 +55,17 @@ function () {
     $(this).find(".menu_son").hide();
   }
 );
+$(".menu_son_title").each(function(){
+	var temp = $($(this).find("a")[0]).find("span").html();
+	$(this).parent().find(".menu_son_content").append(temp);
+});
 $(".menu_son_title a").hover(
-function () {
+  function () {
+	$(this).parent().parent().find(".menu_son_content").empty();
     var temp = $(this).find("span").html();
-    $("#menu_son_content").append(temp);
+    $(this).parent().parent().find(".menu_son_content").append(temp);
   },
   function () {
-    $("#menu_son_content").empty();
   }
 );
 /*$(window).scroll(function () {
