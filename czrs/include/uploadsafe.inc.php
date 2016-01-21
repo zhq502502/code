@@ -42,7 +42,7 @@ foreach($_FILES as $_key=>$_value)
         ${$_key.'_size'} = @filesize($$_key);
     }
     
-    $imtypes = array
+    $imgtypes = array
     (
         "image/pjpeg", "image/jpeg", "image/gif", "image/png", 
         "image/xpng", "image/wbmp", "image/bmp"
