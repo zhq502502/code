@@ -22,6 +22,7 @@ body{
 	margin: 0;
 	color: #666;
 	overflow-x: hidden;
+	font-size: 14px;
 }
 ul,li{
 	padding: 0;
@@ -58,12 +59,12 @@ a{
 	padding-top: 6px;
 }
 #top_log{
-	width: 80px;
+	width: 180px;
 	height: 100%;
 	float: left;
 }
 #top_menu{
-	width: 920px;
+	width: 820px;
 	height: 100%;
 	float: left;
 }
@@ -75,7 +76,7 @@ a{
 	margin-left:2px;
 	list-style: none;
 	float: left;
-	width: 125px;
+	width: 110px;
 	line-height: 50px;
 	text-align: center;
 	cursor:pointer;
@@ -146,7 +147,7 @@ a{
 }
 /**footer版权信息*/
 .footer{
-	margin-top:50px;
+	/*margin-top:50px;*/
 	width: 100%;
 	background-color: #2b2e34;
 	overflow: hidden;
