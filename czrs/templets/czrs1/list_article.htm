@@ -65,7 +65,7 @@ function list_hover(){
 				    <div class="article_list_item">
 				    	<div class="item_image">[field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<a href='{@me['arcurl']}' class='preview'><img src='{@me['litpic']}'/></a>"); [/field:array]</div>
 				    	<div class="item_text">
-				    		<div class="item_title"><a href="[field:arcurl/]" class="title">[field:title/]</a> </div>
+				    		<div class="item_title"><a href="[field:arcurl/]" rel="[field:title/]" title="[field:title/]" class="title">[field:title function=' ( strlen("@me")>40?cn_substr("@me",38)."…" : "@me" )'/]</a> </div>
 				    		<div class="item_content"> [field:description/]</div>
 				    	</div>
 				    </div>
