@@ -48,6 +48,11 @@ function list_hover(){
 			      <li><a href='[field:typeurl/]'>[field:typename/]</a></li>
 			      {/dede:channel}
 			</ul>
+			<ul class="list_us">
+				<li><img src="{dede:global.cfg_templets_skin/}/images/us.png" alt="" /><a href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=6">关于我们<br/>ABOUT US</a></li>
+				<li><img src="{dede:global.cfg_templets_skin/}/images/pro.png" alt="" /><a href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=1">产品中心<br/>RECRUITMENT</a></li>
+				<li><img src="{dede:global.cfg_templets_skin/}/images/conta.png" alt="" /><a href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=5">联系我们<br/>CONTACT US</a></li>
+			</ul>
 		</div>
 		<div class="list_right">
 			<div class="list_top">
@@ -59,6 +64,8 @@ function list_hover(){
 				</div>
 			</div>
 			<div class="list_content">
+				<h2 class="title">{dede:field.title/}</h2>
+				<div class="date">发布日期：{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/} 浏览次数：<script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></div>
 				{dede:field.body/}
 			</div>
 		</div>

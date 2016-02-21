@@ -272,12 +272,21 @@ a{
 }
 .article_list_item{
 	border:1px solid #eee;
-	width: 725px;
-	padding: 10px;
+	width: 705px;
+	padding: 20px;
 	margin-bottom: 20px;
 }
 .list_content,.list_content .listbox,.article_list_item{
 	overflow: hidden;	
+}
+.list_content .title{
+	text-align: center;
+	color: rgb(41, 182, 242);
+	font-weight: bold;
+}
+.list_content .date{
+	font-weight: bold;
+	text-align: center;
 }
 .article_list_item .item_image{
 	width: 150px;
@@ -303,7 +312,35 @@ a{
 .article_list_item .item_title a{
 	color: #50a5c9;
 }
+.list_item1 .item_image{
+	float: right!important;
+}
+.list_item1 .item_text{
+	float: left!important;
+}
 .article_list_item .item_content{
 	font-size: 14px;
 	padding-top: 10px;
+}
+.list_us{
+	margin-top: 10px;
+}
+.list_us li{
+	border-bottom: 1px solid #ccc;
+	width: 184px;
+	overflow: hidden;
+	padding: 20px 10px 20px 10px;
+}
+.list_us li img{
+	float: left;
+	margin-top: 8px;
+}
+.list_us li a{
+	float: left;
+	padding: 5px 0px 0px 10px;
+	font-size: 14px;
+	width: 120px;
+	background-image: url("../images/ico.gif");
+	background-repeat: no-repeat;
+	background-position: right center;
 }

@@ -12,7 +12,10 @@
 </script>
 <style type="">
 .lion{
-	background-color: #fcab3c;
+	background-color: #fcab3c!important;
+}
+.lion1{
+	background-color: #fff;
 }
 #footer-div-1{
 	background-color: #ececec!important;
@@ -64,18 +67,18 @@
 		<ul class="content" style="position: relative; width: 415px; height: 223px;">
 		{dede:channel typeid='3' type='son' row='6'}
 			<li style="position: absolute; width: 415px; left: 0px; top: 0px; display: list-item;">
-				<h3 style="">[field:typename/]</h3>
-				<p>[field:description/]</p>
+				<h3 style="padding-bottom: 20px">[field:typename/]</h3>
+				<p style="color: #eee;font-size: 13px;">[field:description/]</p>
 			</li>
 		{/dede:channel}
 		</ul>
 		<ul class="botton" style="width: 100%;height: 2px;">
 		{dede:channel typeid='3' type='son' row='6'}
-			<li style="width: 30px;float: left;height: 2px;margin-left: 3px;">&nbsp;</li>
+			<li style="width: 30px;float: left;height: 2px;margin-left: 3px;" class="lion1">&nbsp;</li>
 		{/dede:channel}
 		</ul>
 		<div style="margin-top: 20px;">
-			<a style="border: 1px solid #fff;display: block;height: 30px;line-height: 30px;width: 100px;text-align: center;color: white;"  href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=2">更多</a>
+			<a style="border: 1px solid #fff;display: block;height: 30px;line-height: 30px;width: 100px;text-align: center;color: white;"  href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=3">更多</a>
 		</div>
 	</div>
 </div>
@@ -123,14 +126,15 @@ $(".model_menu li").hover(
 	}
 );
 var model2=0;
+var model2_sum = $(".botton li").length?$(".botton li").length:0;
 $(function(){
 	showmodel2();
 })
 function showmodel2(){
 	$(".index_model2_2 .content li").hide();
-	$($(".index_model2_2 .content li")[model2%3]).show();
+	$($(".index_model2_2 .content li")[model2%model2_sum]).show();
 	$(".index_model2_2 .botton li").removeClass("lion");
-	$($(".index_model2_2 .botton li")[model2%3]).addClass("lion");
+	$($(".index_model2_2 .botton li")[model2%model2_sum]).addClass("lion");
 	model2++;
 	setTimeout("showmodel2();",5000);
 }

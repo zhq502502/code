@@ -48,6 +48,11 @@ function list_hover(){
 			      <li><a href='[field:typeurl/]'>[field:typename/]</a></li>
 			      {/dede:channel}
 			</ul>
+			<ul class="list_us">
+				<li><img src="{dede:global.cfg_templets_skin/}/images/us.png" alt="" /><a href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=6">关于我们<br/>ABOUT US</a></li>
+				<li><img src="{dede:global.cfg_templets_skin/}/images/pro.png" alt="" /><a href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=1">产品中心<br/>RECRUITMENT</a></li>
+				<li><img src="{dede:global.cfg_templets_skin/}/images/conta.png" alt="" /><a href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=5">联系我们<br/>CONTACT US</a></li>
+			</ul>
 		</div>
 		<div class="list_right">
 			<div class="list_top">
@@ -62,7 +67,7 @@ function list_hover(){
 				<div class="listbox">
 				   <div class="list_all">
 				    {dede:list pagesize='10'}
-				    <div class="article_list_item">
+				    <div class="article_list_item [field:global function=MagicVar('list_item1','')/]">
 				    	<div class="item_image">[field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<a href='{@me['arcurl']}' class='preview'><img src='{@me['litpic']}'/></a>"); [/field:array]</div>
 				    	<div class="item_text">
 				    		<div class="item_title"><a href="[field:arcurl/]" rel="[field:title/]" title="[field:title/]" class="title">[field:title function=' ( strlen("@me")>40?cn_substr("@me",38)."…" : "@me" )'/]</a> </div>
