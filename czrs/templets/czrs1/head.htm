@@ -47,12 +47,12 @@ $("#top_menu li").hover(
 function () {
     $(this).addClass("top_menu_moveon");
     if( $(this).find(".menu_son").find("a")!=null&&$(this).find(".menu_son").find("a").length>0){
-	    $(this).find(".menu_son").show();
+	    $(this).find(".menu_son").fadeIn("fast");
     }
   },
   function () {
     $(this).removeClass("top_menu_moveon");
-    $(this).find(".menu_son").hide();
+    $(this).find(".menu_son").slideUp("fast");
   }
 );
 $(".menu_son_title").each(function(){
