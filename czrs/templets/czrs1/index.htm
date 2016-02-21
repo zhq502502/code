@@ -10,12 +10,21 @@
 <script language="javascript" type="text/javascript">
 
 </script>
+<style type="">
+.lion{
+	background-color: #fcab3c;
+}
+#footer-div-1{
+	background-color: #ececec!important;
+}
+</style>
 </head>
 <body class="index">
 {dede:include filename="head.htm"/}
 <div id="main">
 {dede:include filename="index_banner.htm"/}
 
+<!-- 产品中心 -->
 <div class="index_model1">
 	<div class="index_model1_title">产品中心</div>
 	<div style="height: 2px;width: 100%;background-color: #eee;margin-top: 60px"></div>
@@ -27,10 +36,10 @@
 		</ul>
 		{dede:channelartlist typeid='1' row='6'}
 			<div id="d_tab{dede:field name='id'/}" class="itemcontent">
-	      	{dede:arclist typt='son' limit='0,5'}
+	      	{dede:arclist typt='son' limit='0,4'}
 			<div class="item1">
 				<div class="item1_img">
-					<img alt="" src='[field:picname/] '/>
+					<a href='[field:arcurl/]'><img alt="" src='[field:picname/] '/></a>
 				</div>
 				<div class="item1_content">
 					<div class="item1_content_title"><a href='[field:arcurl/]'>[field:title/]</a></div>
@@ -46,17 +55,23 @@
 	</div>
 </div>
 
+<!-- 解决方案 -->
 <div class="index_model2">
 	<div class="index_model2_1">
 		<img src="{dede:global.cfg_templets_skin/}/images/bb.jpg" alt="" />
 	</div>
 	<div class="index_model2_2">
-		<ul style="position: relative; width: 415px; height: 223px;">
+		<ul class="content" style="position: relative; width: 415px; height: 223px;">
 		{dede:channel typeid='3' type='son' row='6'}
 			<li style="position: absolute; width: 415px; left: 0px; top: 0px; display: list-item;">
-				<h3>[field:typename/]</h3>
-				<p>[field:content/]</p>
+				<h3 style="">[field:typename/]</h3>
+				<p>[field:description/]</p>
 			</li>
+		{/dede:channel}
+		</ul>
+		<ul class="botton" style="width: 100%;height: 2px;">
+		{dede:channel typeid='3' type='son' row='6'}
+			<li style="width: 30px;float: left;height: 2px;margin-left: 3px;">&nbsp;</li>
 		{/dede:channel}
 		</ul>
 		<div style="margin-top: 20px;">
@@ -64,6 +79,31 @@
 		</div>
 	</div>
 </div>
+
+<!-- 客户案例 -->
+<div class="index_model1" style="background-color: #ececec">
+	<div class="index_model1_title" style="line-height: 30px;color: #333">CUSTOMER CASE<br/>客户案例</div>
+	<div style="height: 2px;width: 100%;background-color: #eee;margin-top: 20px"></div>
+	<div class="center w_main  " style="margin-top: 0px;overflow: hidden;">
+      	{dede:arclist typeid='4' limit='0,4'}
+      	<div class="itemcontent" style="display: block;">
+		<div class="item1">
+			<div class="item1_img">
+				<a href='[field:arcurl/]'><img alt="" src='[field:picname/] '/></a>
+			</div>
+			<div class="item1_content">
+				<div class="item1_content_title"><a href='[field:arcurl/]'>[field:title/]</a></div>
+				<div class="item1_content_text">></div>
+			</div>
+		</div>
+		</div>
+		{/dede:arclist}
+	</div>
+	<div style="width: 1000px;height: 30px;line-height:30px;margin: 0 auto;text-align: center">
+	<div style="margin:0 auto;cursor: pointer;border: 1px solid #333;width: 80px;" onclick="javascript:location.href='{dede:global.cfg_cmsurl/}/plus/list.php?tid=4';">更多</div>
+	</div>
+</div>
+
 
 {dede:include filename="footer.htm"/}
 </div>
@@ -87,8 +127,10 @@ $(function(){
 	showmodel2();
 })
 function showmodel2(){
-	$(".index_model2_2 li").hide();
-	$($(".index_model2_2 li")[model2%3]).show();
+	$(".index_model2_2 .content li").hide();
+	$($(".index_model2_2 .content li")[model2%3]).show();
+	$(".index_model2_2 .botton li").removeClass("lion");
+	$($(".index_model2_2 .botton li")[model2%3]).addClass("lion");
 	model2++;
 	setTimeout("showmodel2();",5000);
 }
