@@ -1,4 +1,7 @@
 @charset "utf-8";
+body{
+	font-family: Microsoft YaHei,Arial, sans-serif;	
+}
 .center{
 	margin: 0 auto;
 }
