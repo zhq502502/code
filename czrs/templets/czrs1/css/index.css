@@ -37,10 +37,6 @@ body{
 }
 .itemcontent{
 	width: 100%;
-	overflow: hidden;
-	float: left;
-	display: none;
-	padding: 20px;
 }
 .itemcontent .item1{
 	width: 220px;
@@ -66,15 +62,15 @@ body{
 	border-bottom: 1px solid #ccc;
 	margin: 0 15px 0 15px;
 }
-.itemcontent .item1 .item1_content .item1_content_title{
+.itemcontent .item2 .item1_content .item1_content_title{
 	width: 150px;
 	float: left;
 }
-.itemcontent .item1 .item1_content .item1_content_text{
+.itemcontent .item2 .item1_content .item1_content_text{
 	width: 10px;
 	float: right;
 }
- .itemcontent .item1 .item1_content1{
+ .itemcontent .item2 .item1_content1{
 	width: 190px;
 	height: 25px;
 	float: left;
@@ -88,13 +84,13 @@ body{
 .itemcontent .item2{
 	width: 170px;
 	height: 180px;
-	padding: 10px;
-	float: left;
+	padding: 0px;
+	/*float: left;*/
 }
 .itemcontent .item2 .item1_img{
 	width: 170px;
 	height: 145px;
-	float: left;
+	/*float: left;*/
 }
 .itemcontent .item2 .item1_img img{
 	width: 100%;
@@ -103,7 +99,7 @@ body{
 .itemcontent .item2 .item1_content{
 	width: 170px;
 	height: 25px;
-	float: left;
+	/*float: left;*/
 	font-size: 12px;
 	line-height:25px;
 	border-bottom: 1px solid #ccc;

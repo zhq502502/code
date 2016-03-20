@@ -8,8 +8,6 @@
 {dede:include filename="css_js.htm"/}
 <link href="{dede:global.cfg_templets_skin/}/css/index.css" rel="stylesheet" media="screen" type="text/css" />
 <link href="{dede:global.cfg_templets_skin/}/swiper/css/swiper.min.css" rel="stylesheet" media="screen" type="text/css" />
-<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/swiper/js/swiper.jquery.min.js"></script>
-<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/swiper/js/swiper.jquery.umd.min.js"></script>
 <script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/swiper/js/swiper.min.js"></script>
 <script language="javascript" type="text/javascript">
 
@@ -42,9 +40,10 @@
 	      	{/dede:channel}
 		</ul>
 		{dede:channelartlist typeid='1' row='6'}
-			<div id="d_tab{dede:field name='id'/}" class="itemcontent">
+			<div id="d_tab{dede:field name='id'/}" class="itemcontent swiper-container sw1" style="display: none;padding: 20px 0 20px 0;height: 220px">
+	      	<div class="swiper-wrapper" style="">
 	      	{dede:arclist typt='son' limit='0,4'  flag='h'}
-			<div class="item1">
+			<div class="item2 swiper-slide">
 				<div class="item1_img">
 					<a href='[field:arcurl/]'><img alt="" src='[field:picname/] '/></a>
 				</div>
@@ -54,6 +53,10 @@
 				</div>
 			</div>
 			{/dede:arclist}
+			</div>
+			<!-- 如果需要导航按钮 -->
+		    <div class="swiper-button-prev"></div>
+		    <div class="swiper-button-next"></div>
 			</div>
       	{/dede:channelartlist}
 	</div>
@@ -91,10 +94,10 @@
 <div class="index_model1" style="background-color: #ececec">
 	<div class="index_model1_title" style="line-height: 30px;color: #333">CUSTOMER CASE<br/>客户案例</div>
 	<div style="height: 2px;width: 100%;background-color: #eee;margin-top: 20px"></div>
-	<div class="center w_main  " style="margin-top: 0px;overflow: hidden;">
-      	<div class="itemcontent" style="display: block;">
+	<div class="center w_main swiper-container sw2" style="height: 180px;">
+      	<div class="itemcontent swiper-wrapper" style="">
       	{dede:arclist typeid='4' limit='0,5'  flag='h'}
-		<div class="item2">
+		<div class="item2 swiper-slide">
 			<div class="item1_img">
 				<a href='[field:arcurl/]'><img alt="" src='[field:picname/] '/></a>
 			</div>
@@ -104,6 +107,9 @@
 		</div>
 		{/dede:arclist}
 		</div>
+	    <!-- 如果需要导航按钮 -->
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div>
 	</div>
 	<div style="width: 1000px;height: 30px;line-height:30px;margin: 0 auto;text-align: center">
 	<div style="margin:0 auto;cursor: pointer;border: 1px solid #333;width: 80px;" onclick="javascript:location.href='{dede:global.cfg_cmsurl/}/plus/list.php?tid=4';">更多</div>
@@ -117,13 +123,13 @@
 </body>
 <script>
 //$($(".model_menu li")[0]).addClass("active_tab_top");
-$("#d_"+$($(".model_menu li")[0]).attr("id")).addClass("active");
+$("#d_"+$($(".model_menu li")[0]).attr("id")).addClass("active1");
 $(".model_menu li").hover(
 	function(){
 		$(".model_menu li").removeClass("active_tab_top");
 		$(this).addClass("active_tab_top");
-		$(".itemcontent").removeClass("active");
-		$("#d_"+$(this).attr("id")).addClass("active");
+		$(".itemcontent").removeClass("active1");
+		$("#d_"+$(this).attr("id")).addClass("active1");
 	},function(){
 		
 	}
@@ -144,4 +150,36 @@ function showmodel2(){
 	setTimeout("showmodel2();",5000);
 }
 </script>
+<script>
+
+var mySwiper1 = new Swiper ('.sw1', {
+	slidesPerView : 5,
+	centeredSlides : false,
+	autoplay: 2000,
+  direction: 'horizontal',
+  loop: true,
+  // 如果需要前进后退按钮
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev',
+  
+  // 如果需要滚动条
+  /*scrollbar: '.swiper-scrollbar',*/
+}) ;
+var mySwiper = new Swiper ('.sw2', {
+	slidesPerView : 5,
+	centeredSlides : false,
+	autoplay: 2000,
+  direction: 'horizontal',
+  loop: true,
+  
+  
+  // 如果需要前进后退按钮
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev',
+  
+  // 如果需要滚动条
+  /*scrollbar: '.swiper-scrollbar',*/
+}) 
+</script>
+
 </html>

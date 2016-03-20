@@ -12,6 +12,9 @@ body{
 	width: 1000px;
 }
 .active{
+	/*display: block!important;*/
+}
+.active1{
 	display: block!important;
 }
 .none{
@@ -243,11 +246,12 @@ a{
 	background-image: url("../images/mo.jpg");
 	background-position:left center ;
 	background-repeat:no-repeat;
-	width: 30%;
+	width: 50%;
+	overflow:hidden;
 	float: left;
 }
 .list_position{
-	width: 60%;
+	width: 40%;
 	float: right;
 	text-align: right;
 	font-size: 12px;
