@@ -40,7 +40,7 @@
 	      	{/dede:channel}
 		</ul>
 		{dede:channelartlist typeid='1' row='6'}
-			<div id="d_tab{dede:field name='id'/}" class="itemcontent swiper-container sw1" style="display: none;padding: 20px 0 20px 0;height: 220px">
+			<div id="d_tab{dede:field name='id'/}" class="itemcontent swiper-container sw{dede:field name='id'/}" style="display: none;padding: 20px 0 20px 0;height: 220px">
 	      	<div class="swiper-wrapper" style="">
 	      	{dede:arclist typt='son' limit='0,20'  flag='h'}
 			<div class="item2 swiper-slide">
@@ -58,6 +58,21 @@
 		    <div class="swiper-button-prev"></div>
 		    <div class="swiper-button-next"></div>
 			</div>
+			<script>
+			var mySwiper{dede:field name='id'/} = new Swiper (".sw{dede:field name='id'/}", {
+				slidesPerView : 5,
+				centeredSlides : false,
+				autoplay: 2000,
+			  direction: 'horizontal',
+			  loop: true,
+			  // 如果需要前进后退按钮
+			  nextButton: '.swiper-button-next',
+			  prevButton: '.swiper-button-prev',
+			  
+			  // 如果需要滚动条
+			  /*scrollbar: '.swiper-scrollbar',*/
+			}) ;
+			</script>
       	{/dede:channelartlist}
 	</div>
 	<div style="width: 1000px;height: 30px;line-height:30px;margin: -35px auto;">
