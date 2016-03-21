@@ -294,7 +294,12 @@ a{
 .list_content .date{
 	font-weight: bold;
 	text-align: center;
+	padding-bottom: 30px;
 }
+.list_content img{
+	max-width: 100%;
+}
+
 .article_list_item .item_image{
 	width: 150px;
 	float: left;
@@ -350,4 +355,15 @@ a{
 	background-image: url("../images/ico.gif");
 	background-repeat: no-repeat;
 	background-position: right center;
+}
+.pagelist li{
+	float: left;
+}
+.pagelist li a,.pagelist li span{
+	display:block;
+	padding: 5px 10px 5px 10px;
+}
+.pre_next li{
+	float: left;
+	padding: 10px;
 }
