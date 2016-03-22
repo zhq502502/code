@@ -138,3 +138,17 @@ body{
 	overflow: hidden;
 	height: 100%;
 }
+.index_model3{
+	width: 1000px;
+	height: 500px;
+	margin: 0 auto;
+}
+.index_model3_left,.index_model3_left{
+	width: 500px;
+	height: 500px;
+	font: left;
+}
+.model3_left_content{
+	float: left;
+	width: 100%;
+}

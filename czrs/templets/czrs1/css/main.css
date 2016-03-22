@@ -284,6 +284,20 @@ a{
 	padding: 20px;
 	margin-bottom: 20px;
 }
+.article_list_item_new{
+	border-bottom:1px solid #eee;
+	padding: 5px;
+	list-style:disc!important;
+	margin-left:20px;
+	height: 25px;
+	line-height: 25px;
+}
+.article_list_item_new .item_title_new{
+	float: left;
+}
+.article_list_item_new .item_time_new{
+	float: right;
+}
 .list_content,.list_content .listbox,.article_list_item{
 	overflow: hidden;	
 }
@@ -368,4 +382,7 @@ a{
 .pre_next li{
 	float: left;
 	padding: 10px;
+}
+.dede_pages{
+	margin-top: 20px;
 }
