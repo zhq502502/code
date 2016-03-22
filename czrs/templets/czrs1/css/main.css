@@ -290,7 +290,7 @@ a{
 .list_content .title{
 	text-align: center;
 	color: rgb(41, 182, 242);
-	font-weight: bold;
+	/*font-weight: bold;*/
 }
 .list_content .date{
 	font-weight: bold;
