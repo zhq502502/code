@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<body>
+<div ng-app=""
+     ng-init="
+              username='张青';
+              useremail='zhangqing@qq.com';
+              friends=['张1','zhang2'];
+              face={eye:'2个',mouth:'一个'};
+              
+          "
+     >
+  <p>{{ '用户名：'+username+'，邮箱：'+useremail }}</p>
+  <p ng-bind="'用户名称：'+username+'，邮箱：'+useremail"></p>
+  <p>{{friends[0]}}</p>
+  <p>{{face.eye}}</p>
+  <input name="input1" ng-model="face.eye"/>
+  
+</div>
+</body>
+</html>
