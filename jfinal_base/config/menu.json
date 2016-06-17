@@ -1,0 +1,211 @@
+[
+	{
+        "id": 1,
+        "pid": 0,
+        "name": "分校与帐号管理",
+        "url": "MTY4.jsp",
+        "target": "_self",
+        "baseurl":"TestController",
+        "canlink":0,
+        "level":1
+	},{
+        "id": 23,
+        "pid": 1,
+        "name": "片区管理",
+        "url": "index#region/list",
+        "target": "_self",
+        "baseurl":"region",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 2,
+        "pid": 1,
+        "name": "分校管理",
+        "url": "index#school/list",
+        "target": "_self",
+        "baseurl":"school",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 3,
+        "pid": 1,
+        "name": "帐号管理",
+        "url": "index#account/list",
+        "target": "_self",
+        "baseurl":"account",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 4,
+        "pid": 0,
+        "name": "学生管理",
+        "url": "index#student/list",
+        "target": "_self",
+        "baseurl":"student",
+        "canlink":1,
+        "level":1
+	},{
+        "id": 5,
+        "pid": 0,
+        "name": "AMT365",
+        "url": "MTY4.jsp",
+        "target": "_self",
+        "baseurl":"TestController",
+        "canlink":0,
+        "level":1
+	},{
+        "id": 6,
+        "pid": 5,
+        "name": "音频视频发布管理",
+        "url": "index#vedio/list",
+        "target": "_self",
+        "baseurl":"vedio",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 7,
+        "pid": 5,
+        "name": "评分",
+        "url": "index#score/list",
+        "target": "_self",
+        "baseurl":"score",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 8,
+        "pid": 0,
+        "name": "成绩管理",
+        "url": "index#achievement/list",
+        "target": "_self",
+        "baseurl":"achievement",
+        "canlink":1,
+        "level":1
+	},{
+        "id": 9,
+        "pid": 0,
+        "name": "积分商城管理",
+        "url": "MTY4.jsp",
+        "target": "_self",
+        "baseurl":"TestController",
+        "canlink":0,
+        "level":1
+	},{
+        "id": 10,
+        "pid": 9,
+        "name": "积分商品管理",
+        "url": "index#goods/list",
+        "target": "_self",
+        "baseurl":"goods",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 11,
+        "pid": 9,
+        "name": "兑换码管理",
+        "url": "index#redeemcode/list",
+        "target": "_self",
+        "baseurl":"redeemcode",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 12,
+        "pid": 9,
+        "name": "兑换记录",
+        "url": "index#redeemrecord/list",
+        "target": "_self",
+        "baseurl":"redeemrecord",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 13,
+        "pid": 9,
+        "name": "兑换码使用",
+        "url": "index#redeemuse/input",
+        "target": "_self",
+        "baseurl":"redeemuse",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 14,
+        "pid": 0,
+        "name": "新闻发布",
+        "url": "MTY4.jsp",
+        "target": "_self",
+        "baseurl":"TestController",
+        "canlink":0,
+        "level":1
+	},{
+        "id": 15,
+        "pid": 14,
+        "name": "热点新闻",
+        "url": "index#hotnews/list",
+        "target": "_self",
+        "baseurl":"hotnews",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 16,
+        "pid": 14,
+        "name": "校园风采",
+        "url": "index#schoolnews/list",
+        "target": "_self",
+        "baseurl":"schoolnews",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 17,
+        "pid": 14,
+        "name": "专家风采",
+        "url": "index#teachernews/list",
+        "target": "_self",
+        "baseurl":"teachernews",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 18,
+        "pid": 14,
+        "name": "加盟信息",
+        "url": "index#leaguenews/list",
+        "target": "_self",
+        "baseurl":"leaguenews",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 19,
+        "pid": 0,
+        "name": "系统设置",
+        "url": "index#test/blank",
+        "target": "_self",
+        "baseurl":"TestController",
+        "canlink":0,
+        "level":1
+	},{
+        "id": 20,
+        "pid": 19,
+        "name": "基础数据维护",
+        "url": "index#base_data/list",
+        "target": "_self",
+        "baseurl":"base_data",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 21,
+        "pid": 19,
+        "name": "主页模块设置",
+        "url": "index#module_set/list",
+        "target": "_self",
+        "baseurl":"module_set",
+        "canlink":1,
+        "level":2
+	},{
+        "id": 22,
+        "pid": 19,
+        "name": "积分规则",
+        "url": "index#integral_rule/list",
+        "target": "_self",
+        "baseurl":"integral_rule",
+        "canlink":1,
+        "level":2
+	}
+
+]

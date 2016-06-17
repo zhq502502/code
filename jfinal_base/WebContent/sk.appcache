@@ -1,0 +1,18 @@
+CACHE MANIFEST
+# 2014-07-28 v1.0.22
+css/bootstrap.min.css
+css/jquery.qtip.min.css
+css/style.css
+js/jquery.min.js
+js/common.js
+js/bootstrap.min.js
+js/jquery.qtip.min.js
+js/jquery.raty.min.js
+js/jquery.slimscroll.min.js
+js/numeral.min.js
+js/plupload.full.min.js
+
+NETWORK:
+*
+
+FALLBACK:

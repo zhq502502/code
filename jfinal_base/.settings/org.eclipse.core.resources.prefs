@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//config/config-errorcode.properties=UTF-8
+encoding//config/config.properties=UTF-8
+encoding//config/listitem.properties=UTF-8
+encoding//config/log4j.properties=UTF-8
+encoding//db/database.sql=GBK
+encoding/<project>=UTF-8
