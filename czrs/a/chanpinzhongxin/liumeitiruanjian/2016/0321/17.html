@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> 最简单的应用操作_test1</title>
+<meta name="keywords" content="最简单,的,应用,操作,好视通,远程,培训,系统," />
+<meta name="description" content="好视通远程培训系统 是基于云计算技术的一种高效、便捷、实时互动的远程教学形式。使用者只需要登陆好视通云课堂软件， 便可快速实时地观看培训老师的视频、声音、讲义，把课" />
+<link href="/templets/czrs1/css/main.css" rel="stylesheet" media="screen" type="text/css" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url=/m/index.php">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="/m/index.php";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+<script language="javascript" type="text/javascript" src="/templets/czrs1/js/jquery-1.4.4.min.js"></script>
+<script language="javascript" type="text/javascript" src="/templets/czrs1/js/main.js"></script>
+<!-- <script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript" src="/images/js/j.js" ></script>
+ -->
+
+<script>
+$(function(){
+	var imgurl = "";
+	var imagelist = [
+					"/templets/czrs1/images/a.jpg",
+					"/templets/czrs1/images/b.jpg",
+					"/templets/czrs1/images/c.jpg"
+	    			];
+	var index = parseInt(Math.random()*100)%imagelist.length;
+	$(".list_img img").attr("src",imagelist[index]);
+	
+	list_hover();
+})
+function list_hover(){
+	$(".list_item li").hover(
+		function(){
+			$(this).addClass("list_move");
+		},function(){
+			$(this).removeClass("list_move");
+		}
+	);
+}
+</script>
+</head>
+<body class="articlelist">
+<div id="head">
+	<div id="top_top">
+		<div id="top_wel" class="w_main">
+			<span style="font-size: 12px;">联系电话:<span style="color: #ff3333;font-weight: bold;">027-12345678</span></span>
+		</div>
+	</div>
+	<div id="top" class="w_main">
+		<div id="top_log">
+			<img alt="test1" src="/templets/czrs1/images/logo.png" style="width: 100%;height: 100%">
+		</div>
+		<div id="top_menu">
+			<ul>
+	      	<li id="first_menu"><a href='/'><span>主页</span></a></li>
+	      	<!-- 
+	      	<li class='top_menu_moveon_action'><a href='/plus/list.php?tid=1'  rel='dropmenu1'><span>产品中心</span></a></li>
+	      	<li><a href='/plus/list.php?tid=2' ><span>软件定制</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=3'  rel='dropmenu3'><span>解决方案</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=4' ><span>成功案例</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=5' ><span>关于我们</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=6' ><span>联系我们</span></a></li>
+	      	
+	      	 -->
+    		<li class="" id="top_1"><a href="/plus/list.php?tid=1"><span class="arrow"></span>产品中心</a> 
+			    <div id="son_1" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+						<a href="/plus/list.php?tid=7">视频会议<span style="display: none">&nbsp;<img src="http://www.chenksoft.com/index_files/logo.jpg" /></span></a>
+					
+						<a href="/plus/list.php?tid=8">流媒体软件<span style="display: none"></span></a>
+					
+						<a href="/plus/list.php?tid=9">视频会议室<span style="display: none">&nbsp;333333333</span></a>
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_2"><a href="/plus/list.php?tid=2"><span class="arrow"></span>软件定制</a> 
+			    <div id="son_2" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_3"><a href="/plus/list.php?tid=3"><span class="arrow"></span>解决方案</a> 
+			    <div id="son_3" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+						<a href="/plus/list.php?tid=10">视频会议解决方案<span style="display: none">&nbsp;</span></a>
+					
+						<a href="/plus/list.php?tid=11">硬件视频会议解决方案<span style="display: none">&nbsp;</span></a>
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_4"><a href="/plus/list.php?tid=4"><span class="arrow"></span>成功案例</a> 
+			    <div id="son_4" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_5"><a href="/plus/list.php?tid=5"><span class="arrow"></span>关于我们</a> 
+			    <div id="son_5" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_6"><a href="/plus/list.php?tid=6"><span class="arrow"></span>联系我们</a> 
+			    <div id="son_6" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li>
+			 <input type='hidden' id='top_action_menu' value='1'/>
+	      	
+	      	
+	      	
+	      	
+	      	
+	    	</ul>
+		</div>
+	</div>
+</div>
+<script>
+if($("#top_action_menu").val()!=null){
+	$("#top_"+$("#top_action_menu").val()).addClass("top_menu_moveon_action");
+}else{
+	$("#first_menu").addClass("top_menu_moveon_action");
+}
+
+$("#top_menu li").hover(
+function () {
+    $(this).addClass("top_menu_moveon");
+    if( $(this).find(".menu_son").find("a")!=null&&$(this).find(".menu_son").find("a").length>0){
+	    $(this).find(".menu_son").fadeIn("fast");
+    }
+  },
+  function () {
+    $(this).removeClass("top_menu_moveon");
+    $(this).find(".menu_son").slideUp("fast");
+  }
+);
+$(".menu_son_title").each(function(){
+	var temp = $($(this).find("a")[0]).find("span").html();
+	$(this).parent().find(".menu_son_content").append(temp);
+});
+$(".menu_son_title a").hover(
+  function () {
+	$(this).parent().parent().find(".menu_son_content").empty();
+    var temp = $(this).find("span").html();
+    $(this).parent().parent().find(".menu_son_content").append(temp);
+  },
+  function () {
+  }
+);
+/*$(window).scroll(function () {
+    $("#head").css({ "top": parseInt($(window).scrollTop()) })
+});*/
+</script>
+
+<div class="w_main center" id="main">
+	<div class="list_img">
+		<img src="" alt="" />
+	</div>
+	<div class="list_main">
+		<div class="list_left">
+			<div class="list_name">
+				产品中心
+			</div>
+			<ul class="list_item">
+				
+			      <li><a href='/plus/list.php?tid=7'>视频会议</a></li>
+			      <li class='list_action'><a href='/plus/list.php?tid=8'>流媒体软件</a></li>
+			      <li><a href='/plus/list.php?tid=9'>视频会议室</a></li>
+			      
+			</ul>
+			<ul class="list_us">
+				<li><img src="/templets/czrs1/images/us.png" alt="" /><a href="/plus/list.php?tid=6">关于我们<br/>ABOUT US</a></li>
+				<li><img src="/templets/czrs1/images/pro.png" alt="" /><a href="/plus/list.php?tid=1">产品中心<br/>RECRUITMENT</a></li>
+				<li><img src="/templets/czrs1/images/conta.png" alt="" /><a href="/plus/list.php?tid=5">联系我们<br/>CONTACT US</a></li>
+			</ul>
+		</div>
+		<div class="list_right">
+			<div class="list_top">
+				<div class="list_title">
+					 最简单的应用操作
+				</div>
+				<div class="list_position">
+					<a href='http://localhost/'>主页</a> > <a href='/plus/list.php?tid=1'>产品中心</a> > <a href='/plus/list.php?tid=8'>流媒体软件</a> > 
+				</div>
+			</div>
+			<div class="list_content">
+				<h2 class="title"> 最简单的应用操作</h2>
+				<div class="date">发布日期：2016-03-21 09:19 浏览次数：<script src="/plus/count.php?view=yes&aid=17&mid=1" type='text/javascript' language="javascript"></script></div>
+				<div class="yhmain_con01" style="margin: 0px; padding: 20px 0px 0px; width: 980px; color: rgb(0, 0, 0); font-family: arial, 宋体b8b体; line-height: 18px;">
+	<img src="/uploads/allimg/160321/09200215C-0.png" style="border: none;" />
+	<ul style="margin: 0px; padding-right: 0px; padding-left: 0px; list-style: none;">
+	</ul>
+	<ul style="margin: 30px 0px 0px 90px; padding-right: 0px; padding-bottom: 80px; padding-left: 0px; list-style: none; width: 824px;">
+		<li style="margin: 0px; padding: 0px; line-height: 34px; font-family: 微软雅黑; color: rgb(102, 102, 102); font-size: 16px;">
+			<span style="color: rgb(16, 161, 251); font-size: 24px;">好视通&quot;远程培训系统&quot;</span>是基于云计算技术的一种高效、便捷、实时互动的远程教学形式。使用者只需要登陆好视通云课堂软件， 便可快速实时地观看培训老师的视频、声音、讲义，把课堂搬到好视通云端。好视通远程培训系统高清视频，逼真的语音，实时数据共享让培训过程更自然逼真，培训过程可支持语音问答，文字问答等问答方式。好视通云课堂系统安全稳定、视频清晰流畅，可以给培训学员带来高品质的沟通体验，同时还具有大容量的并发性，可同时支持数十万人在线听课。</li>
+	</ul>
+</div>
+<div class="yhmain" style="margin: 0px; padding: 0px; width: 988px; color: rgb(0, 0, 0); font-family: arial, 宋体b8b体; line-height: 18px; background-color: rgb(249, 249, 249);">
+	<h4 style="margin: 0px; padding: 0px 0px 20px; font-size: 52px; font-weight: normal; color: rgb(0, 162, 255); font-family: 微软雅黑; text-align: center;">
+		<img src="/uploads/allimg/160321/0920021000-1.png" style="border: none;" /></h4>
+	<ul class="yh yhbg07" style="margin: 0px 0px 0px 30px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/ykt07.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					召开跨行业、跨区域讲座，轻松方便，免去了场地租赁费用，也不用来回奔波忙碌，打开好视通远程培训课堂就能做到。</dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="yh yhbg08" style="margin: 0px 15px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/ykt08.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					异地课程培训、考前培训、远程技能培训甚至是医疗、在线演示等都可以通过好视通视频会议软件实现。电子白板、多媒体共享，给您带来身临其境的参与效果。</dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="yh yhbg09" style="margin: 0px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/ykt09.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					新员工入职要做入职培训，产品更新要做产品培训，营销部要做营销培训，售后部门要做服务培训，各种培训让人应接不暇，再加上如果人员分散，更影响效率，通过好视通远程培训课堂可以随时随地，召集跨部门、跨区域的员工进行统一培训。</dd>
+			</dl>
+		</li>
+	</ul>
+	<div class="clear" style="margin: 0px; padding: 0px; clear: both;">
+		&nbsp;</div>
+</div>
+<div class="yhmain" style="margin: 0px; padding: 60px 0px 40px; width: 988px; color: rgb(0, 0, 0); font-family: arial, 宋体b8b体; line-height: 18px; background-color: rgb(249, 249, 249);">
+	<ul class="yh yhbg10" style="margin: 0px 0px 0px 30px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/ykt10.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					传统的客户培训通常实行集中式培训或上门培训 ，培训成本高、耗时长、重复程度高。好视通远程培训系统平台能够帮助用户通过网络视频会议进行高效的远程培训，能够胜任涉及销售、技术、服务等方面的客户培训，节省用户培训成本，提高培训效率。</dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="yh yhbg11" style="margin: 0px 15px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/ykt11.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					渠道建设作为企业拓展市场、提高销售效能、强化销售结构的重要方式，其重要性可想而知。好视通远程培训平台通过远程在线培训的方式，帮助用户搭建完整的渠道培训体系，和渠道经销商保持良好的沟通，第一时间发布产品信息和市场资讯，通过定期有效地沟通，增加渠道管理能力，激活渠道动能，提升渠道效能。</dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="yh yhbg12" style="margin: 0px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/ykt12.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					学术交流，教学经验共享一直是学校与学校间最常举行的活动。不少学校为了提升教学水平，不惜花费大量财力和人力派遣校内教师远赴外地学习交流。好视通远程培训系统平台可用于学术及教学研讨交流方面，不但节省大量的差旅费用，还能够使教学单位足不出户即可进行远程学习和学术交流，提升工作效率。</dd>
+			</dl>
+		</li>
+	</ul>
+	<div class="clear" style="margin: 0px; padding: 0px; clear: both;">
+		&nbsp;</div>
+</div>
+<div style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: arial, 宋体b8b体; line-height: 18px; width: 980px;">
+	<ul style="margin: 0px; padding-right: 0px; padding-left: 0px; list-style: none;">
+		<li style="margin: 0px; padding: 0px;">
+			<img src="/uploads/allimg/160321/0920024X7-2.png" style="border: none;" /></li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<dl class="colud" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left; margin-top: 30px !important;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					强大的音视频功能</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					教师端在广播自己视频的同时，还可以选择广播某个学员的视频；<span style="color: rgb(107, 156, 12); font-weight: bold;">教师端支持两路 视频采集，可自由条件，远程点名，师生视频互动，文字交流动 互动；系统支持多路混合语音</span>，教师在授课的同时，还可以邀请其他学员参 与实时讨论。好视通采用自主知识产权的语音编码传输技术，在网络丢包率高达25%的 恶劣网络环境依然能够保持声音流畅清晰，最大限度保证培训效果。</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+			<img src="/uploads/allimg/160321/0920024308-3.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<img src="/uploads/allimg/160321/0920021T7-4.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					最简单的应用操作</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					用户权限可在会议过程中灵活分配，用户只需使用普通<span style="color: rgb(107, 156, 12); font-weight: bold;">电脑、麦克风、摄像头&rdquo; ，就能够轻松在互联网上召开培训课程，实用易用</span>，几乎无须培训就能 直接使用。</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<dl class="colud" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left; margin-top: 30px !important;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					完善的课件功能</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					1)、好视通培训产品拥有<span style="color: rgb(107, 156, 12); font-weight: bold;">电子白板、文档共享、桌面屏幕共享、文字 聊天、电子投票、屏幕截图、文件传输、媒体文件播</span>，放等教学常用功 能，满足各种教学环境、各种教学需求。<br />
+					2）、文档演示<span style="color: rgb(107, 156, 12); font-weight: bold;">支持多种文档（Word、Excel、PPT、PDF、图片等 ）</span>演示，强大的　　辅助工具栏（画笔、标注、智能翻页&hellip;）让你的培训课堂绘声绘色。</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+			<img src="/uploads/allimg/160321/0920021c4-5.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<img src="/uploads/allimg/160321/0920021493-6.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					同步的数据记录功能</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					教师可将授课过程中所有广播的<span style="color: rgb(107, 156, 12); font-weight: bold;">音频、视频、屏幕、文档、白板</span>，等混合媒体数据 选择性的录制到同一个课件，并保持课件回放时的同步性。</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					大容量并发保障</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					采用领先的&ldquo;云计算&rdquo;<span style="color: rgb(107, 156, 12); font-weight: bold;">支持数十万人超大规模并发，遍布全球80多 个地区多组服务器分布式结构、交叉级联</span>，自动互相备份</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+			<img src="/uploads/allimg/160321/0920021024-7.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<img src="/uploads/allimg/160321/092002C56-8.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					最周到的服务保障</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					<span style="color: rgb(107, 156, 12); font-weight: bold;">7*24小时售后服务，专业技术服务团队提供产品使用培训</span>应急故 障排查和使用维护，租用产品终身免费升级，售后无忧，更轻松！</dd>
+			</dl>
+		</li>
+	</ul>
+</div>
+<br />
+
+			</div>
+			<div class="pre_next">
+		    <ul>
+		     <li>上一篇：<a href='/a/chanpinzhongxin/liumeitiruanjian/2016/0321/16.html'>全高清视讯显示</a> </li>
+		     <li>下一篇：<a href='/a/chanpinzhongxin/liumeitiruanjian/2016/0321/18.html'>罗技c3000e</a> </li>
+		    </ul>
+		   </div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<div id="footer-div-1" style="height: 50px;background-color: #fff;"></div>
+	<div class="footer_top w_main center">
+		<div class="contact">
+		<ul>
+		<li class="foot_menu" id="top_1"><a href="/plus/list.php?tid=1"><span class="arrow"></span>产品中心</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+				<a href="/plus/list.php?tid=7">视频会议<span style="display: none">&nbsp;<img src="http://www.chenksoft.com/index_files/logo.jpg" /></span></a>
+				
+				<a href="/plus/list.php?tid=8">流媒体软件<span style="display: none"></span></a>
+				
+				<a href="/plus/list.php?tid=9">视频会议室<span style="display: none">&nbsp;333333333</span></a>
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_2"><a href="/plus/list.php?tid=2"><span class="arrow"></span>软件定制</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_3"><a href="/plus/list.php?tid=3"><span class="arrow"></span>解决方案</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+				<a href="/plus/list.php?tid=10">视频会议解决方案<span style="display: none">&nbsp;</span></a>
+				
+				<a href="/plus/list.php?tid=11">硬件视频会议解决方案<span style="display: none">&nbsp;</span></a>
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_4"><a href="/plus/list.php?tid=4"><span class="arrow"></span>成功案例</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_5"><a href="/plus/list.php?tid=5"><span class="arrow"></span>关于我们</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+		    </div>
+		  </li>
+		 <li  class="foot_menu">
+		 	<a>联系我们</a>
+		 	<div id="footer_lianxi" class="foot_menu_son"  >
+				<p>
+				电话：027-12345678
+				<br>
+				传真：027-12345678
+				<br>
+				ＱＱ：027-12345678
+				<br>
+				邮箱：027-12345678@qq.com
+				<br>
+				地址：湖北省武汉市蔡甸区神仙村天堂大厦109-09
+				</p>
+		    </div>
+		 </li>
+		 </ul>
+		</div>
+	</div>
+	<div class="footer_bottom ">
+		Copyright &copy; 2002-2011 DEDECMS. 织梦科技 版权所有 <a href=http://www.dedecms.com target='_blank'>Power by DedeCms</a>
+	</div>
+</div>
+<!-- /footer -->
+</body>
+</html>

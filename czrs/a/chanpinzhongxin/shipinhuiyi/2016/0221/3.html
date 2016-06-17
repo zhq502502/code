@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>流媒体服务系统_test1</title>
+<meta name="keywords" content="流媒体,服务系统,流媒体,服务系统,发布,日期," />
+<meta name="description" content="流媒体服务系统 发布日期：2015-11-24 浏览次数：58 一、系统简介： 流媒体服务系统是一套完整的基于IP网络的音视频应用平台，她集成了视频直播系统、视频点播系统、视频广播系统、" />
+<link href="/templets/czrs1/css/main.css" rel="stylesheet" media="screen" type="text/css" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url=/m/index.php">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="/m/index.php";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+<script language="javascript" type="text/javascript" src="/templets/czrs1/js/jquery-1.4.4.min.js"></script>
+<script language="javascript" type="text/javascript" src="/templets/czrs1/js/main.js"></script>
+<!-- <script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript" src="/images/js/j.js" ></script>
+ -->
+
+<script>
+$(function(){
+	var imgurl = "";
+	var imagelist = [
+					"/templets/czrs1/images/a.jpg",
+					"/templets/czrs1/images/b.jpg",
+					"/templets/czrs1/images/c.jpg"
+	    			];
+	var index = parseInt(Math.random()*100)%imagelist.length;
+	$(".list_img img").attr("src",imagelist[index]);
+	
+	list_hover();
+})
+function list_hover(){
+	$(".list_item li").hover(
+		function(){
+			$(this).addClass("list_move");
+		},function(){
+			$(this).removeClass("list_move");
+		}
+	);
+}
+</script>
+</head>
+<body class="articlelist">
+<div id="head">
+	<div id="top_top">
+		<div id="top_wel" class="w_main">
+			<span style="font-size: 12px;">联系电话:<span style="color: #ff3333;font-weight: bold;">027-12345678</span></span>
+		</div>
+	</div>
+	<div id="top" class="w_main">
+		<div id="top_log">
+			<img alt="test1" src="/templets/czrs1/images/logo.png" style="width: 100%;height: 100%">
+		</div>
+		<div id="top_menu">
+			<ul>
+	      	<li id="first_menu"><a href='/'><span>主页</span></a></li>
+	      	<!-- 
+	      	<li class='top_menu_moveon_action'><a href='/plus/list.php?tid=1'  rel='dropmenu1'><span>产品中心</span></a></li>
+	      	<li><a href='/plus/list.php?tid=2' ><span>软件定制</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=3'  rel='dropmenu3'><span>解决方案</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=4' ><span>成功案例</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=5' ><span>关于我们</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=6' ><span>联系我们</span></a></li>
+	      	
+	      	 -->
+    		<li class="" id="top_1"><a href="/plus/list.php?tid=1"><span class="arrow"></span>产品中心</a> 
+			    <div id="son_1" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+						<a href="/plus/list.php?tid=7">视频会议<span style="display: none">&nbsp;<img src="http://www.chenksoft.com/index_files/logo.jpg" /></span></a>
+					
+						<a href="/plus/list.php?tid=8">流媒体软件<span style="display: none"></span></a>
+					
+						<a href="/plus/list.php?tid=9">视频会议室<span style="display: none">&nbsp;333333333</span></a>
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_2"><a href="/plus/list.php?tid=2"><span class="arrow"></span>软件定制</a> 
+			    <div id="son_2" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_3"><a href="/plus/list.php?tid=3"><span class="arrow"></span>解决方案</a> 
+			    <div id="son_3" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+						<a href="/plus/list.php?tid=10">视频会议解决方案<span style="display: none">&nbsp;</span></a>
+					
+						<a href="/plus/list.php?tid=11">硬件视频会议解决方案<span style="display: none">&nbsp;</span></a>
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_4"><a href="/plus/list.php?tid=4"><span class="arrow"></span>成功案例</a> 
+			    <div id="son_4" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_5"><a href="/plus/list.php?tid=5"><span class="arrow"></span>关于我们</a> 
+			    <div id="son_5" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_6"><a href="/plus/list.php?tid=6"><span class="arrow"></span>联系我们</a> 
+			    <div id="son_6" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li>
+			 <input type='hidden' id='top_action_menu' value='1'/>
+	      	
+	      	
+	      	
+	      	
+	      	
+	    	</ul>
+		</div>
+	</div>
+</div>
+<script>
+if($("#top_action_menu").val()!=null){
+	$("#top_"+$("#top_action_menu").val()).addClass("top_menu_moveon_action");
+}else{
+	$("#first_menu").addClass("top_menu_moveon_action");
+}
+
+$("#top_menu li").hover(
+function () {
+    $(this).addClass("top_menu_moveon");
+    if( $(this).find(".menu_son").find("a")!=null&&$(this).find(".menu_son").find("a").length>0){
+	    $(this).find(".menu_son").fadeIn("fast");
+    }
+  },
+  function () {
+    $(this).removeClass("top_menu_moveon");
+    $(this).find(".menu_son").slideUp("fast");
+  }
+);
+$(".menu_son_title").each(function(){
+	var temp = $($(this).find("a")[0]).find("span").html();
+	$(this).parent().find(".menu_son_content").append(temp);
+});
+$(".menu_son_title a").hover(
+  function () {
+	$(this).parent().parent().find(".menu_son_content").empty();
+    var temp = $(this).find("span").html();
+    $(this).parent().parent().find(".menu_son_content").append(temp);
+  },
+  function () {
+  }
+);
+/*$(window).scroll(function () {
+    $("#head").css({ "top": parseInt($(window).scrollTop()) })
+});*/
+</script>
+
+<div class="w_main center" id="main">
+	<div class="list_img">
+		<img src="" alt="" />
+	</div>
+	<div class="list_main">
+		<div class="list_left">
+			<div class="list_name">
+				产品中心
+			</div>
+			<ul class="list_item">
+				<li class='list_action'><a href='/plus/list.php?tid=7'>视频会议</a></li>
+			      <li><a href='/plus/list.php?tid=8'>流媒体软件</a></li>
+			      
+			      <li><a href='/plus/list.php?tid=9'>视频会议室</a></li>
+			      
+			</ul>
+			<ul class="list_us">
+				<li><img src="/templets/czrs1/images/us.png" alt="" /><a href="/plus/list.php?tid=6">关于我们<br/>ABOUT US</a></li>
+				<li><img src="/templets/czrs1/images/pro.png" alt="" /><a href="/plus/list.php?tid=1">产品中心<br/>RECRUITMENT</a></li>
+				<li><img src="/templets/czrs1/images/conta.png" alt="" /><a href="/plus/list.php?tid=5">联系我们<br/>CONTACT US</a></li>
+			</ul>
+		</div>
+		<div class="list_right">
+			<div class="list_top">
+				<div class="list_title">
+					流媒体服务系统
+				</div>
+				<div class="list_position">
+					<a href='http://localhost/'>主页</a> > <a href='/plus/list.php?tid=1'>产品中心</a> > <a href='/plus/list.php?tid=7'>视频会议</a> > 
+				</div>
+			</div>
+			<div class="list_content">
+				<h2 class="title">流媒体服务系统</h2>
+				<div class="date">发布日期：2016-02-21 11:48 浏览次数：<script src="/plus/count.php?view=yes&aid=3&mid=1" type='text/javascript' language="javascript"></script></div>
+				<div class="artbox" style="margin: 0px 15px 20px; text-align: center; color: rgb(0, 0, 0); font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 18px;">
+	<h1 style="margin: 0px; padding: 0px 0px 5px; font-size: 16px; line-height: 26px; color: rgb(41, 182, 242);">
+		流媒体服务系统</h1>
+	<div class="info">
+		发布日期：2015-11-24 浏览次数：58</div>
+</div>
+<div class="article" id="info_content" style="padding: 0px 0px 40px; line-height: 2; font-size: 14px; word-wrap: break-word; color: rgb(0, 0, 0); font-family: 'Microsoft YaHei', Arial, sans-serif;">
+	<strong>&nbsp;一、系统简介：&nbsp;&nbsp;</strong>&nbsp;&nbsp;<br />
+	　　流媒体服务系统是一套完整的基于IP网络的音视频应用平台，她集成了视频直播系统、视频点播系统、视频广播系统、以及数据分发、业务管理等子系统，旨在为用户提供整套的媒体文件制作、VOD点播、live视频直播，媒体文件广播等服务，帮助用户快速高效的建设网络音视频应用平台。<br />
+	<br />
+	<strong>二、系统组成：</strong><br />
+	&nbsp;&nbsp;&nbsp; 1. 流媒体服务器－提供直播数据发布、点播接入、媒体节目存储调动等流媒体核心服务，内嵌简洁的Web服务器以及Web系统；<br />
+	&nbsp;&nbsp;&nbsp; 2. 编码工作站－采集编码活动音视频，流化后并能上传给流媒体服务器，用来提供直播服务；<br />
+	&nbsp;&nbsp;&nbsp; 3. 数据库服务器（可选）－提供节目信息存储、用户接入日志存储、用户认证信息、服务器运行状态信息存储等服务；<br />
+	&nbsp;&nbsp;&nbsp; 4. 网站服务器（可选）－专业的用户接入页面，用户通过它可快速接收直播或视频点播服务；<br />
+	&nbsp;&nbsp;&nbsp; 5. 编辑工作站（可选）- 提供节目制作、编辑、字幕合成、配音等非线编功能；<br />
+	<br />
+	<strong>三、系统亮点：</strong><br />
+	&nbsp;&nbsp;&nbsp; 1. 统一核心提供视频点播、视频直播、节目录制、视频广播等视频功能，保证了系统的整体性；<br />
+	&nbsp;&nbsp;&nbsp; 2. 支持所有主流媒体格式(VCD,MP3,DivX,AVI,ASF,WMV,WMA,RM,RMVB等)在线点播，支持文档课件（word,xls,ppt,Flash,bmp等）点播；<br />
+	&nbsp;&nbsp;&nbsp; 3. 支持零缓冲点播模式，无需等待，即可接收视频服务；<br />
+	&nbsp;&nbsp;&nbsp; 4. 单机支持500以上并发用户进行点播；<br />
+	&nbsp;&nbsp;&nbsp; 5. 系统组成的每个部分都可以分开安装在不同主机上，也可以集成在一台主机上，应用灵活、便利；<br />
+	&nbsp;&nbsp;&nbsp; 6. 开放的系统架构，可轻松的融入到用户已有的OA平台或网站平台中、或在此基础上进行二次开放等；<br />
+	<br />
+	<strong>四、系统功能：</strong><br />
+	&nbsp;&nbsp;&nbsp; 1. 支持高强度运行，能够24&times;365运行；<br />
+	&nbsp;&nbsp;&nbsp; 2. 支持在线点播、视频直播、视频广播等业务；<br />
+	&nbsp;&nbsp;&nbsp; 3. 可通过任何IP网络提供流媒体业务，能够跨越代理服务器、防火墙；<br />
+	&nbsp;&nbsp;&nbsp; 4. 响应点播时间控制在100ms以内，支持暂停、拖动等特技操作、直播延时控制在1s内；<br />
+	&nbsp;&nbsp;&nbsp; 5. 接收点播、观看直播、下载视频、观看课件文档采用单一播放器完成，播放器支持列表观看模式；<br />
+	&nbsp;&nbsp;&nbsp; 6. 自主创建直播频道，点播节目分类、设置热点节目等；<br />
+	&nbsp;&nbsp;&nbsp; 7. 支持权限管理、防止盗链、可对每个节目设置等级；<br />
+	&nbsp;&nbsp;&nbsp; 8. 支持多种方式对直播内容进行录制，录制下来的节目可直接实现点播，也可以通过配套编辑系统编辑完成后再进行点播；<br />
+	&nbsp;&nbsp;&nbsp; 9. 能够远程上传节目到流媒体服务器，远程对流媒体服务器进行管理；<br />
+	&nbsp;&nbsp;&nbsp; 10. 支持任意模式，可设置直播任务、广播任务、节目录像任务等。&nbsp;</div>
+
+			</div>
+			<div class="pre_next">
+		    <ul>
+		     <li>上一篇：<a href='/plus/view.php?aid=2'>切播系统</a> </li>
+		     <li>下一篇：<a href='/a/chanpinzhongxin/shipinhuiyi/2016/0221/5.html'>各种会议室</a> </li>
+		    </ul>
+		   </div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<div id="footer-div-1" style="height: 50px;background-color: #fff;"></div>
+	<div class="footer_top w_main center">
+		<div class="contact">
+		<ul>
+		<li class="foot_menu" id="top_1"><a href="/plus/list.php?tid=1"><span class="arrow"></span>产品中心</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+				<a href="/plus/list.php?tid=7">视频会议<span style="display: none">&nbsp;<img src="http://www.chenksoft.com/index_files/logo.jpg" /></span></a>
+				
+				<a href="/plus/list.php?tid=8">流媒体软件<span style="display: none"></span></a>
+				
+				<a href="/plus/list.php?tid=9">视频会议室<span style="display: none">&nbsp;333333333</span></a>
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_2"><a href="/plus/list.php?tid=2"><span class="arrow"></span>软件定制</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_3"><a href="/plus/list.php?tid=3"><span class="arrow"></span>解决方案</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+				<a href="/plus/list.php?tid=10">视频会议解决方案<span style="display: none">&nbsp;</span></a>
+				
+				<a href="/plus/list.php?tid=11">硬件视频会议解决方案<span style="display: none">&nbsp;</span></a>
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_4"><a href="/plus/list.php?tid=4"><span class="arrow"></span>成功案例</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_5"><a href="/plus/list.php?tid=5"><span class="arrow"></span>关于我们</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+		    </div>
+		  </li>
+		 <li  class="foot_menu">
+		 	<a>联系我们</a>
+		 	<div id="footer_lianxi" class="foot_menu_son"  >
+				<p>
+				电话：027-12345678
+				<br>
+				传真：027-12345678
+				<br>
+				ＱＱ：027-12345678
+				<br>
+				邮箱：027-12345678@qq.com
+				<br>
+				地址：湖北省武汉市蔡甸区神仙村天堂大厦109-09
+				</p>
+		    </div>
+		 </li>
+		 </ul>
+		</div>
+	</div>
+	<div class="footer_bottom ">
+		Copyright &copy; 2002-2011 DEDECMS. 织梦科技 版权所有 <a href=http://www.dedecms.com target='_blank'>Power by DedeCms</a>
+	</div>
+</div>
+<!-- /footer -->
+</body>
+</html>

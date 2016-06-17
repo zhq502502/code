@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>全高清视讯显示_test1</title>
+<meta name="keywords" content="全,高清,视讯,显示,好视通,云,会议,是,基于," />
+<meta name="description" content="好视通云会议 是基于云计算技术的高效、便捷、低成本的网络视频会议系统软件。使用者只需通过互联网界面，进行简单的操作，便可快速高效地与全球各地团队及客户同步分享语音、" />
+<link href="/templets/czrs1/css/main.css" rel="stylesheet" media="screen" type="text/css" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url=/m/index.php">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="/m/index.php";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+<script language="javascript" type="text/javascript" src="/templets/czrs1/js/jquery-1.4.4.min.js"></script>
+<script language="javascript" type="text/javascript" src="/templets/czrs1/js/main.js"></script>
+<!-- <script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript" src="/images/js/j.js" ></script>
+ -->
+
+<script>
+$(function(){
+	var imgurl = "";
+	var imagelist = [
+					"/templets/czrs1/images/a.jpg",
+					"/templets/czrs1/images/b.jpg",
+					"/templets/czrs1/images/c.jpg"
+	    			];
+	var index = parseInt(Math.random()*100)%imagelist.length;
+	$(".list_img img").attr("src",imagelist[index]);
+	
+	list_hover();
+})
+function list_hover(){
+	$(".list_item li").hover(
+		function(){
+			$(this).addClass("list_move");
+		},function(){
+			$(this).removeClass("list_move");
+		}
+	);
+}
+</script>
+</head>
+<body class="articlelist">
+<div id="head">
+	<div id="top_top">
+		<div id="top_wel" class="w_main">
+			<span style="font-size: 12px;">联系电话:<span style="color: #ff3333;font-weight: bold;">027-12345678</span></span>
+		</div>
+	</div>
+	<div id="top" class="w_main">
+		<div id="top_log">
+			<img alt="test1" src="/templets/czrs1/images/logo.png" style="width: 100%;height: 100%">
+		</div>
+		<div id="top_menu">
+			<ul>
+	      	<li id="first_menu"><a href='/'><span>主页</span></a></li>
+	      	<!-- 
+	      	<li class='top_menu_moveon_action'><a href='/plus/list.php?tid=1'  rel='dropmenu1'><span>产品中心</span></a></li>
+	      	<li><a href='/plus/list.php?tid=2' ><span>软件定制</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=3'  rel='dropmenu3'><span>解决方案</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=4' ><span>成功案例</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=5' ><span>关于我们</span></a></li>
+	      	
+	      	<li><a href='/plus/list.php?tid=6' ><span>联系我们</span></a></li>
+	      	
+	      	 -->
+    		<li class="" id="top_1"><a href="/plus/list.php?tid=1"><span class="arrow"></span>产品中心</a> 
+			    <div id="son_1" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+						<a href="/plus/list.php?tid=7">视频会议<span style="display: none">&nbsp;<img src="http://www.chenksoft.com/index_files/logo.jpg" /></span></a>
+					
+						<a href="/plus/list.php?tid=8">流媒体软件<span style="display: none"></span></a>
+					
+						<a href="/plus/list.php?tid=9">视频会议室<span style="display: none">&nbsp;333333333</span></a>
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_2"><a href="/plus/list.php?tid=2"><span class="arrow"></span>软件定制</a> 
+			    <div id="son_2" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_3"><a href="/plus/list.php?tid=3"><span class="arrow"></span>解决方案</a> 
+			    <div id="son_3" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+						<a href="/plus/list.php?tid=10">视频会议解决方案<span style="display: none">&nbsp;</span></a>
+					
+						<a href="/plus/list.php?tid=11">硬件视频会议解决方案<span style="display: none">&nbsp;</span></a>
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_4"><a href="/plus/list.php?tid=4"><span class="arrow"></span>成功案例</a> 
+			    <div id="son_4" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_5"><a href="/plus/list.php?tid=5"><span class="arrow"></span>关于我们</a> 
+			    <div id="son_5" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li><li class="" id="top_6"><a href="/plus/list.php?tid=6"><span class="arrow"></span>联系我们</a> 
+			    <div id="son_6" class="menu_son"  >
+			    	<div class="menu_son_title">
+					
+			    	</div>
+			    	<div class="menu_son_content" id="menu_son_content">
+			    		
+			    	</div>
+			    </div>
+			  </li>
+			 <input type='hidden' id='top_action_menu' value='1'/>
+	      	
+	      	
+	      	
+	      	
+	      	
+	    	</ul>
+		</div>
+	</div>
+</div>
+<script>
+if($("#top_action_menu").val()!=null){
+	$("#top_"+$("#top_action_menu").val()).addClass("top_menu_moveon_action");
+}else{
+	$("#first_menu").addClass("top_menu_moveon_action");
+}
+
+$("#top_menu li").hover(
+function () {
+    $(this).addClass("top_menu_moveon");
+    if( $(this).find(".menu_son").find("a")!=null&&$(this).find(".menu_son").find("a").length>0){
+	    $(this).find(".menu_son").fadeIn("fast");
+    }
+  },
+  function () {
+    $(this).removeClass("top_menu_moveon");
+    $(this).find(".menu_son").slideUp("fast");
+  }
+);
+$(".menu_son_title").each(function(){
+	var temp = $($(this).find("a")[0]).find("span").html();
+	$(this).parent().find(".menu_son_content").append(temp);
+});
+$(".menu_son_title a").hover(
+  function () {
+	$(this).parent().parent().find(".menu_son_content").empty();
+    var temp = $(this).find("span").html();
+    $(this).parent().parent().find(".menu_son_content").append(temp);
+  },
+  function () {
+  }
+);
+/*$(window).scroll(function () {
+    $("#head").css({ "top": parseInt($(window).scrollTop()) })
+});*/
+</script>
+
+<div class="w_main center" id="main">
+	<div class="list_img">
+		<img src="" alt="" />
+	</div>
+	<div class="list_main">
+		<div class="list_left">
+			<div class="list_name">
+				产品中心
+			</div>
+			<ul class="list_item">
+				
+			      <li><a href='/plus/list.php?tid=7'>视频会议</a></li>
+			      <li class='list_action'><a href='/plus/list.php?tid=8'>流媒体软件</a></li>
+			      <li><a href='/plus/list.php?tid=9'>视频会议室</a></li>
+			      
+			</ul>
+			<ul class="list_us">
+				<li><img src="/templets/czrs1/images/us.png" alt="" /><a href="/plus/list.php?tid=6">关于我们<br/>ABOUT US</a></li>
+				<li><img src="/templets/czrs1/images/pro.png" alt="" /><a href="/plus/list.php?tid=1">产品中心<br/>RECRUITMENT</a></li>
+				<li><img src="/templets/czrs1/images/conta.png" alt="" /><a href="/plus/list.php?tid=5">联系我们<br/>CONTACT US</a></li>
+			</ul>
+		</div>
+		<div class="list_right">
+			<div class="list_top">
+				<div class="list_title">
+					全高清视讯显示
+				</div>
+				<div class="list_position">
+					<a href='http://localhost/'>主页</a> > <a href='/plus/list.php?tid=1'>产品中心</a> > <a href='/plus/list.php?tid=8'>流媒体软件</a> > 
+				</div>
+			</div>
+			<div class="list_content">
+				<h2 class="title">全高清视讯显示</h2>
+				<div class="date">发布日期：2016-03-21 09:18 浏览次数：<script src="/plus/count.php?view=yes&aid=16&mid=1" type='text/javascript' language="javascript"></script></div>
+				<div class="yhmain_con01" style="margin: 0px; padding: 20px 0px 0px; width: 980px; color: rgb(0, 0, 0); font-family: arial, 宋体b8b体; line-height: 18px;">
+	<img src="/uploads/allimg/160321/0919224238-0.png" style="border: none;" />
+	<ul style="margin: 0px; padding-right: 0px; padding-left: 0px; list-style: none;">
+	</ul>
+	<ul style="margin: 30px 0px 0px 90px; padding-right: 0px; padding-bottom: 80px; padding-left: 0px; list-style: none; width: 824px;">
+		<li style="margin: 0px; padding: 0px; line-height: 34px; font-family: 'Comic Sans MS', cursive, 微软雅黑; color: rgb(102, 102, 102); font-size: 16px;">
+			<span style="color: rgb(16, 161, 251); font-size: 24px;">好视通&quot;云会议&quot;</span>是基于云计算技术的&quot;高效、便捷、低成本&quot;的网络视频会议系统软件。使用者只需通过互联网界面，进行简单的操作，便可快速高效地与全球各地团队及客户同步分享语音、视频及数据文件，而会议中视音频数据的传输、处理等复杂技术由好视通&quot;云会议&quot;网络视频会议系统平台为使用者全程提供保障。针对目前网络视频会议软件普遍存在的视频清晰度低，沟通效果不好的问题，好视通高清&quot;云会议&quot;网络视频会议系统平台率先采用国际最领先的H.264+视频编码，视频清晰度可达720P及1080P最高标准，为用户提供身临其境的视频沟通效果。</li>
+	</ul>
+</div>
+<div class="yhmain" style="margin: 0px; padding: 0px; width: 988px; color: rgb(0, 0, 0); font-family: arial, 宋体b8b体; line-height: 18px; background-color: rgb(249, 249, 249);">
+	<h4 color:="" padding-bottom:="" style="margin: 0px; padding: 0px; font-size: 52px; font-weight: normal; color: rgb(54, 54, 54); font-family: 'Microsoft YaHei'; text-align: center;">
+		<img src="/uploads/allimg/160321/091922J58-1.png" style="border: none;" /></h4>
+	<ul class="yh yhbg" style="margin: 0px 0px 0px 30px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/yh01.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					集团会议涉及到跨区域问题，要召开全员会议成本比较高，好视通视频会议软件满足了这一需求，非常容易就能召开一个全体员工参与的集团会议，成本非常低。集团远程会议对数据传输速度和稳定性有很高的要求，要求会议要有可靠的稳定性和安全性。好视通视频会议系统采用网络云技术，确保了通讯效果，实现稳定的远程大型会议,其256位加密技术确保了大型会议的数据安全。</dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="yh yhbg02" style="margin: 0px 15px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/yh02.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					跨国会议受网络的制约比较大，长距离信号传输也会影响通讯质量，多表现为视频画面不流畅，语音有延迟和停顿，存在很多的不确定因素，需要网络会议系统具有良好的网络适应能力和纠错能力。好视通网络视频会议软件针对复杂的国际网络环境，采用了先进的国际网络传输协议，并且集成智能路由选择功能，具备行业领先的防火墙，能够提供稳定、流畅且具有较高安全性的跨国会议。</dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="yh yhbg03" style="margin: 0px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/yh03.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					商务会议比较重视协同办公，各种方案、设计都需要在会上即时演示，此外商务谈判会议对会议清晰度、流畅度的要求也很高，看重会议的安全性。好视通网络视频会议系统正是基于商务会议应用而研发，在保密性和协同性方面经过长期设计和优化，为用户提供一流的视频会议操作体验。</dd>
+			</dl>
+		</li>
+	</ul>
+	<div class="clear" style="margin: 0px; padding: 0px; clear: both;">
+		&nbsp;</div>
+</div>
+<div class="yhmain" style="margin: 0px; padding: 60px 0px 40px; width: 988px; color: rgb(0, 0, 0); font-family: arial, 宋体b8b体; line-height: 18px; background-color: rgb(249, 249, 249);">
+	<ul class="yh yhbg04" style="margin: 0px 0px 0px 30px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/yh04.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					企业的日常会议较多且密度高，有对企业内部的也有对外的，因为使用频繁对会议质量有一定的要求。传统常规会议受时间、地域限制，通常无法解决跨地域开会问题，或者需要与会人员出差，会议效率较低，且成本居高不下。好视通视频会议系统能加快信息传递速度，强化管理效率。</dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="yh yhbg05" style="margin: 0px 15px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/yh05.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					招聘跨区域人才最便捷、最经济的方式自然是远程招聘，运用好视通网络视频会议软件进行远程面试，既为应聘者提供了便利，也扩大了企业的人才招聘范围。好视通网络视频会议软件可提供直接面试、作品展示、在线 考试等，帮您全面了解人才状况。</dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="yh yhbg06" style="margin: 0px; padding-right: 0px; padding-left: 0px; list-style: none; height: 585px; width: 301px; float: left; background-image: url(&quot;../images/img/yh06.png&quot;); background-repeat: no-repeat;">
+		<li style="margin: 0px; padding: 0px;">
+			<dl style="margin: 0px; padding-top: 295px; padding-right: 22px; padding-left: 22px;">
+				<dt style="margin: 0px; padding: 0px;">
+					&nbsp;</dt>
+				<dd style="margin: 0px; padding: 0px; font-size: 14px; font-family: 微软雅黑; color: rgb(102, 102, 102); line-height: 28px;">
+					或许您在为飞机晚点被困在机场不能参加公司的重要会议而感到无奈，或许还在为堵在路上不能及时参与项目讨论而感到难过，现在这些问题完全可以解决了。好视通视频会议系统除可通过电脑进行视频会议外，还可以通过您手上的Windows、Android和iOS移动设备参加会议。无论您身处何方，好视通网络视频会议系统移动会议应用，让您随时随地参与沟通，享受好视通给您带来的高效、便捷！</dd>
+			</dl>
+		</li>
+	</ul>
+	<div class="clear" style="margin: 0px; padding: 0px; clear: both;">
+		&nbsp;</div>
+</div>
+<div style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: arial, 宋体b8b体; line-height: 18px; width: 980px;">
+	<ul style="margin: 0px; padding-right: 0px; padding-left: 0px; list-style: none;">
+		<li style="margin: 0px; padding: 0px;">
+			<img src="/uploads/allimg/160321/091922Hb-2.png" style="border: none;" /></li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					全终端无缝接入</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					<span style="color: rgb(107, 156, 12); font-weight: bold;">支持智能手机和平板电脑无缝接入视讯会议</span>，并可将PPT等常见 文档共享至手机和平板电脑屏幕.</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+			<img src="/uploads/allimg/160321/09192214H-3.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<img src="/uploads/allimg/160321/0919225X5-4.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					全高清视讯显示</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					<span style="color: rgb(107, 156, 12); font-weight: bold;">当前最先进的H.264&amp;MPEG4视频算法&nbsp;</span>真正在互联网上实现1080P高 清传输，独有的软件双显功能，可将数据，视频分开两个屏幕显示，提升 会议档次.</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					全保障安全易用</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					用户权限可在会议过程中灵活分配<span style="color: rgb(107, 156, 12); font-weight: bold;">系统采用256位加密技术，并有多种身 份认证技术</span>，独特会议室锁定，敲门功能..</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+			<img src="/uploads/allimg/160321/0919221542-5.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<img src="/uploads/allimg/160321/0919225649-6.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					全功能适用好用</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					全功能适用好用：<span style="color: rgb(107, 156, 12); font-weight: bold;">电子白板、文档共享、桌面屏幕共享、文字聊天、电 子投票、屏幕截图、文件传输、媒体文件播放、会议音视频录制</span>，强大 的辅助工具栏 （画笔、标注、智能翻页&hellip;）让你的视频会议绘声绘色..</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					全网络高效稳定</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					全网络清晰稳定：服务器集群部署<span style="color: rgb(107, 156, 12); font-weight: bold;">遍布全球80个服务器集群， 国内南北互通，支持大规模用户并发</span>，互为热备技术，不但能支 持超大规模的用户数接入，具备电信级的系统稳定性..</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+			<img src="/uploads/allimg/160321/0919226149-7.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+		</li>
+		<li class="colud_info" style="margin: auto; padding: 30px 0px 0px; width: 850px; clear: both;">
+			<img src="/uploads/allimg/160321/0919225914-8.png" style="border: none;" />
+			<dl style="margin: 0px; padding-right: 0px; padding-left: 0px; float: left;">
+			</dl>
+			<dl class="colud" style="margin: 90px 0px 0px; padding-right: 0px; padding-left: 0px; width: 400px; float: left;">
+				<dt style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-family: 'Microsoft YaHei'; font-size: 36px;">
+					全无忧服务保障</dt>
+				<dd style="margin: 0px; padding: 0px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px;">
+					全无忧服务保障：<span style="color: rgb(107, 156, 12); font-weight: bold;">7*24小时售后服务，专业技术服务团队提供产品使 用培训</span>，应急故障排查和使用维护，租用产品终身免费升级，售后无忧 ，更轻松！.</dd>
+				<dd class="colud01" style="margin: 0px; padding: 0px 0px 0px 20px; line-height: 30px; color: rgb(102, 102, 102); font-family: 'Comic Sans MS', cursive, 微软雅黑; font-size: 14px; background-image: url(&quot;http://www.fsmeeting.com/statics/images/img/more.gif&quot;); background-repeat: no-repeat;">
+					<a href="http://www.fsmeeting.com/tiyan.html" looyu_bound="1" style="text-decoration: none; color: rgb(107, 156, 12) !important;" target="_blank">免费试用</a></dd>
+			</dl>
+		</li>
+	</ul>
+</div>
+<div class="yhy_btn" style="margin: 0px; padding: 30px 0px 0px; width: 1000px; height: 120px; clear: both; color: rgb(0, 0, 0); font-family: arial, 宋体b8b体; line-height: 18px; background-color: rgb(243, 243, 243);">
+	<ul style="margin: 0px; padding-right: 0px; padding-left: 130px; list-style: none; width: 800px;">
+	</ul>
+</div>
+<br />
+
+			</div>
+			<div class="pre_next">
+		    <ul>
+		     <li>上一篇：<a href='/a/chanpinzhongxin/liumeitiruanjian/2016/0321/15.html'>全高清视讯显示</a> </li>
+		     <li>下一篇：<a href='/a/chanpinzhongxin/liumeitiruanjian/2016/0321/17.html'> 最简单的应用操作</a> </li>
+		    </ul>
+		   </div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<div id="footer-div-1" style="height: 50px;background-color: #fff;"></div>
+	<div class="footer_top w_main center">
+		<div class="contact">
+		<ul>
+		<li class="foot_menu" id="top_1"><a href="/plus/list.php?tid=1"><span class="arrow"></span>产品中心</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+				<a href="/plus/list.php?tid=7">视频会议<span style="display: none">&nbsp;<img src="http://www.chenksoft.com/index_files/logo.jpg" /></span></a>
+				
+				<a href="/plus/list.php?tid=8">流媒体软件<span style="display: none"></span></a>
+				
+				<a href="/plus/list.php?tid=9">视频会议室<span style="display: none">&nbsp;333333333</span></a>
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_2"><a href="/plus/list.php?tid=2"><span class="arrow"></span>软件定制</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_3"><a href="/plus/list.php?tid=3"><span class="arrow"></span>解决方案</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+				<a href="/plus/list.php?tid=10">视频会议解决方案<span style="display: none">&nbsp;</span></a>
+				
+				<a href="/plus/list.php?tid=11">硬件视频会议解决方案<span style="display: none">&nbsp;</span></a>
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_4"><a href="/plus/list.php?tid=4"><span class="arrow"></span>成功案例</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+		    </div>
+		  </li><li class="foot_menu" id="top_5"><a href="/plus/list.php?tid=5"><span class="arrow"></span>关于我们</a> 
+		    <div id="" class="foot_menu_son"  >
+				
+		    </div>
+		  </li>
+		 <li  class="foot_menu">
+		 	<a>联系我们</a>
+		 	<div id="footer_lianxi" class="foot_menu_son"  >
+				<p>
+				电话：027-12345678
+				<br>
+				传真：027-12345678
+				<br>
+				ＱＱ：027-12345678
+				<br>
+				邮箱：027-12345678@qq.com
+				<br>
+				地址：湖北省武汉市蔡甸区神仙村天堂大厦109-09
+				</p>
+		    </div>
+		 </li>
+		 </ul>
+		</div>
+	</div>
+	<div class="footer_bottom ">
+		Copyright &copy; 2002-2011 DEDECMS. 织梦科技 版权所有 <a href=http://www.dedecms.com target='_blank'>Power by DedeCms</a>
+	</div>
+</div>
+<!-- /footer -->
+</body>
+</html>

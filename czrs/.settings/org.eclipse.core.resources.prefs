@@ -1,4 +1,11 @@
 eclipse.preferences.version=1
+encoding//templets/czrs1/about.htm=UTF-8
+encoding//templets/czrs1/article_article.htm=UTF-8
+encoding//templets/czrs1/contact.htm=UTF-8
 encoding//templets/czrs1/index.htm=UTF-8
+encoding//templets/czrs1/list_article.htm=UTF-8
+encoding//templets/czrs1/list_news.htm=UTF-8
+encoding//templets/default/article_article.htm=UTF-8
+encoding//templets/default/index.htm=UTF-8
 encoding//templets/default/list_article.htm=UTF-8
 encoding/<project>=UTF-8
