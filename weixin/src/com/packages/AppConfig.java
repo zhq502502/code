@@ -7,12 +7,13 @@ import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.core.Const;
+import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.activerecord.CaseInsensitiveContainerFactory;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.render.ViewType;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import com.packages.controller.IndexController;
+import com.packages.controller.*;
 import com.packages.handler.JspHandler;
 import com.packages.util.PropUtil;
 
@@ -30,7 +31,11 @@ public class AppConfig extends JFinalConfig{
 
 	@Override
 	public void configRoute(Routes me) {
-		me.add("/", IndexController.class);
+		me.add("/test1", IndexController.class);
+		me.add("/test", TestController.class);
+		me.add("/", WeixinMsgController.class);
+        /*me.add("/api", WeixinApiController.class, "/api");
+        me.add("/pay", WeixinPayController.class);*/
 				
 	}
 
