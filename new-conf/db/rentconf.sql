@@ -1,4 +1,4 @@
-﻿---------------企业信息表 ----------------
+﻿-- -------------企业信息表 ----------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `orgid` bigint(20) unsigned NOT NULL COMMENT '企业ID',
@@ -15,7 +15,7 @@ CREATE TABLE `company` (
   `confuser_tip` varchar(10) DEFAULT NULL COMMENT '新建会议并发数提示',
   PRIMARY KEY (`orgid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
----------------录像文件信息表 ----------------
+-- -------------录像文件信息表 ----------------
 DROP TABLE IF EXISTS `file_info`;
 CREATE TABLE `file_info` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
@@ -34,7 +34,7 @@ CREATE TABLE `file_info` (
   PRIMARY KEY (`id`),
   KEY `orgid` (`orgid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
----------------用户信息表  ----------------
+-- -------------用户信息表  ----------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -65,3 +65,15 @@ CREATE TABLE `user` (
   UNIQUE KEY `username_orgid_unique` (`user_name`,`orgid`),
   KEY `orgid` (`orgid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+-- ----部门信息表
+DROP TABLE IF EXISTS `department`;
+CREATE TABLE `department` (
+  `id` int(11) NOT NULL auto_increment,
+  `departnum` int(11) default NULL,
+  `departpnum` int(11) default NULL,
+  `departname` varchar(255) default NULL,
+  `orders` int(11) default NULL,
+  `orgid` int(11) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `departnum` (`departnum`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
