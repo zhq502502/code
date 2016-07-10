@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title class="language"  code="0">云会议</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -60px;
+      }
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+      .container {
+        width: auto;
+        max-width: 680px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+
+	#code,#nname {
+		height:32px;
+		font-size:28px;
+		font-weight:bold;
+		line-height:32px;
+		padding:3px 28px 3px 18px;
+		border-radius:5px;
+	}	
+	.form{
+		 margin: 0 0 20px;
+	}
+	#sub_list li{
+		list-style: none;
+		margin: 3px;
+		text-align: center;
+	}
+	ul{
+		margin: 0px;
+	}
+    </style>
+  </head>
+  <body>
+<script type='text/javascript' src='js/init.js'></script>
+<script type='text/javascript' src='js/jquery-1.4.4.min.js'></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/conf.js"></script>
+<script type="text/javascript" src="js/base64.js"></script>
+<script type="text/javascript" src="js/jquery.md5.js"></script>
+<script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+var confid = "";
+var userid = "";
+var userpass = "";
+var type = "";
+var proxytype = "0";
+var proxyip = "";
+var proxyport = "";
+var proxyuser = "";
+var proxypass = "";
+var ualias = "";
+var md5pass = $.md5(userpass);
+var code = "";
+
+/*if(orgid==null||orgid==""){
+	alert("请设置企业ID");
+}*/
+
+if (g_installFlag == '0' || g_installFlag == '1')
+{
+	if(browser.versions.iPad){
+		g_installFlag = "4";
+	}
+	else if(browser.versions.iPhone){
+		g_installFlag = "5";
+	}
+	else if(browser.versions.android){
+		g_installFlag = "3";
+	}
+	else{
+		Seegle.postsgsvr(9090, 1, Seegle.client_registry, "InstallPath");	
+	}	
+}
+$(function() {
+	//$("#copyright").html(copyright);
+	initcss();
+	$("#code").val($.cookie("vcode"));
+	// 点击参加会议按钮
+	$("#login_v").click(function() {
+		//confid = 108439;
+		code = $("#code").val();
+		var numberRegex = /^[+]?\d+$/;
+		if(code==""||code==null){
+			alert(getMsg(1));
+			$("#code").focus();
+			return ;
+		}else if(!code.match(numberRegex)){
+			alert(getMsg(2));
+			$("#code").focus();
+			return ;
+		}else{
+			
+		}
+		ualias = $("#nname").val();
+		$.cookie("dnname",ualias,{expires: 1000});
+		$.cookie("vcode",code,{expires: 1000});
+		if(ualias==null||ualias==""){
+			var url =  apiurl+"/apis/searchip?callback=initdnname1";
+			$.ajax({
+				type : "get",
+				async:false,
+				url :url,
+				dataType : "jsonp"
+			});
+		}else{
+			getconfinfo(code);
+		}
+	});
+	//回车键处理
+	$("body").keydown(function(event){
+	  switch(event.keyCode) {
+	  	case 13:$("#login_v").click();break;
+	  }
+	});
+	//页面加载后检查链接地址，远程获取昵称
+	checknname();
+});
+/**
+ * 初始化样式
+ */
+function initcss(){
+	if(browser.versions.iPad||browser.versions.iPhone||browser.versions.android){
+		$(".container").css({"text-align":"center"});
+	}else{
+		$(".container").css({"text-align":"left"});
+	}
+}
+/**
+ * 获取昵称和检查地址栏地址
+ */
+function checknname(){
+	var dnname = $.cookie("dnname");
+	if(dnname==null||dnname==""){
+		var url =  apiurl+"/apis/searchip?callback=initdnname";
+		//var url =  "http://58.57.65.134:90/opm4j/apis/searchip?callback=initdnname";
+		$.ajax({
+			type : "get",
+			async:false,
+			url :url,
+			dataType : "jsonp"
+		});
+	}else{
+		$("#nname").val(dnname);
+		ualias = dnname;
+		var co = getVcode();
+		if(!(co==null||co=="")){
+			$("#code").val(co);
+			//getconfinfo(co);
+		}
+	}
+}
+
+function initdnname(data){
+	if(data.msg==1){
+		ualias = data.ip;
+		$("#nname").val(ualias);
+	}else if(data.msg==0){
+		ualias = data.province+data.city+"-"+parseInt(Math.random()*10000);
+		if(data.province==data.city){
+			ualias = data.city+"-"+parseInt(Math.random()*10000);
+		}
+		$("#nname").val(ualias);
+	}else{
+		ualias = getMsg(3)+"-"+parseInt(Math.random()*10000);
+		$("#nname").val(ualias);
+	}
+	var co = getVcode();
+	if(!(co==null||co=="")){
+		$("#code").val(co);
+		//getconfinfo(co);
+	}
+}
+function initdnname1(data){
+	if(data.msg==1){
+		ualias = data.ip;
+	}else if(data.msg==0){
+		ualias = data.province+data.city+"-"+parseInt(Math.random()*10000);
+		if(data.province==data.city){
+			ualias = data.city+"-"+parseInt(Math.random()*10000);
+		}
+	}else{
+		ualias = getMsg(3)+"-"+parseInt(Math.random()*10000);
+		$("#nname").val(ualias);
+	}
+	var co = $("#code").val();
+	if(!(co==null||co=="")){
+		$("#code").val(co);
+		getconfinfo(co);
+	}
+}
+function inittoken(data){
+	token = data.token;
+	if(token<8){
+		alert(getMsg(4)+token);
+		return ;
+	}else{
+		getconfinfo();
+	}
+}
+
+function getconfinfo(c){
+	$.ajax({
+		type : "get",
+		async:false,
+		url : apiurl+"/apis/conf/login?cid=0&verifycode="+c+"&callback=loginconf",
+		dataType : "jsonp"
+	});
+}
+function loginconf(data){
+	if(data.rid !="" && data.rid != null)
+	{
+		
+		if(g_installFlag=='0'||g_installFlag=='1')
+		{		
+			showinstall();
+		}
+		else            
+		{
+			var base64unick = base64encode(utf16to8(ualias)); //昵称base64编码
+			var runandroid = "mtcmtc://startConference.app?ConfID="+data.rid+"&ServerAddrAndPort="+data.ips+"&UserAccount="+data.orgid+data.userid+"&Nick="+ualias+"&LoginMode=LoginByUserID&Password="+userpass;
+			var runipad = "SCConferenceiPad://?user="+data.orgid+data.userid+"&pass="+userpass+"&conference="+data.rid+"&server="+data.ips+"&nick="+base64unick+"&loginMode=LoginByUserID";
+			var runiphone = "SCConferenceiPhone://?user="+data.orgid+data.userid+"&pass="+userpass+"&conference="+data.rid+"&server="+data.ips+"&nick="+base64unick+"&loginMode=LoginByUserID";
+			if(browser.versions.iPad){
+				location.href=runipad;
+			}
+			else if(browser.versions.iPhone){
+				location.href=runiphone;
+			}
+			else if(browser.versions.android){
+				location.href=runandroid;
+			}
+			else{
+				Seegle.startconf(data.rid, data.ips, data.orgid, data.userid, userpass, ualias,"",'2',Seegle.client_registry,"InstallPath",Seegle.client_confname,proxytype,proxyip,proxyport,proxyuser,proxypass);
+			}
+		}
+	}else{
+		if(data.msg==8){
+			alert(getMsg(5));
+		}else{
+			alert(getMsg(6)+data.msg);
+		}
+	}
+}
+
+function showinstall(){
+	$("#install,#install_bg").toggle();
+	$("#install_bg").css({'opacity':'0.4'});
+}
+function download(flag){
+	if(flag==1){
+		window.open ('installonline/webinstall.html','newwindow','height=300, width=515, top=50, left=50, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no');
+		window.history.go(0);
+	}else{
+		location.href=download_URL;		
+	}
+}
+
+function getVcode() {
+   var url = location.search; //获取url中"?"符后的字串
+   if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      return str;
+   }
+   return "";
+}
+
+</script>
+
+<div id="wrap">
+	<div class="container" style="padding-bottom: 60px;">
+	    <div class="page-header">
+			<div style="float: right;cursor: pointer;width: 100px;">
+				<img src="images/top_arrow.gif" width="10" height="10" class="top_arrow">
+				<span onclick="showSelect()" ><span class="language" code="15">语言选择</span>&nbsp;▼</span>
+				<div id="sub_list" style="display: none;background-color: white;border: 1px solid #cccccc;" onclick="this.style.display = 'none'">
+					<ul>
+						<li><a href="javascript:void(0)" onclick='changeLanguageLogin("zh_cn")'>中文简体</a></li>
+						<li><a href="javascript:void(0)" onclick='changeLanguageLogin("zh_tw")'>中文繁體</a></li>
+						<li><a href="javascript:void(0)" onclick='changeLanguageLogin("en")'>English</a></li>
+					</ul>
+				</div>
+			</div>
+			<h1 class="language"  code="0">云会议</h1>
+	    </div>
+		<div class="form">
+	    	<p class="lead language"  code="7">请输入会议验证码</p>
+			<input id="code" type="text"   maxlength="11">
+		</div>
+		<div class="form">
+	    	<p class="lead language" code="8">用户显示名称</p>
+			<input id="nname" type="text"  maxlength="11">
+		</div>
+		<div>
+	 		<button class="btn btn-large btn-primary language" type="button" id="login_v" code="9">参加会议 <i class="icon-circle-arrow-right icon-white"> </i></button>
+	 	</div>
+	</div>
+</div>
+
+
+<div id="footer">
+  <div class="container">
+    <p class="muted credit language" id="copyright"  code="14"></p>
+  </div>
+</div>
+    
+
+<div id="install" style="position: absolute;top: 0;left: 0;width:100%;z-index: 11;display: none">
+<div style="width:350px;border: 5px solid #dddddd;background-color: #ffffff;margin: 10% auto">
+	<table border="0" cellpadding="10" cellspacing="0" style="width: 100%">
+		<tr>
+			<td colspan="2" align="center" class="language" code="10">检查到客户端未安装，安装完后请重新打开</td>
+		</tr>
+		<tr>
+			<td align="center"><a href="javascript:download(1)" class="language" code="11">在线安装</a></td><td align="center"><a href="javascript:download(0)" class="language" code="12">下载安装包</a></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><a href="javascript:showinstall();" class="language" code="13">关闭窗口</a></td>
+		</tr>
+	</table>
+</div>
+</div>
+<div id="install_bg" style="width: 100%;height: 100%;z-index: 10;position: absolute;background-color: #999999;top:0;left:0;display: none"></div>  
+<script type="text/javascript" src="js/stringRes.js"></script>
+</body>
+</html>

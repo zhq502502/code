@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/web_code/!svn/ver/3254/api/confWeb/new-conf/src/com/seegle/phoneaction
+END
+PhoneConfLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/phoneaction/PhoneConfLogAction.java
+END
+PhoneReportAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/phoneaction/PhoneReportAction.java
+END
+SetPublicManagerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/phoneaction/SetPublicManagerAction.java
+END
+PhoneUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/phoneaction/PhoneUserAction.java
+END
+SetPersonalPhoneAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/phoneaction/SetPersonalPhoneAction.java
+END
+PhoneconfAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/3254/api/confWeb/new-conf/src/com/seegle/phoneaction/PhoneconfAction.java
+END
+VerifycodeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/phoneaction/VerifycodeAction.java
+END
+PublicPhoneconf.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/phoneaction/PublicPhoneconf.java
+END

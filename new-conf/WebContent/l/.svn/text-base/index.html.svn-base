@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>云会议-直播</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -60px;
+      }
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+      .container {
+        width: auto;
+        max-width: 680px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+
+	#code,#nname {
+		height:32px;
+		font-size:28px;
+		font-weight:bold;
+		line-height:32px;
+		padding:3px 28px 3px 18px;
+		border-radius:5px;
+	}	
+	.form{
+		 margin: 0 0 20px;
+	}
+    </style>
+  </head>
+  <body>
+<script type='text/javascript' src='js/init.js'></script>
+<script type='text/javascript' src='js/jquery-1.4.4.min.js'></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/conf.js"></script>
+<script type="text/javascript" src="js/jquery.md5.js"></script>
+<script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+var confid = "";
+var userid = "";
+var userpass = "";
+var type = "";
+var proxytype = "0";
+var proxyip = "";
+var proxyport = "";
+var proxyuser = "";
+var proxypass = "";
+var ualias = "";
+var md5pass = $.md5(userpass);
+var code = "";
+
+/*if(orgid==null||orgid==""){
+	alert("请设置企业ID");
+}*/
+
+$(function() {
+	$("#copyright").html(copyright);
+	initcss();
+	$("#code").val($.cookie("vcode"));
+	// 点击参加会议按钮
+	$("#login_v").click(function() {
+		//confid = 108439;
+		code = $("#code").val();
+		var numberRegex = /^[+]?\d+$/;
+		if(code==""||code==null){
+			alert("请输入验证码");
+			$("#code").focus();
+			return ;
+		}else if(!code.match(numberRegex)){
+			alert("验证码必须为数字");
+			$("#code").focus();
+			return ;
+		}else{
+			
+		}
+		ualias = $("#nname").val();
+		$.cookie("dnname",ualias,{expires: 1000});
+		$.cookie("vcode",code,{expires: 1000});
+		if(ualias==null||ualias==""){
+			var url =  apiurl+"/apis/searchip?callback=initdnname1";
+			$.ajax({
+				type : "get",
+				async:false,
+				url :url,
+				dataType : "jsonp"
+			});
+		}else{
+			getconfinfo(code);
+		}
+	});
+	//回车键处理
+	$("body").keydown(function(event){
+	  switch(event.keyCode) {
+	  	case 13:$("#login_v").click();break;
+	  }
+	});
+	//页面加载后检查链接地址，远程获取昵称
+	checknname();
+});
+/**
+ * 初始化样式
+ */
+function initcss(){
+	if(browser.versions.iPad||browser.versions.iPhone||browser.versions.android){
+		$(".container").css({"text-align":"center"});
+	}else{
+		$(".container").css({"text-align":"left"});
+	}
+}
+/**
+ * 获取昵称和检查地址栏地址
+ */
+function checknname(){
+	var dnname = $.cookie("dnname");
+	if(dnname==null||dnname==""){
+		var url =  apiurl+"/apis/searchip?callback=initdnname";
+		//var url =  "http://58.57.65.134:90/opm4j/apis/searchip?callback=initdnname";
+		$.ajax({
+			type : "get",
+			async:false,
+			url :url,
+			dataType : "jsonp"
+		});
+	}else{
+		$("#nname").val(dnname);
+		ualias = dnname;
+		var co = getVcode();
+		if(!(co==null||co=="")){
+			$("#code").val(co);
+			//getconfinfo(co);
+		}
+	}
+}
+
+function initdnname(data){
+	if(data.msg==1){
+		ualias = data.ip;
+		$("#nname").val(ualias);
+	}else if(data.msg==0){
+		ualias = data.province+data.city+"-"+parseInt(Math.random()*10000);
+		if(data.province==data.city){
+			ualias = data.city+"-"+parseInt(Math.random()*10000);
+		}
+		$("#nname").val(ualias);
+	}else{
+		ualias = "游客-"+parseInt(Math.random()*10000);
+		$("#nname").val(ualias);
+	}
+	var co = getVcode();
+	if(!(co==null||co=="")){
+		$("#code").val(co);
+		//getconfinfo(co);
+	}
+}
+function initdnname1(data){
+	if(data.msg==1){
+		ualias = data.ip;
+	}else if(data.msg==0){
+		ualias = data.province+data.city+"-"+parseInt(Math.random()*10000);
+		if(data.province==data.city){
+			ualias = data.city+"-"+parseInt(Math.random()*10000);
+		}
+	}else{
+		ualias = "游客-"+parseInt(Math.random()*10000);
+		$("#nname").val(ualias);
+	}
+	var co = $("#code").val();
+	if(!(co==null||co=="")){
+		$("#code").val(co);
+		getconfinfo(co);
+	}
+}
+function inittoken(data){
+	token = data.token;
+	if(token<8){
+		alert("登录错误，错误代码"+token);
+		return ;
+	}else{
+		getconfinfo();
+	}
+}
+
+function getconfinfo(c){
+	$.ajax({
+		type : "get",
+		async:false,
+		url : apiurl+"/apis/conf/login?cid=0&verifycode="+c+"&callback=loginconf",
+		dataType : "jsonp"
+	});
+}
+function loginconf(data){
+	if(data.rid !="" && data.rid != null)
+	{
+		var url = "live/index.html?cid="+data.confid+"&userid=&nname="+encodeURIComponent(ualias);
+		location.href=url;		
+	}else{
+		if(data.msg==8){
+			alert("未能找到对应会议室，请输入有效验证码！");
+		}else{
+			alert("获取会议登录参数出错,错误代码"+data.msg);
+		}
+	}
+}
+
+function getVcode() {
+   var url = location.search; //获取url中"?"符后的字串
+   if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      return str;
+   }
+   return "";
+}
+
+</script>
+
+<div id="wrap">
+	<div class="container" style="padding-bottom: 60px;">
+	    <div class="page-header">
+			<h1>云会议</h1>
+	    </div>
+		<div class="form">
+	    	<p class="lead">请输入会议验证码</p>
+			<input id="code" type="text"   maxlength="11">
+		</div>
+		<div class="form">
+	    	<p class="lead">用户显示名称</p>
+			<input id="nname" type="text"  maxlength="11">
+		</div>
+		<div>
+	 		<button class="btn btn-large btn-primary" type="button" id="login_v">进入直播 <i class="icon-circle-arrow-right icon-white"> </i></button>
+	 	</div>
+	</div>
+</div>
+
+
+<div id="footer">
+  <div class="container">
+    <p class="muted credit" id="copyright"></p>
+  </div>
+</div>
+    
+</body>
+</html>

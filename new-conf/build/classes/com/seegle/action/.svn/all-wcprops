@@ -1,0 +1,293 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/web_code/!svn/ver/3310/api/confWeb/new-conf/src/com/seegle/action
+END
+MeetingManageSelectAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingManageSelectAction.java
+END
+MeetingModCommonAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingModCommonAction.java
+END
+VideoListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/web_code/!svn/ver/1791/api/confWeb/new-conf/src/com/seegle/action/VideoListAction.java
+END
+TopConfPageAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/TopConfPageAction.java
+END
+PhonePayHistoryAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/PhonePayHistoryAction.java
+END
+UploadLogoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/2737/api/confWeb/new-conf/src/com/seegle/action/UploadLogoAction.java
+END
+BackupAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/web_code/!svn/ver/3310/api/confWeb/new-conf/src/com/seegle/action/BackupAction.java
+END
+ModPassAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/web_code/!svn/ver/1791/api/confWeb/new-conf/src/com/seegle/action/ModPassAction.java
+END
+MeetingCountConfAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingCountConfAction.java
+END
+MeetingReservationAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingReservationAction.java
+END
+CountUserDetailAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/CountUserDetailAction.java
+END
+UsersAddAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/1533/api/confWeb/new-conf/src/com/seegle/action/UsersAddAction.java
+END
+TopModOrgNameAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/TopModOrgNameAction.java
+END
+VideoUploadAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/2148/api/confWeb/new-conf/src/com/seegle/action/VideoUploadAction.java
+END
+TopUserInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/TopUserInfoAction.java
+END
+UserSelectAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1776/api/confWeb/new-conf/src/com/seegle/action/UserSelectAction.java
+END
+GuestLoginAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/2517/api/confWeb/new-conf/src/com/seegle/action/GuestLoginAction.java
+END
+ConfPageAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/3260/api/confWeb/new-conf/src/com/seegle/action/ConfPageAction.java
+END
+SoftwareDownloadAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/web_code/!svn/ver/2289/api/confWeb/new-conf/src/com/seegle/action/SoftwareDownloadAction.java
+END
+TopVideoListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/web_code/!svn/ver/2148/api/confWeb/new-conf/src/com/seegle/action/TopVideoListAction.java
+END
+MeetingAddMenuAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingAddMenuAction.java
+END
+UserManageAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1776/api/confWeb/new-conf/src/com/seegle/action/UserManageAction.java
+END
+TopOperuserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/3255/api/confWeb/new-conf/src/com/seegle/action/TopOperuserAction.java
+END
+MeetingModAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingModAction.java
+END
+MeetingSelectAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingSelectAction.java
+END
+UserInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/2176/api/confWeb/new-conf/src/com/seegle/action/UserInfoAction.java
+END
+MeetingCountConfDetailAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingCountConfDetailAction.java
+END
+GuestConfPageAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/web_code/!svn/ver/2196/api/confWeb/new-conf/src/com/seegle/action/GuestConfPageAction.java
+END
+ConfSetManagerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/1896/api/confWeb/new-conf/src/com/seegle/action/ConfSetManagerAction.java
+END
+VideoDownLoadAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/web_code/!svn/ver/1818/api/confWeb/new-conf/src/com/seegle/action/VideoDownLoadAction.java
+END
+MenuManagerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/2176/api/confWeb/new-conf/src/com/seegle/action/MenuManagerAction.java
+END
+MeetingCountUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingCountUserAction.java
+END
+MeetingManageAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingManageAction.java
+END
+MeetingModAdminAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingModAdminAction.java
+END
+PhoneConsumeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/web_code/!svn/ver/3263/api/confWeb/new-conf/src/com/seegle/action/PhoneConsumeAction.java
+END
+ChangeLogoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1505/api/confWeb/new-conf/src/com/seegle/action/ChangeLogoAction.java
+END
+TopUserSetManagerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/TopUserSetManagerAction.java
+END
+PhoneChargingSettingAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/web_code/!svn/ver/3234/api/confWeb/new-conf/src/com/seegle/action/PhoneChargingSettingAction.java
+END
+TopGuestConfPageAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/web_code/!svn/ver/2196/api/confWeb/new-conf/src/com/seegle/action/TopGuestConfPageAction.java
+END
+MeetingOrderAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/web_code/!svn/ver/2107/api/confWeb/new-conf/src/com/seegle/action/MeetingOrderAction.java
+END
+MeetingListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/3231/api/confWeb/new-conf/src/com/seegle/action/MeetingListAction.java
+END
+UserEditAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/2176/api/confWeb/new-conf/src/com/seegle/action/UserEditAction.java
+END
+opmloginAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/2185/api/confWeb/new-conf/src/com/seegle/action/opmloginAction.java
+END
+UserSetManagerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/1897/api/confWeb/new-conf/src/com/seegle/action/UserSetManagerAction.java
+END
+ServerVideoDownloadAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/web_code/!svn/ver/3294/api/confWeb/new-conf/src/com/seegle/action/ServerVideoDownloadAction.java
+END
+UserAddAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/web_code/!svn/ver/2176/api/confWeb/new-conf/src/com/seegle/action/UserAddAction.java
+END
+ServerVideoListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/3294/api/confWeb/new-conf/src/com/seegle/action/ServerVideoListAction.java
+END
+RoleManagerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/2046/api/confWeb/new-conf/src/com/seegle/action/RoleManagerAction.java
+END

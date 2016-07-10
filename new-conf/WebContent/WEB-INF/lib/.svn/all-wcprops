@@ -1,0 +1,413 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/web_code/!svn/ver/2854/api/confWeb/new-conf/WebContent/WEB-INF/lib
+END
+spring-context-3.0.5.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/spring-context-3.0.5.RELEASE.jar
+END
+jasypt-wicket15-1.9.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/jasypt-wicket15-1.9.0.jar
+END
+spring-beans-3.0.5.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/spring-beans-3.0.5.RELEASE.jar
+END
+registry.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/registry.jar
+END
+jstl-1.0.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/jstl-1.0.2.jar
+END
+mysql-connector-java-5.1.18-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/mysql-connector-java-5.1.18-bin.jar
+END
+jstl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/jstl.jar
+END
+jhighlight-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/jhighlight-1.0.jar
+END
+commons-io-2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-io-2.1.jar
+END
+javax.inject-1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/javax.inject-1.jar
+END
+signpost-core-1.2.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/signpost-core-1.2.1.1.jar
+END
+commons-chain-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-chain-1.1.jar
+END
+commons-fileupload-1.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/web_code/!svn/ver/1662/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-fileupload-1.2.1.jar
+END
+commons-fileupload-1.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar
+END
+json-simple-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/json-simple-1.1.1.jar
+END
+jxl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/jxl.jar
+END
+cos-26Dec2008.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/web_code/!svn/ver/1662/api/confWeb/new-conf/WebContent/WEB-INF/lib/cos-26Dec2008.jar
+END
+log4j-1.2.16.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/log4j-1.2.16.jar
+END
+jcl-over-slf4j-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/jcl-over-slf4j-1.6.1.jar
+END
+aopalliance-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/aopalliance-1.0.jar
+END
+velocity-dep-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/velocity-dep-1.4.jar
+END
+ejb3-persistence.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/ejb3-persistence.jar
+END
+bsf-2.3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/bsf-2.3.0.jar
+END
+struts-taglib-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/struts-taglib-1.3.8.jar
+END
+struts-mailreader-dao-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/struts-mailreader-dao-1.3.8.jar
+END
+base(2).jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/base(2).jar
+END
+spring-expression-3.0.5.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/spring-expression-3.0.5.RELEASE.jar
+END
+httpclient-cache-4.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/httpclient-cache-4.2.1.jar
+END
+mail.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/mail.jar
+END
+Clt.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/Clt.jar
+END
+fluent-hc-4.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/fluent-hc-4.2.1.jar
+END
+httpmime-4.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/httpmime-4.2.1.jar
+END
+struts-faces-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/struts-faces-1.3.8.jar
+END
+commons-logging-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-logging-1.1.1.jar
+END
+struts-core-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/struts-core-1.3.8.jar
+END
+spring-aop-3.0.5.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/spring-aop-3.0.5.RELEASE.jar
+END
+activation.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/web_code/!svn/ver/1543/api/confWeb/new-conf/WebContent/WEB-INF/lib/activation.jar
+END
+velocity-1.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/velocity-1.7.jar
+END
+commons-beanutils-1.8.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-beanutils-1.8.3.jar
+END
+joda-time-2.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/joda-time-2.0.jar
+END
+struts-scripting-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/struts-scripting-1.3.8.jar
+END
+struts-extras-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/struts-extras-1.3.8.jar
+END
+dom4j-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/dom4j-1.6.1.jar
+END
+httpclient-4.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/httpclient-4.2.1.jar
+END
+asm-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/asm-3.1.jar
+END
+commons-digester-1.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-digester-1.8.jar
+END
+commons-configuration-1.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-configuration-1.7.jar
+END
+javabase64-1.3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/javabase64-1.3.1.jar
+END
+commons-collections-3.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-collections-3.2.1.jar
+END
+struts-tiles-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/struts-tiles-1.3.8.jar
+END
+httpcore-4.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/httpcore-4.2.1.jar
+END
+standard-1.0.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/standard-1.0.2.jar
+END
+commons-validator-1.3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-validator-1.3.1.jar
+END
+standard.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/standard.jar
+END
+jaxen-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/jaxen-1.1.1.jar
+END
+oro-2.0.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/oro-2.0.8.jar
+END
+struts-el-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/web_code/!svn/ver/1450/api/confWeb/new-conf/WebContent/WEB-INF/lib/struts-el-1.3.8.jar
+END
+spring-core-3.0.5.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/spring-core-3.0.5.RELEASE.jar
+END
+cglib-2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/cglib-2.2.jar
+END
+antlr-2.7.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/web_code/!svn/ver/1457/api/confWeb/new-conf/WebContent/WEB-INF/lib/antlr-2.7.2.jar
+END
+commons-codec-1.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-codec-1.6.jar
+END
+slf4j-api-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar
+END
+poi-3.8-20120326.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/poi-3.8-20120326.jar
+END
+guice-3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/guice-3.0.jar
+END
+spring-web-3.0.5.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/spring-web-3.0.5.RELEASE.jar
+END
+commons-lang-2.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/commons-lang-2.6.jar
+END
+spring-asm-3.0.5.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/spring-asm-3.0.5.RELEASE.jar
+END
+slf4j-log4j12-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/web_code/!svn/ver/1426/api/confWeb/new-conf/WebContent/WEB-INF/lib/slf4j-log4j12-1.6.1.jar
+END

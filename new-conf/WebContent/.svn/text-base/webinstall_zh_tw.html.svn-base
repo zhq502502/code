@@ -1,0 +1,524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>視頻會議</title>
+<link href="css/install_zh_tw.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.4.4.min.js" type="text/javascript"></script>
+<script src="js/jquery.cookie.js" type="text/javascript"></script>
+<script src="js/jquery.simplemodal.js" type="text/javascript"></script>
+<script language="javascript">
+function zhixing()
+{
+	var dir = thisform.setupurl.value;
+	var parm = " -d -h %d -"+ "簡體中文";
+	xiazai.innerText = "開始軟件安裝：";
+	testocx.StartSetup(dir, parm);
+
+}
+	function download(url)
+{
+	
+	flag = testocx.DownloadFile(url);
+}
+
+	function GetRequestParams(url)
+	{ 
+		var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+		var paraObj = {};
+		for (i=0; j=paraString[i]; i++)
+		{ 
+			paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+		} 
+
+		return paraObj;
+	}
+
+</script>
+<script for="testocx" event="OnSetupStatusEvent(nStatus,nMsgID,lpszMsg)" language="JScript">
+	thisform.b_setup.disabled = true;
+	yxz.innerText = lpszMsg;
+	if(nStatus==0)
+	{
+		yxz.innerText = "程序正在加載";
+		joinconf();
+		self.close();
+	}
+</script>
+<script for="testocx" event="OnDownloadStatusEvent(nStatus,nDownSize,nFileSize,lpszFileName)" language="JScript">
+	if(nStatus == 0)
+	{
+		alert("未知原因導致下載失敗！");
+		return false;
+	}
+
+	if(nStatus == 1)
+	{
+		thisform.b_stopdownload.disabled = true;
+		nFileSizeFixed = nFileSize/1000000;
+		nFileSizeFixed = nFileSizeFixed.toString();
+		pos1 = nFileSizeFixed.indexOf(".");
+		if(pos1<0)
+		{
+			pos1=nFileSizeFixed.lengh+2;
+		}
+		nFileSizeFixed = nFileSizeFixed.substr(0,pos1+2);
+		rjdx.innerText = nFileSizeFixed+"MB";
+		
+		NowPercent1 = nDownSize/nFileSize;
+		NowPercent2 = NowPercent1;
+		NowWidth = NowPercent1*120;
+		
+		NowPercent = NowPercent2*100;
+		NowPercent = NowPercent.toString();
+		pos2 = NowPercent.indexOf(".");
+		if(pos2<0)
+		{
+			pos2=NowPercent.length+2;
+		}
+		NowPercent = NowPercent.substr(0,pos2);
+		yxz.innerText = NowPercent + "%";
+		zzxz.style.width = NowWidth;
+	}
+	if(nStatus == 2)
+	{
+		thisform.b_stopdownload.disabled = true;
+		thisform.b_setup.disabled = true;
+		yxz.innerText = "下載完畢";
+		thisform.setupurl.value = lpszFileName;
+		zhixing();
+		return false;
+	}
+</script>
+<script language="javascript">
+var client_registry = $.cookie('client_registry');
+var client_confname = $.cookie('client_confname');
+var Mode;
+$(function() 
+{
+	var params = GetRequestParams(location.href);
+	var confip = $.cookie('confip');
+	var confid = $.cookie('confid');
+	var userid = $.cookie('userid');
+	var orgid = $.cookie('orgid');
+	var userpass = $.cookie('userpass');
+	var nickname = $.cookie('nickname');
+	var confpass = $.cookie('confpass');	
+	Mode = params['mode'] == null ? '0' : params['mode']; //0提示并安装,1不提示直接安装,2不提示直接安装并进会议室
+    type = params['type'] == null ? '0' : params['type']; //0为云会议客户端下载,1为运营版客户端下载
+    
+	$("#srvid").val(confip);
+	$("#confid").val(confid);
+	$("#username").val(userid);
+	$("#password").val(userpass);
+	$("#alias").val(nickname);	
+	$("#orgid").val(orgid);	
+	$("#confpass2").val(confpass);	
+	$("#RequestMode").val(Mode);	
+	CheckDownLoad();
+});	
+
+var BrowserDetect = 
+{
+	init: function () 
+	{
+		this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
+		this.version = this.searchVersion(navigator.userAgent)
+			|| this.searchVersion(navigator.appVersion)
+			|| "an unknown version";
+		this.OS = this.searchString(this.dataOS) || "an unknown OS";
+	},
+	searchString: function (data) {
+		for (var i=0;i<data.length;i++)	{
+			var dataString = data[i].string;
+			var dataProp = data[i].prop;
+			this.versionSearchString = data[i].versionSearch || data[i].identity;
+			if (dataString) {
+				if (dataString.indexOf(data[i].subString) != -1)
+					return data[i].identity;
+			}
+			else if (dataProp)
+				return data[i].identity;
+		}
+	},
+	searchVersion: function (dataString) {
+		var index = dataString.indexOf(this.versionSearchString);
+		if (index == -1) return;
+		return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
+	},
+	dataBrowser: [
+		{
+			string: navigator.userAgent,
+			subString: "Chrome",
+			identity: "Chrome"
+		},
+		{ 	string: navigator.userAgent,
+			subString: "OmniWeb",
+			versionSearch: "OmniWeb/",
+			identity: "OmniWeb"
+		},
+		{
+			string: navigator.vendor,
+			subString: "Apple",
+			identity: "Safari",
+			versionSearch: "Version"
+		},
+		{
+			prop: window.opera,
+			identity: "Opera",
+			versionSearch: "Version"
+		},
+		{
+			string: navigator.vendor,
+			subString: "iCab",
+			identity: "iCab"
+		},
+		{
+			string: navigator.vendor,
+			subString: "KDE",
+			identity: "Konqueror"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "Firefox",
+			identity: "Firefox"
+		},
+		{
+			string: navigator.vendor,
+			subString: "Camino",
+			identity: "Camino"
+		},
+		{		// for newer Netscapes (6+)
+			string: navigator.userAgent,
+			subString: "Netscape",
+			identity: "Netscape"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "MSIE",
+			identity: "MSIE",
+			versionSearch: "MSIE"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "Trident",
+			identity: "Trident",
+			versionSearch: "Trident"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "Gecko",
+			identity: "Mozilla",
+			versionSearch: "rv"
+		},
+		{ 		// for older Netscapes (4-)
+			string: navigator.userAgent,
+			subString: "Mozilla",
+			identity: "Netscape",
+			versionSearch: "Mozilla"
+		}
+	],
+	dataOS : [
+		{
+			string: navigator.platform,
+			subString: "Win",
+			identity: "Windows"
+		},
+		{
+			string: navigator.platform,
+			subString: "Mac",
+			identity: "Mac"
+		},
+		{
+			   string: navigator.userAgent,
+			   subString: "iPhone",
+			   identity: "iPhone/iPod"
+	    },
+		{
+			string: navigator.platform,
+			subString: "Linux",
+			identity: "Linux"
+		}
+	]
+
+};
+BrowserDetect.init();
+
+//i:confid
+//j:confsrvips(带集群类型和端口)
+//k:企业id
+//q:用户id
+//w:用户密码
+//n昵称
+function startconf(i, j, k, q, w, n, confpwd)
+{
+	var browser = BrowserDetect.browser.toLowerCase();
+	if (browser=="msie"||browser=="trident")
+	{
+		ConfDirPath = testocx.GetRegKeyStringValue("HKEY_LOCAL_MACHINE","SOFTWARE\\Seegle Team Office Platform","InstallPath");
+		if(ConfDirPath == "")
+		{
+			ConfDirPath = testocx.GetRegKeyStringValue("HKEY_LOCAL_MACHINE", "SOFTWARE\\可視協同辦公平台", "InstallPath");
+		}
+		ConfDir = ConfDirPath + '\\sgconf.exe';
+		var confsrvip = j;
+		var confsrvloadbalance = '1';
+		var orgid = k;
+		var uid = k+q;
+		var upass = w;
+		var unickname = n; 
+		var proxytype = '0';
+		var proxyaddr = '';
+		var proxyport = '';
+		var proxyuser = '';
+		var proxypass = '';
+		var confid = i;
+		var updateserverinfo='';
+		if(ConfDirPath == "")
+		{
+			if(confirm('檢測沒有安裝客戶端軟件,現在安裝嗎?'))
+			{
+				if(downloadurl==""){
+					location.href='http://www.seegletop.com/software/Seegletop-online-latest.exe';
+				}else{
+					location.href=downloadurl;
+				}
+				return false;
+			}
+			return false;
+		} 
+		else 
+		{
+			confpara = " -U " + updateserverinfo + " -T " + proxytype + " -S " + proxyaddr + " -R " + proxyport + " -N $'" + proxyuser + "' -Y $'" + proxypass + "' -H " + confsrvip + " -u " + uid + " -p $'" + upass + "' -n $'" + unickname + "' -c "+ confid + " -k $'" + confpwd + "' -t 0 -b "+confsrvloadbalance+"";
+			
+			testocx.RunExe(ConfDir,confpara,ConfDirPath,1);
+		}
+		//return;
+	} 
+	else if(browser=="firefox") 
+	{
+		netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+		try 
+		{
+			var wrk = Components.classes["@mozilla.org/windows-registry-key;1"].createInstance(Components.interfaces.nsIWindowsRegKey);
+			wrk.open(wrk.ROOT_KEY_LOCAL_MACHINE, "SOFTWARE\\Seegle Team Office Platform", wrk.ACCESS_READ);
+			var installpath = wrk.readStringValue("InstallPath");
+			var programfile = installpath + '\\' + Seegle.client_confname;
+			wrk.close();
+			
+		} 
+		catch (err) 
+		{
+			if(confirm('檢測沒有安裝客戶端軟件,現在安裝嗎?'))
+			{
+				if(downloadurl==""){
+					location.href='http://www.seegletop.com/software/Seegletop-online-latest.exe';
+				}else{
+					location.href=downloadurl;
+				}
+				return false;
+			}
+			return false;				
+			//return; 
+		}
+		try 
+		{
+			var FileFactory = new Components.Constructor("@mozilla.org/file/local;1","nsILocalFile","initWithPath");
+			var str_LocalProgram = programfile;
+			var obj_Program = new FileFactory(str_LocalProgram); 
+			var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
+			process.init(obj_Program);
+			var confsrvip = j;
+			var confsrvloadbalance = '0';
+			var orgid = k;
+			var uid = k+q;
+			var upass = w;
+			var unickname = n; 
+			var proxytype = '0';
+			var proxyaddr = '';
+			var proxyport = '';
+			var proxyuser = '';
+			var proxypass = '';
+			var confid = i;
+			var updateserverinfo='';	
+			var args = ["-U",updateserverinfo,"-T",proxytype,"-S",proxyaddr,"-R",proxyport,"-N","'$"+proxyuser+"'","-Y","'$"+proxypass+"'","-H", confsrvip,"-u",uid,"-p","'$"+upass+"'","-n","'$"+unickname+"'","-c",confid,"-k","'$'","-t","0","b",confsrvloadbalance];
+			this.log(programfile+args);
+			process.runw(false, args, args.length);
+				
+		} catch (err) 
+		{
+			
+			return false; 
+		}	
+	} 
+	else 
+	{
+		alert("不支持該遊覽器!");	
+	}
+}
+
+function joinconf() 
+{
+	if(Mode!='2')
+	{
+		return true;
+	}
+	var orgid =  thisform.orgid.value;
+	var srvid =  thisform.srvid.value;
+	var confid =  thisform.confid.value;
+	var username = thisform.username.value;
+	var password = (thisform.password.value=='null')?'':thisform.password.value;
+	var alias = (thisform.alias.value=='null')?'':thisform.alias.value;
+	var confpass2 = (thisform.confpass2.value=='null')?'':thisform.confpass2.value;
+	
+	if (srvid=="") 
+	{
+		alert('沒有可用的會議服務!');
+		self.close();
+		return false;
+	}
+	else if(confid=="65535") 
+	{
+		alert('會議還未就緒,請刷新重試!');
+		self.close();
+		return false;
+	}
+	if (g_installFlag == '0' || g_installFlag == '1')
+    {
+    	Seegle.postsgsvr(9090, 1, Seegle.client_registry, "InstallPath");
+    }
+	//Seegle.startconf(confid, srvid, orgid, username, password, alias,"",'2',Seegle.client_registry,"InstallPath",Seegle.client_confname,"0","","","","");									
+	startconf(confid, srvid, orgid, username,  password, alias, confpass2);
+}
+var downloadurl="";
+function CheckDownLoad() 
+{
+	    var download_meetUnOnline ="";
+	    if($.cookie('download_meetUnOnline')!=null){
+	    	if($.cookie('download_meetUnOnline').indexOf("http://")==0){
+	    		download_meetUnOnline = $.cookie('download_meetUnOnline');
+	    	}else{
+	    		download_meetUnOnline = $.cookie('siteurl')+'/'+$.cookie('download_meetUnOnline');
+	    	}
+	    }
+	    var download_seegleOnline ="";
+	    if($.cookie('download_seegleOnline')!=null){
+		     if($.cookie('download_seegleOnline').indexOf("http://")==0){
+		    	 	download_seegleOnline = $.cookie('download_seegleOnline');
+		    	}else{
+		    		download_seegleOnline = $.cookie('siteurl')+'/'+$.cookie('download_seegleOnline');
+		    	}
+	    }
+		if(type=='0'){
+			downloadurl=download_meetUnOnline;
+		}else{
+			downloadurl=download_seegleOnline;
+		}
+		var browser = BrowserDetect.browser.toLowerCase();
+		var ConfDirPath='';
+		if (browser=="msie"||browser=="trident")
+		{
+			if(Mode != '0')
+			{
+				//不提示，直接下载安装
+				if(!download(downloadurl))
+				{
+					return false;
+				}
+			}
+			else
+			{
+				ConfDirPath = testocx.GetRegKeyStringValue("HKEY_LOCAL_MACHINE","SOFTWARE\\Seegle Team Office Platform","InstallPath");
+				var ConfDir = ConfDirPath + '\\sgconf.exe';
+				if (ConfDirPath == "")
+				{
+					if(confirm("對不起您沒有安裝客戶端軟件,立即下載嗎？"))
+					{
+						if(!download(downloadurl))
+							return false;
+					}
+					else
+					{
+						return false;
+						self.close();
+					}
+				}
+			}
+		}
+		else
+		{
+			alert("不支持該遊覽器!");
+			self.close();
+			return false;
+		}
+	
+}	
+</script>
+</head>
+
+<OBJECT CODEBASE='RunSgplayer.cab#version=1,0,0,5' CLASSID='CLSID:DC61AC79-C88C-42B3-87CC-41CC3AC92F4C' id='testocx' height='0' width='0'  hspace='0'>
+		<param name='_Version' value='65536' />
+	    <param name='_ExtentX' value='19844' />
+	    <param name='_ExtentY' value='9260' />
+	    <param name='_StockProps' value='0' />
+</OBJECT>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="">
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="tab_anzh">
+  <tr>
+    <td height="104" colspan="2"></td>
+  </tr>
+  <tr>
+    <td height="321"><table border="0" align="center" cellpadding="2" cellspacing="0" class="tab_az">
+				<tr>
+					<form name="thisform">
+		<!-- -----------隐藏的表单------------ -->
+			   			<input name="orgid" id='orgid' value="" type="hidden">
+						<input name="confid" id='confid' value="" type="hidden">
+                        <input name="srvid" id="srvid" value="" type="hidden">
+						<input name="username" id="username" value="" type="hidden">
+						<input name="alias" id="alias" value="" type="hidden">
+						<input name="password" id="password" value="" type="hidden">
+						<input name="confpass2" id="confpass2" value="" type="hidden">
+						<input name="setupurl" value="" type="hidden">
+						<input name="downloadurl" value="" type="hidden">
+						<input name="RequestMode" value="" type="hidden">
+		<!-- --------------------------------- -->
+					<td width="36%" align="right" valign="top" color="white"><font color="#FFFFFF">軟件大小：</font></td>
+					<td width="64%" color="white"><font color="#FFFFFF"><font id="rjdx"></font></font></td>
+				</tr>
+				<tr> 
+					<td align="right" valign="top" color="white"><font color="#FFFFFF"><font id="xiazai1" color="#FFFFFF">正在安裝軟件：</font></font>
+				  </td>
+					<td>
+						<table cellspacing="0" cellpadding="0">
+							<tr>
+								<td id="zzxz" name="zzxz" style="width:'0'" bgcolor="white" height="8" color="white"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr> 
+					<td align="right" valign="top"><font color="#FFFFFF"><font id="xiazai" color="#FFFFFF">已安裝：</font></font></td>
+					<td color="white"><font color="#FFFFFF"><font id="yxz" color="#FFFFFF"></font></font></td>
+				</tr>
+				<tr> 
+					<td align="right" valign="top" colspan="2"><font color="#FFFFFF"><font id="anzhuang" color="#FFFFFF"></font></font></td>
+				</tr>	
+				<tr align="center"> 
+					<td colspan="2" valign="top">
+						<input onClick="javascript:self.close();" disabled name="b_stopdownload" onMouseOver="this.style.background='beige url() no-repeat top center'" onMouseOut="this.style.background='beige url() no-repeat top center'"  type="button" style="cursor:hand;border:0px #333333 solid;padding:0 0 0 0;width:59;height:18;background:url()">
+						&nbsp;<input onClick="zhixing();" name="b_setup" disabled onMouseOver="this.style.background='beige url() no-repeat top center'" onMouseOut="this.style.background='beige url() no-repeat top center'"  type="button" style="cursor:hand;border:0px #333333 solid;padding:0 0 0 0;width:38;height:18;background:url()">
+						&nbsp;<input name="b_close" onClick="javascript:self.close();" disabled onMouseOver="this.style.background='beige url() no-repeat top center'" onMouseOut="this.style.background='beige url() no-repeat top center'"  type="button" style="cursor:hand;border:0px #333333 solid;padding:0 0 0 0;width:38;height:18;background:url()">
+					</td>
+				</form>
+				</tr>
+			</table></td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+  </tr>
+</table>
+<script type="text/javascript" src="js/conf.js"></script>
+</body>
+</html>

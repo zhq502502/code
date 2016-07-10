@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/web_code/!svn/ver/3290/api/confWeb/new-conf/WebContent/page/phoneconf
+END
+PhonePayHistory.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/web_code/!svn/ver/3250/api/confWeb/new-conf/WebContent/page/phoneconf/PhonePayHistory.jsp
+END
+PhoneChargeHistory.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/3250/api/confWeb/new-conf/WebContent/page/phoneconf/PhoneChargeHistory.jsp
+END
+AjaxPhoneUserList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/2986/api/confWeb/new-conf/WebContent/page/phoneconf/AjaxPhoneUserList.jsp
+END
+PhoneConfAdd.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/web_code/!svn/ver/3315/api/confWeb/new-conf/WebContent/page/phoneconf/PhoneConfAdd.jsp
+END
+VerifycodeAdd.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/2903/api/confWeb/new-conf/WebContent/page/phoneconf/VerifycodeAdd.jsp
+END
+ImportUser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/web_code/!svn/ver/2961/api/confWeb/new-conf/WebContent/page/phoneconf/ImportUser.jsp
+END
+PhoneChargingSetting.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/web_code/!svn/ver/3290/api/confWeb/new-conf/WebContent/page/phoneconf/PhoneChargingSetting.jsp
+END
+PhoneConfList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/3315/api/confWeb/new-conf/WebContent/page/phoneconf/PhoneConfList.jsp
+END
+AjaxVerifycodeList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/web_code/!svn/ver/2960/api/confWeb/new-conf/WebContent/page/phoneconf/AjaxVerifycodeList.jsp
+END
+ImportUserSuccess.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/web_code/!svn/ver/2903/api/confWeb/new-conf/WebContent/page/phoneconf/ImportUserSuccess.jsp
+END

@@ -1,0 +1,9 @@
+1、调整tomcat字符集，即在server.xml中加入URIEncoding="UTF-8"，如下
+<Connector port="8080" protocol="HTTP/1.1" 
+               connectionTimeout="20000" 
+               redirectPort="8443"  URIEncoding="UTF-8"/>
+               
+2、发布完项目后数据库初始化
+	company表字段更新
+	检查file_info表有没建立，默认情况在新建企业时会自动建立对应的表。
+

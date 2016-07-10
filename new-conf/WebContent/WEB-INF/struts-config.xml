@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <form-beans>
+    </form-beans>
+
+    <global-exceptions>
+    </global-exceptions>
+
+    <global-forwards>
+		<forward name="error" path="/Login.jsp"/>
+    </global-forwards>
+
+    <action-mappings>
+		<action path="/ConfPage" type="com.seegle.action.ConfPageAction">
+        	<forward name="ConfList" path="/MeetingListAction.go"/>
+			<forward name="UserInfo" path="/UserInfoAction.go"/>
+			<forward name="ModPass" path="/ModPassAction.go"/>
+			<forward name="LogConf" path="/MeetingCountConfAction.go"/>
+			<forward name="LogUser" path="/MeetingCountUserAction.go"/>
+			<forward name="Download" path="/SoftwareDownloadAction.go"/>
+			<forward name="UserSetManager" path="/UserSetManagerAction.go"/>
+			<forward name="UserAdd" path="/UserAddAction.go"/>
+			<forward name="UserManage" path="/UserManageAction.go"/>
+			<forward name="UserEdit" path="/UserEditAction.go"/>
+			<forward name="UsersAdd" path="/UsersAddAction.go"/>
+			<forward name="ConfAdd" path="/MeetingAddMenuAction.go"/>
+			<forward name="ConfManage" path="/MeetingManageAction.go"/>	
+			<forward name="ChangeLogo" path="/ChangeLogoAction.go"/>
+			<forward name="ConfEdit" path="/MeetingModAction.go"/>	
+			<forward name="ConfCommon" path="/MeetingModCommonAction.go"/>
+			<forward name="ConfAdmin" path="/MeetingModAdminAction.go"/>
+			<forward name="ConfSetManager" path="/ConfSetManagerAction.go"/>
+			<forward name="VideoList" path="/VideoListAction.go"/>
+			<forward name="ServerVideoList" path="/ServerVideoListAction.go"/>
+			<forward name="VideoUpload" path="/VideoUploadAction.go"/>			
+			<forward name="EmailConfig" path="/MeetingReservationAction.go?method=emailconfig"/>	
+			<forward name="ConfSetManager" path="/ConfSetManagerAction.go"/>
+			<forward name="MenuManager" path="/MenuManagerAction.go"/>
+			<forward name="PublicPhoneconf" path="/PhoneconfAction.go?conftype=0"/>
+			<forward name="AllUserPhoneconf" path="/PhoneconfAction.go?conftype=3"/>
+			<forward name="UserPhoneconf" path="/PhoneconfAction.go?conftype=2"/>
+			<forward name="BindPhoneconf" path="/PhoneconfAction.go?conftype=1"/>
+			<forward name="SetPublicManager" path="/SetPublicManagerAction.go"/>
+			<forward name="SetPersonalPhone" path="/SetPersonalPhoneAction.go"/>
+			<forward name="LogPhoneConf" path="/PhoneConfLogAction.go"/>
+			<forward name="PhoneConsumeConf" path="/PhoneConsumeAction.go?method=conf"/>
+			<forward name="PhoneConsumeConfDetail" path="/PhoneConsumeAction.go?method=confDetail"/>
+			<forward name="PhoneConsumePhone" path="/PhoneConsumeAction.go?method=phone"/>
+			<forward name="PhoneConsumePhoneDetail" path="/PhoneConsumeAction.go?method=phoneDetail"/>
+			<forward name="PhoneConsumeOrg" path="/PhoneConsumeAction.go?method=org"/>
+			<forward name="ConfVerifyCode" path="/PhoneVerifycodeAction.go?method=list1"/>
+			<forward name="ChargingSetting" path="/PhoneChargingSettingAction.go"/>
+			<forward name="PayHistory" path="/PhonePayHistoryAction.go"/>
+			<forward name="ChargeHistory" path="/PhonePayHistoryAction.go?recordType=1"/>
+			<forward name="Backup" path="/BackupAction.go"/>
+			
+        </action>
+        
+		<action path="/PhoneChargingSettingAction" type="com.seegle.action.PhoneChargingSettingAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/phoneconf/PhoneChargingSetting.jsp"/>
+            <forward name="top_ChargingSetting" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconf/PhoneChargingSetting.jsp"/>
+        </action>
+        
+        <action path="/PhonePayHistoryAction" type="com.seegle.action.PhonePayHistoryAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/phoneconf/PhonePayHistory.jsp"/>
+            <forward name="top_PayHistory" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconf/PhonePayHistory.jsp"/>
+            <forward name="ChargeHistory" path="/page/conf/ConfPage.jsp?inc=/page/phoneconf/PhoneChargeHistory.jsp"/>
+            <forward name="top_ChargeHistory" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconf/PhoneChargeHistory.jsp"/>
+        </action>
+        
+        <action path="/MeetingListAction" type="com.seegle.action.MeetingListAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/conf/ConfList.jsp"/>
+        </action>
+        	
+        <action path="/MeetingSelectAction" type="com.seegle.action.MeetingSelectAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/conf/ConfList.jsp"/>
+        </action>	
+        
+        <action path="/MeetingCountConfAction" type="com.seegle.action.MeetingCountConfAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/report/LogConf.jsp"/>
+        </action>	
+        
+        <action path="/MeetingCountConfDetailAction" type="com.seegle.action.MeetingCountConfDetailAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/report/LogConfDetail.jsp"/>
+        </action>
+        
+        <action path="/MeetingCountUserAction" type="com.seegle.action.MeetingCountUserAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/report/LogUser.jsp"/>
+        </action>
+        
+        <action path="/CountUserDetailAction" type="com.seegle.action.CountUserDetailAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/report/LogUserDetail.jsp"/>
+        </action>
+          
+        <action path="/SoftwareDownloadAction" type="com.seegle.action.SoftwareDownloadAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/common/Download.jsp"/>
+        </action>          
+                                 		
+		<action path="/UserInfoAction" type="com.seegle.action.UserInfoAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserInfo.jsp"/>
+        </action>
+		
+		<action path="/ModPassAction" type="com.seegle.action.ModPassAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/common/ModPass.jsp"/>
+        </action>
+		
+		<action path="/UserSetManagerAction" type="com.seegle.action.UserSetManagerAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserSetManager.jsp"/>
+        </action>
+		
+		<action path="/UserAddAction" type="com.seegle.action.UserAddAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserAdd.jsp"/>
+        </action>
+		
+		<action path="/UserManageAction" type="com.seegle.action.UserManageAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserManage.jsp"/>
+        </action>
+		
+		<action path="/UserSelectAction" type="com.seegle.action.UserSelectAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserManage.jsp"/>
+        </action>
+		
+		<action path="/UserEditAction" type="com.seegle.action.UserEditAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserEdit.jsp"/>
+        </action>
+		
+		<action path="/UsersAddAction" type="com.seegle.action.UsersAddAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UsersAdd.jsp"/>
+        </action>		           
+		        
+        <action path="/MeetingAddMenuAction" type="com.seegle.action.MeetingAddMenuAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/conf/ConfAdd.jsp"/>
+        </action>
+        
+        <action path="/MeetingManageAction" type="com.seegle.action.MeetingManageAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/conf/ConfManage.jsp"/>
+        </action>
+        	
+        <action path="/MeetingManageSelectAction" type="com.seegle.action.MeetingManageSelectAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/conf/ConfManage.jsp"/>
+        </action>        	        		                 
+
+        <action path="/MeetingModAction" type="com.seegle.action.MeetingModAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/conf/ConfEdit.jsp"/>
+        </action>
+
+        <action path="/MeetingModCommonAction" type="com.seegle.action.MeetingModCommonAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/conf/ConfCommon.jsp"/>
+        </action>
+
+        <action path="/MeetingModAdminAction" type="com.seegle.action.MeetingModAdminAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/conf/ConfAdmin.jsp"/>
+        </action>
+		
+		<action path="/ChangeLogoAction" type="com.seegle.action.ChangeLogoAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/common/ChangeLogo.jsp"/>
+        </action>  
+        
+        <action path="/ConfSetManagerAction" type="com.seegle.action.ConfSetManagerAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/conf/ConfSetManager.jsp"/>
+        </action>
+		
+		<action path="/VideoListAction" type="com.seegle.action.VideoListAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/video/VideoList.jsp"/>
+        </action>
+	
+		<action path="/ServerVideoListAction" type="com.seegle.action.ServerVideoListAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/video/ServerVideoList.jsp"/>
+        </action>
+		                                                                 
+		<action path="/ServerVideoDownloadAction" type="com.seegle.action.ServerVideoDownloadAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/video/ServerVideoList.jsp"/>            
+        </action>
+        		
+		<action path="/VideoUploadAction" type="com.seegle.action.VideoUploadAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/video/VideoUpload.jsp"/>
+            <forward name="top_videoupload" path="/page/topconf/TopConfPage.jsp?inc=/page/video/VideoUpload.jsp"/>
+        </action>
+		
+		<action path="/VideoDownloadAction" type="com.seegle.action.VideoDownLoadAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/video/VideoList.jsp"/>            
+        </action>
+        
+		<action path="/MenuManagerAction" type="com.seegle.action.MenuManagerAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/menurole/MenuManager.jsp"/>
+        </action>
+        
+		<action path="/PhoneconfAction" type="com.seegle.phoneaction.PhoneconfAction">
+            <forward name="list" path="/page/conf/ConfPage.jsp?inc=/page/phoneconf/PhoneConfList.jsp"/>
+            <forward name="goadd" path="/page/conf/ConfPage.jsp?inc=/page/phoneconf/PhoneConfAdd.jsp"/>
+            <forward name="listTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconf/PhoneConfList.jsp"/>
+            <forward name="goaddTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconf/PhoneConfAdd.jsp"/>
+        </action>
+		<action path="/PublicPhoneconf" type="com.seegle.phoneaction.PublicPhoneconf">
+            <forward name="list" path="/page/conf/ConfPage.jsp?inc=/page/phoneconf/PhoneConfList.jsp"/>
+            <forward name="goadd" path="/page/conf/ConfPage.jsp?inc=/page/phoneconf/PhoneConfAdd.jsp"/>
+            <forward name="listTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconf/PhoneConfList.jsp"/>
+            <forward name="goaddTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconf/PhoneConfAdd.jsp"/>
+        </action>
+        
+        <action path="/SetPublicManagerAction" type="com.seegle.phoneaction.SetPublicManagerAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/phoneuser/SetPublicManager.jsp"/>
+            <forward name="successTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneuser/SetPublicManager.jsp"/>
+        </action>
+        		 
+		<action path="/SetPersonalPhoneAction" type="com.seegle.phoneaction.SetPersonalPhoneAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/phoneuser/SetPersonalPhone.jsp"/>
+            <forward name="successTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneuser/SetPersonalPhone.jsp"/>
+        </action>        
+        
+        <action path="/PhoneConfLogAction" type="com.seegle.phoneaction.PhoneConfLogAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/phoneconf/LogPhoneConf.jsp"/>
+        </action>
+        <action path="/PhoneVerifycodeAction" type="com.seegle.phoneaction.VerifycodeAction">
+            <forward name="list" path="/page/phoneconf/AjaxVerifycodeList.jsp"/>
+            <forward name="goadd" path="/page/conf/ConfPage.jsp?inc=/page/phoneconf/VerifycodeAdd.jsp"/>
+            <forward name="list1" path="/page/conf/ConfPage.jsp?inc=/page/conf/VerifyCode.jsp"/>
+        </action>
+        <action path="/PhoneUserAction" type="com.seegle.phoneaction.PhoneUserAction">
+            <forward name="list" path="/page/phoneconf/AjaxPhoneUserList.jsp"/>
+            <forward name="goimport" path="/page/phoneconf/ImportUser.jsp"/>
+            <forward name="importsuccess" path="/page/phoneconf/ImportUserSuccess.jsp"/>
+        </action>
+        <action path="/PhoneConsumeAction" type="com.seegle.action.PhoneConsumeAction">
+            <forward name="consumeConf" path="/page/conf/ConfPage.jsp?inc=/page/phoneconsume/PhoneConsumeConf.jsp"/>
+            <forward name="consumeConfDetail" path="/page/conf/ConfPage.jsp?inc=/page/phoneconsume/PhoneConsumeConfDetail.jsp"/>
+            <forward name="consumePhone" path="/page/conf/ConfPage.jsp?inc=/page/phoneconsume/PhoneConsumePhone.jsp"/>
+            <forward name="consumePhoneDetail" path="/page/conf/ConfPage.jsp?inc=/page/phoneconsume/PhoneConsumePhoneDetail.jsp"/>
+            <forward name="consumeOrg" path="/page/conf/ConfPage.jsp?inc=/page/phoneconsume/PhoneConsumeOrg.jsp"/>
+            <forward name="consumeConfTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconsume/PhoneConsumeConf.jsp"/>
+            <forward name="consumeConfDetailTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconsume/PhoneConsumeConfDetail.jsp"/>
+            <forward name="consumePhoneTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconsume/PhoneConsumePhone.jsp"/>
+            <forward name="consumePhoneDetailTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconsume/PhoneConsumePhoneDetail.jsp"/>
+            <forward name="consumeOrgTop" path="/page/topconf/TopConfPage.jsp?inc=/page/phoneconsume/PhoneConsumeOrg.jsp"/>
+            <forward name="error" path="/Login.jsp"/>
+            
+        </action>
+        <action path="/BackupAction" type="com.seegle.action.BackupAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/common/Backup.jsp"/>
+            <forward name="error" path="/Login.jsp"/>
+            
+        </action>
+		<action path="/TopConfPage" type="com.seegle.action.TopConfPageAction">
+			<forward name="TopUserInfo" path="/TopUserInfoAction.go"/>
+			<forward name="TopConfList" path="/TopConfListAction.go"/>	
+			<forward name="TopConfManage" path="/TopMeetingManageAction.go"/>
+			<forward name="TopLogConf" path="/TopMeetingCountConfAction.go"/>
+			<forward name="TopLogUser" path="/TopMeetingCountUserAction.go"/>
+			<forward name="TopDownload" path="/TopSoftwareDownloadAction.go?top=top"/>
+			<forward name="TopUserSetManager" path="/TopUserSetManagerAction.go"/>	
+			<forward name="TopModOrgName" path="/TopModOrgNameAction.go"/>
+			<forward name="TopUserSetManager" path="/TopUserSetManagerAction.go"/>
+			<forward name="TopEmailConfig" path="/MeetingReservationAction.go?method=emailconfig&amp;top=top"/>
+			<forward name="TopVideoList" path="/TopVideoListAction.go"/>
+			<forward name="TopVideoUpload" path="/VideoUploadAction.go?top=top"/>	
+			<forward name="PublicPhoneconf" path="/PhoneconfAction.go?conftype=0&amp;top=top"/>
+			<forward name="AllUserPhoneconf" path="/PhoneconfAction.go?conftype=3&amp;top=top"/>
+			<forward name="UserPhoneconf" path="/PhoneconfAction.go?conftype=2&amp;top=top"/>
+			<forward name="BindPhoneconf" path="/PhoneconfAction.go?conftype=1&amp;top=top"/>
+			<forward name="SetPublicManager" path="/SetPublicManagerAction.go&amp;top=top"/>
+			<forward name="SetPersonalPhone" path="/SetPersonalPhone.go&amp;top=top"/>
+			<forward name="LogPhoneConf" path="/PhoneConfLogAction.go&amp;top=top"/>
+			<forward name="PhoneConsumeConf" path="/PhoneConsumeAction.go?method=conf"/>
+			<forward name="PhoneConsumeConfDetail" path="/PhoneConsumeAction.go?method=confDetail"/>
+			<forward name="PhoneConsumePhone" path="/PhoneConsumeAction.go?method=phone"/>
+			<forward name="PhoneConsumePhoneDetail" path="/PhoneConsumeAction.go?method=phoneDetail"/>
+			<forward name="PhoneConsumeOrg" path="/PhoneConsumeAction.go?method=org"/>	
+			<forward name="TopOperuser" path="/TopOperuserAction.go"/>	
+			<forward name="ChargingSetting" path="/PhoneChargingSettingAction.go?top=top"/>
+			<forward name="PayHistory" path="/PhonePayHistoryAction.go?top=top"/>
+			<forward name="ChargeHistory" path="/PhonePayHistoryAction.go?recordType=1&amp;top=top"/>
+        </action>
+		
+		<action path="/TopUserInfoAction" type="com.seegle.action.TopUserInfoAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topuser/TopUserInfo.jsp"/>
+        </action>
+		
+		<action path="/TopConfListAction" type="com.seegle.action.MeetingListAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topconf/TopConfList.jsp"/>
+        </action>
+		
+		<action path="/TopMeetingSelectAction" type="com.seegle.action.MeetingSelectAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topconf/TopConfList.jsp"/>
+        </action>	
+        
+        <action path="/TopMeetingManageAction" type="com.seegle.action.MeetingManageAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topconf/TopConfManage.jsp"/>
+        </action>
+        	
+        <action path="/TopMeetingManageSelectAction" type="com.seegle.action.MeetingManageSelectAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topconf/TopConfManage.jsp"/>
+        </action> 
+        
+        <action path="/TopMeetingCountConfAction" type="com.seegle.action.MeetingCountConfAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topreport/TopLogConf.jsp"/>
+        </action>	
+        
+        <action path="/TopMeetingCountConfDetailAction" type="com.seegle.action.MeetingCountConfDetailAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topreport/TopLogConfDetail.jsp"/>
+        </action>
+        
+        <action path="/TopMeetingCountUserAction" type="com.seegle.action.MeetingCountUserAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topreport/TopLogUser.jsp"/>
+        </action>
+        
+        <action path="/TopCountUserDetailAction" type="com.seegle.action.CountUserDetailAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topreport/TopLogUserDetail.jsp"/>
+        </action>
+          
+        <action path="/TopSoftwareDownloadAction" type="com.seegle.action.SoftwareDownloadAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/common/TopDownload.jsp"/>
+        </action>
+		
+		<action path="/TopModOrgNameAction" type="com.seegle.action.TopModOrgNameAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/common/TopModOrgName.jsp"/>
+        </action>
+		
+		<action path="/TopUserSetManagerAction" type="com.seegle.action.TopUserSetManagerAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topuser/TopUserSetManager.jsp"/>
+        </action>
+		
+		<action path="/GuestConfPage" type="com.seegle.action.GuestConfPageAction">
+			<forward name="error" path="/Login.jsp"/>
+			<forward name="GuestConflist" path="/GuestConfListAction.go"/>
+        </action>
+		
+		<action path="/GuestConfListAction" type="com.seegle.action.MeetingListAction">
+            <forward name="success" path="/page/guest/GuestConfPage.jsp?inc=/page/guest/GuestConfList.jsp"/>
+        </action>
+		
+		<action path="/GuestConfSelectAction" type="com.seegle.action.MeetingSelectAction">
+            <forward name="success" path="/page/guest/GuestConfPage.jsp?inc=/page/guest/GuestConfList.jsp"/>
+        </action>
+		
+		<action path="/TopGuestConfPage" type="com.seegle.action.TopGuestConfPageAction">
+			<forward name="error" path="/Login.jsp"/>
+			<forward name="TopGuestConfList" path="/TopGuestConfListAction.go"/>
+        </action>
+		
+		<action path="/TopGuestConfListAction" type="com.seegle.action.MeetingListAction">
+            <forward name="success" path="/page/topguest/TopGuestConfPage.jsp?inc=/page/topguest/TopGuestConfList.jsp"/>
+        </action>
+		
+		<action path="/TopGuestConfSelectAction" type="com.seegle.action.MeetingSelectAction">
+            <forward name="success" path="/page/topguest/TopGuestConfPage.jsp?inc=/page/topguest/TopGuestConflist.jsp"/>
+        </action>
+        
+        <!--Reservation action start -->
+		<action path="/MeetingReservationAction" type="com.seegle.action.MeetingReservationAction">
+            <forward name="emailconfig" path="/page/conf/ConfPage.jsp?inc=/page/common/EmailConfig.jsp"/>
+            <forward name="emailconfig_top" path="/page/topconf/TopConfPage.jsp?inc=/page/common/EmailConfig.jsp"/>
+        </action>
+		
+		<action path="/TOMeetingReservationAction" type="com.seegle.action.MeetingReservationAction">
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/common/SendEmail.jsp"/>
+            <forward name="top" path="/page/topconf/TopConfPage.jsp?inc=/page/common/TopSendEmail.jsp"/>
+        </action>      
+        
+        <action path="/TopVideoListAction" type="com.seegle.action.TopVideoListAction">
+            <forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/video/TopVideoList.jsp"/>
+        </action>
+        <!-- Reservation action end -->
+		<action path="/MeetingOrderAction" type="com.seegle.action.MeetingOrderAction">
+			
+        </action>
+		<action path="/TopOperuserAction" type="com.seegle.action.TopOperuserAction">
+			<forward name="success" path="/page/topconf/TopConfPage.jsp?inc=/page/topuser/TopOperuserlist.jsp"/>
+        </action>
+        
+    </action-mappings>
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"
+    			maxFileSize="2048M" />
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>
+    <!-- ========================= Tiles plugin ===============================-->
+     <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+
+</struts-config>

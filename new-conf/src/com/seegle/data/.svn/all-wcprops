@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/web_code/!svn/ver/3294/api/confWeb/new-conf/src/com/seegle/data
+END
+UserOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/web_code/!svn/ver/2983/api/confWeb/new-conf/src/com/seegle/data/UserOperation.java
+END
+PhoneConfOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/3119/api/confWeb/new-conf/src/com/seegle/data/PhoneConfOperation.java
+END
+FileOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/web_code/!svn/ver/3294/api/confWeb/new-conf/src/com/seegle/data/FileOperation.java
+END
+ReadConfigFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/web_code/!svn/ver/3001/api/confWeb/new-conf/src/com/seegle/data/ReadConfigFile.java
+END
+PhoneChargeOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/web_code/!svn/ver/3290/api/confWeb/new-conf/src/com/seegle/data/PhoneChargeOperation.java
+END
+allOperation.properties
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/1972/api/confWeb/new-conf/src/com/seegle/data/allOperation.properties
+END
+GetConfigFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/web_code/!svn/ver/3001/api/confWeb/new-conf/src/com/seegle/data/GetConfigFile.java
+END
+RoleMenuOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/web_code/!svn/ver/2162/api/confWeb/new-conf/src/com/seegle/data/RoleMenuOperation.java
+END
+MeetingOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/3020/api/confWeb/new-conf/src/com/seegle/data/MeetingOperation.java
+END
+HttpClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/web_code/!svn/ver/3290/api/confWeb/new-conf/src/com/seegle/data/HttpClient.java
+END
+ConfCountOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/2966/api/confWeb/new-conf/src/com/seegle/data/ConfCountOperation.java
+END
+SQLOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/web_code/!svn/ver/2762/api/confWeb/new-conf/src/com/seegle/data/SQLOperation.java
+END
+ConnMYSQL.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/web_code/!svn/ver/2289/api/confWeb/new-conf/src/com/seegle/data/ConnMYSQL.java
+END
+PhoneOperuserOper.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/web_code/!svn/ver/3166/api/confWeb/new-conf/src/com/seegle/data/PhoneOperuserOper.java
+END
+Export2Excel.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/web_code/!svn/ver/3218/api/confWeb/new-conf/src/com/seegle/data/Export2Excel.java
+END
+MenuOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/web_code/!svn/ver/2162/api/confWeb/new-conf/src/com/seegle/data/MenuOperation.java
+END
+CompanyOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/3117/api/confWeb/new-conf/src/com/seegle/data/CompanyOperation.java
+END
+DownloadOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/web_code/!svn/ver/3015/api/confWeb/new-conf/src/com/seegle/data/DownloadOperation.java
+END
+PhoneConsumeOper.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/web_code/!svn/ver/2877/api/confWeb/new-conf/src/com/seegle/data/PhoneConsumeOper.java
+END
+PhoneUserOperation.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/web_code/!svn/ver/3119/api/confWeb/new-conf/src/com/seegle/data/PhoneUserOperation.java
+END
+GetCookies.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/web_code/!svn/ver/3016/api/confWeb/new-conf/src/com/seegle/data/GetCookies.java
+END
+CommonFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/web_code/!svn/ver/1472/api/confWeb/new-conf/src/com/seegle/data/CommonFunction.java
+END

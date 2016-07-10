@@ -1,0 +1,51 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/halo";
+
+.SGDividerBoxApp{ 
+	backgroundGradientAlphas: 1,1;
+	backgroundGradientColors: #DCEBFE,#8EB3E7;
+}
+
+.SGDividerBox{
+	barBorderColor:			#8EB3E7;
+	barFillColors: 			#DCEBFE,#8EB3E7;
+	dividerThickness: 		10; 
+	dividerSkin:			Embed(source="/sg/skins/assets/NavGrip.png");
+	
+}
+.SGDividerBoxButtonH{
+	buttonWidth:			30;
+	barBorderColor:			#8EB3E7;
+	barFillColors: 			#DCEBFE,#8EB3E7;
+	dividerThickness: 		6;
+	dividerSkin:			Embed(source="/sg/skins/assets/NavGrip.png");
+	downSkin:				Embed(source="/sg/skins/assets/SkinSet001.swf#H_Slider_Button_1");
+	overSkin:				Embed(source="/sg/skins/assets/SkinSet001.swf#H_Slider_Button_2");
+	upSkin:					Embed(source="/sg/skins/assets/SkinSet001.swf#H_Slider_Button_2");
+	selectedDownSkin:		Embed(source="/sg/skins/assets/SkinSet001.swf#H_Slider_Button_1");
+	selectedOverSkin:		Embed(source="/sg/skins/assets/SkinSet001.swf#H_Slider_Button_2");
+	selectedUpSkin:			Embed(source="/sg/skins/assets/SkinSet001.swf#H_Slider_Button_2");
+	cornerRadius:			0;
+}
+
+.SGDividerBoxButtonV{
+	buttonWidth:			30;
+	barBorderColor:			#8EB3E7;
+	barFillColors: 			#DCEBFE,#8EB3E7;
+	dividerThickness: 		6;
+	dividerSkin:			Embed(source="/sg/skins/assets/NavGrip.png"); 
+	downSkin:				Embed(source="/sg/skins/assets/SkinSet001.swf#V_Slider_Button_1");
+	overSkin:				Embed(source="/sg/skins/assets/SkinSet001.swf#V_Slider_Button_2");
+	upSkin:					Embed(source="/sg/skins/assets/SkinSet001.swf#V_Slider_Button_2");
+	selectedDownSkin:		Embed(source="/sg/skins/assets/SkinSet001.swf#V_Slider_Button_1");
+	selectedOverSkin:		Embed(source="/sg/skins/assets/SkinSet001.swf#V_Slider_Button_2");
+	selectedUpSkin:			Embed(source="/sg/skins/assets/SkinSet001.swf#V_Slider_Button_2");
+	cornerRadius:			0;
+}
+
+.SGApplicationControlBar{
+	cornerRadius: 0;
+	fillColors: #DCEBFE,#8EB3E7;
+	fillAlphas: 1.0, 0.5;
+}

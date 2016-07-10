@@ -1,0 +1,76 @@
+10
+
+dir
+3313
+http://svn.kkbase.org:8088/repos/web_code/api/confWeb/new-conf/WebContent/page
+http://svn.kkbase.org:8088/repos/web_code
+
+
+
+2015-01-27T06:56:33.481125Z
+3312
+wujing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6558afae-48fb-b249-a359-a30f4a7ca212
+
+phoneconf
+dir
+
+conf
+dir
+
+menurole
+dir
+
+guest
+dir
+
+common
+dir
+
+topreport
+dir
+
+topuser
+dir
+
+department
+dir
+
+phoneconsume
+dir
+
+video
+dir
+
+phoneuser
+dir
+
+topconf
+dir
+
+topguest
+dir
+
+report
+dir
+
+util
+dir
+
+user
+dir
+
