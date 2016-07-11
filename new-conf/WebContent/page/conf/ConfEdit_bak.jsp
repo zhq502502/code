@@ -69,8 +69,8 @@ datelang=language.replace('_', '-');
 		<div id="tabs" class="tab_m">
 			<ul style='background: #F1F6FD; border: 0'>
 			<li><a href="#tabs-1"><%=lu.getLanguage(language,"confedit.confroominfo","会议室信息") %></a></li>
-			<li><a href="#" onclick="p_confcommon()"><%=lu.getLanguage(language,"confedit.confcommon","默认与会者") %></a></li>
-			<li><a href="#" onclick="p_confadmin()"><%=lu.getLanguage(language,"confedit.confadmin","视频会议管理员") %></a></li>
+			<li><a href="#tabs-2" onclick="confcommon()"><%=lu.getLanguage(language,"confedit.confcommon","默认与会者") %></a></li>
+			<li><a href="#tabs-3" onclick="confadmin()"><%=lu.getLanguage(language,"confedit.confadmin","视频会议管理员") %></a></li>
 			</ul>
 			<div style="border-bottom:1px #348CD4 solid;"></div>
 			<div id="tabs-1" style="padding: 0px;">
@@ -240,7 +240,7 @@ datelang=language.replace('_', '-');
 	    return item_id;
   }
 		$(document).ready(function() {
-			//jQuery(".ui-tabs-selected a").click();
+			jQuery(".ui-tabs-selected a").click();
 			$('#conf_manage').addClass("sel_tag");
 			var siteurl = $('#siteurl').val();
 			$('#form').submit(function(){
@@ -493,4 +493,3 @@ datelang=language.replace('_', '-');
 			location.href=siteurl+'/ConfPage.go?inc=ConfAdmin&confid='+cid+'&page='+page;
 		}
 	</script>
-<%@include file="../plugin/depart/confuser.jsp" %>

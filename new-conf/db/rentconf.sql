@@ -61,11 +61,12 @@ CREATE TABLE `user` (
   `departid` bigint(20)DEFAULT NULL COMMENT '部门ID',
   `orgid` bigint(20) DEFAULT NULL COMMENT '企业ID',
   `phonetype` smallint(5) unsigned DEFAULT '0' COMMENT '电话会议类型',
+  `sys` int(11) default NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_orgid_unique` (`user_name`,`orgid`),
   KEY `orgid` (`orgid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
--- ----部门信息表
+-- ----部门信息表----
 DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department` (
   `id` int(11) NOT NULL auto_increment,
@@ -74,6 +75,7 @@ CREATE TABLE `department` (
   `departname` varchar(255) default NULL,
   `orders` int(11) default NULL,
   `orgid` int(11) default NULL,
+  `sys` int(11) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `departnum` (`departnum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
