@@ -36,6 +36,11 @@
 	height: 100%;
 	border-right:1px solid #ddd; 
 }
+#userdepart-ztree{
+	height:520px;
+	overflow-y: scroll;
+	box-sizing:border-box!important;  
+}
 .p-suserlist{
 	float: right;
 	width: 280px;
@@ -43,19 +48,29 @@
 	margin-top: -10px;
 	border-left:1px solid #ddd; 
 }
+#selectconfuser{
+	height:520px;
+	overflow-y: scroll;
+	box-sizing:border-box!important;  
+}
 .p-u-title{
 	height: 30px;
 	line-height: 30px;
 	text-align: center;
 	border-bottom: 1px solid #ddd;
 }
+#selectconfuser li{
+	height: 20px;
+	line-height: 20px;
+}
+
 </style>
 
 <input type="hidden" id="confusertype" value="0" />
 <input type="hidden" id="confuserconfid" value="0" />
 <div id="p-conf-bg" style="position: absolute;top: 0;left: 0;background-color:#333;width:100%;height:100%;display: none;"></div>
 <div id="p-conf-admin" class="p-userwindow">
-	<div class="p-title"><span id="confuserLabel">会议管理员选择</span><a href="javascript:void(0)" class="p-close">关闭</a></div>
+	<div class="p-title"><span id="confuserLabel" style="padding-left: 10px;">会议管理员选择</span><a href="javascript:void(0)" class="p-close">关闭</a></div>
 	<div class="p-content">
 		<div class="p-userlist">
 			<div class="p-u-title">组织结构</div>
@@ -164,7 +179,7 @@ function zTreeBeforeCheck(treeId, treeNode) {
     if(treeNode.type==1){//user
 		return true;
     }else if(treeNode.type==0){//department
-		return false;
+		return true;
     }
 }
 function onCheck(e, treeId, treeNode) {
@@ -184,7 +199,7 @@ function OnCollapse(event, treeId, treeNode) {
     $.cookie("user1_open_"+treeNode.id,"0",{expires: 1000});
 }     
 function inittree(){//初始化部门树
-	var url = "${basePath}departServlet?m=dutree&r="+Math.random();
+	var url = "${basePath}departServlet?m=dutree&orgid="+orgid+"&r="+Math.random();
 	$.getJSON(url,function(data){
 		if(data.code==0){
 			var departtree = data.data;
