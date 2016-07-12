@@ -118,11 +118,13 @@
         </action>
 		
 		<action path="/UserManageAction" type="com.seegle.action.UserManageAction">
-            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserManage.jsp"/>
+            <!-- <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserManage.jsp"/> -->
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/plugin/depart/userlist.jsp"/>
         </action>
 		
 		<action path="/UserSelectAction" type="com.seegle.action.UserSelectAction">
-            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserManage.jsp"/>
+            <!-- <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/user/UserManage.jsp"/> -->
+            <forward name="success" path="/page/conf/ConfPage.jsp?inc=/page/plugin/depart/userlist.jsp"/>
         </action>
 		
 		<action path="/UserEditAction" type="com.seegle.action.UserEditAction">
