@@ -69,8 +69,8 @@ datelang=language.replace('_', '-');
 		<div id="tabs" class="tab_m">
 			<ul style='background: #F1F6FD; border: 0'>
 			<li><a href="#tabs-1"><%=lu.getLanguage(language,"confedit.confroominfo","会议室信息") %></a></li>
-			<li><a href="#" onclick="p_confcommon()"><%=lu.getLanguage(language,"confedit.confcommon","默认与会者") %></a></li>
-			<li><a href="#" onclick="p_confadmin()"><%=lu.getLanguage(language,"confedit.confadmin","视频会议管理员") %></a></li>
+			<li onclick="return;"><a href="#" onclick="p_confcommon()"><%=lu.getLanguage(language,"confedit.confcommon","默认与会者") %></a></li>
+			<li onclick="return;"><a href="#" onclick="p_confadmin()"><%=lu.getLanguage(language,"confedit.confadmin","视频会议管理员") %></a></li>
 			</ul>
 			<div style="border-bottom:1px #348CD4 solid;"></div>
 			<div id="tabs-1" style="padding: 0px;">

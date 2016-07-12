@@ -18,9 +18,9 @@ public class DepartmentDao {
 	public List<TreeBean> getDepartAndUser(int orgid){
 		List<TreeBean> list = new ArrayList<TreeBean>();
 		StringBuffer sb = new StringBuffer();
-		sb.append(" select id as realid,-1*id as id,departpnum as pid,departname as name,'' as account,0 as type,'045.png' as icon from department where orgid=? ");
+		sb.append(" select id as realid,-1*id as id,departpnum as pid,departname as name,'' as account,0 as type,'images_gb/045.png' as icon from department where orgid=? ");
 		sb.append(" UNION ");
-		sb.append(" select id as realid,id as id,-1*dep_id as pid,alias as name,user_name as account,1 as type,'005.png' as icon from user where orgid=? and user_name <> 'admin' ");
+		sb.append(" select id as realid,id as id,-1*dep_id as pid,alias as name,user_name as account,1 as type,'images_gb/005.png' as icon from user where orgid=? and user_name <> 'admin' ");
 		System.out.println(sb.toString());
 		Connection conn = ConnMYSQL.getConnMYSQL();
 		PreparedStatement ps = null;
