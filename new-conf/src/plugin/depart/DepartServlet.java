@@ -46,18 +46,6 @@ public class DepartServlet extends HttpServlet {
 			
 		}else if(m.equals("deletedu")){//删除用户和部门信息
 			
-		}else if(m.equals("getconfadmin")){//获取会议管理员
-			
-		}else if(m.equals("getconfuser")){//获取会议人员
-			
-		}else if(m.equals("addconfadmin")){//添加会议管理员
-			
-		}else if(m.equals("addconfuser")){//添加会议人员
-			
-		}else if(m.equals("delconfadmin")){//删除会议管理员
-			
-		}else if(m.equals("delconfuser")){//删除会议人员
-			
 		}
 	}
 	
@@ -83,7 +71,9 @@ public class DepartServlet extends HttpServlet {
 	}
 	public void dutree(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<TreeBean> list = DepartmentDao.dao.getDepartAndUser(808755);
+		String orgid = request.getParameter("orgid");
+		int org = orgid==null?0:Integer.parseInt(orgid);
+		List<TreeBean> list = DepartmentDao.dao.getDepartAndUser(org);
 		ResultBean result = new ResultBean();
 		result.setCode(0);
 		result.setData(list);
