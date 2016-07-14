@@ -12,6 +12,7 @@ import java.util.Map;
 import com.seegle.data.ConnMYSQL;
 
 public class DepartmentDao {
+	private String setName = "set names utf8";	
 	public static DepartmentDao dao = new DepartmentDao();
 	/**
 	 * 获取部门的用户组合的树结构
@@ -126,11 +127,41 @@ public class DepartmentDao {
 		}
 		return map;
 	}
-	public boolean saveOrUpdateUser(){
+	public boolean saveOrUpdateUser(Map<String,Object> user){
+		
 		return false;
 	}
-	public boolean saveOrUpdateDepart(){
-		
+	public boolean saveOrUpdateDepart(Map<String,Object> depart){
+		int id=Integer.parseInt(depart.get("id").toString());
+		String name=depart.get("name").toString();
+		int pid = Integer.parseInt(depart.get("pid").toString());;
+		int orders =Integer.parseInt(depart.get("orders").toString());;
+		int orgid = Integer.parseInt(depart.get("orgid").toString());;
+		StringBuffer sb = new StringBuffer();
+		if(id==0){
+			sb.append("insert into department(departpnum,departname,orders,orgid,sys) values(?,?,?,?,0)");
+		}else{
+			sb.append("update department set departpnum=?,departname=?,orders=?,orgid=? where id=?");
+		}
+		Connection conn = ConnMYSQL.getConnMYSQL();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(sb.toString());
+			ps.setInt(1, pid);
+			ps.setString(2, name);
+			ps.setInt(3, orders);
+			ps.setInt(4, orgid);
+			if(id>0){
+				ps.setInt(5, id);
+			}
+			ps.executeQuery(setName);
+			return ps.executeUpdate()>0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			ConnMYSQL.closeResources(rs, ps, conn, orgid+"");
+		}
 		return false;
 	}
 }
