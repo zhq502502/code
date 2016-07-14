@@ -117,20 +117,14 @@ md5userpass = "${userpassmd5}";
 orgid = ${orgid};
 $("#p-conf-bg").css({'opacity':'0.4'});
 $("#confuserconfid").val($("#cid").val());
-$(function(){
-	//$(".ui-state-default").removeClass("ui-state-disabled");
-	$(".ui-state-default").css({"background-color": "#348CD4"})
-	$(".ui-state-default a").css({"color": "#fff"})
-	inittree();
-})
 function p_confcommon(){
-	$("#p-conf-bg").hide();
+	$("#p-conf-bg").show();
 	$("#p-conf-user").hide();
 	$("#p-conf-admin").show();
 	confuser($("#cid").val());
 }
 function p_confadmin(){
-	$("#p-conf-bg").hide();
+	$("#p-conf-bg").show();
 	$("#p-conf-user").hide();
 	$("#p-conf-admin").show();
 	confadmin($("#cid").val());
@@ -177,8 +171,10 @@ function beforeClick(treeId, treeNode) {
 }
 function zTreeBeforeCheck(treeId, treeNode) {
     if(treeNode.type==1){//user
+    	console.log(treeNode.checked);
 		return true;
     }else if(treeNode.type==0){//department
+    	console.log(treeNode.checked);
 		return true;
     }
 }
@@ -188,6 +184,12 @@ function onCheck(e, treeId, treeNode) {
 			saveconfuser(treeNode);
 		}else if($("#confusertype").val()=="1"){
 			saveconfadmin(treeNode);
+		}
+	 }else if(treeNode.type==0){//department
+		 if($("#confusertype").val()=="0"){
+			saveconfuser_list(treeNode);
+		}else if($("#confusertype").val()=="1"){
+			saveconfadmin_list(treeNode);
 		}
 	 }
 	/*tree.expandNode(treeNode, treeNode.checked, false, false);*/
@@ -225,6 +227,19 @@ $("#ctitle").bind("click",function(){
 	cname=$("#title").val();
 	conflist();
 })
-
-
+function saveconfuser_list(treeNode){
+	var nodes = treeNode.children;
+	for(var i=0;i<nodes.length;i++){
+		saveconfuser(nodes[i]);
+	}
+}
+function saveconfadmin_list(){
+	
+}
+$(function(){
+	//$(".ui-state-default").removeClass("ui-state-disabled");
+})
+$(".ui-state-default").css({"background-color": "#348CD4"})
+$(".ui-state-default a").css({"color": "#fff"})
+inittree();
 </script>

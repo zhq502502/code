@@ -351,6 +351,7 @@ function back_confuser(users){
 	if(users.length==0){
 		return;
 	}
+	$("#selectconfuser").empty();
 	for(var i=0;i<users.length;i++){
 		var treeNode = tree.getNodeByParam("account",users[i],null);
 		console.log(treeNode);
@@ -394,11 +395,15 @@ function saveconfuser(treeNode){
 		dataType : "jsonp",
 		success:function(data){
 			if(data.msg==0){
+				confuser(id);
 				var html = "<li id='user-" + treeNode.account + "'>";
 				html += treeNode.name;
 				html += "</li>";
 				if (treeNode.checked) {
-					$("#selectconfuser").append(html);
+					console.log($('#user-' + treeNode.account));
+					if($('#selectconfuser #user-' + treeNode.account)==null){
+						$("#selectconfuser").append(html);
+					}
 				} else {
 					$("#user-" + treeNode.account).remove();
 				}
@@ -444,6 +449,7 @@ function back_confadmin(users){
 	if(users.length==0){
 		return;
 	}
+	$("#selectconfuser").empty();
 	for(var i=0;i<users.length;i++){
 		var treeNode = tree.getNodeByParam("account",users[i],null);
 		console.log(treeNode);
@@ -486,6 +492,7 @@ function saveconfadmin(treeNode){
 		dataType : "jsonp",
 		success:function(data){
 			if(data.msg==0){
+				//confadmin(id);
 				var html = "<li id='user-" + treeNode.account + "'>";
 				html += treeNode.name;
 				html += "</li>";
