@@ -35,7 +35,7 @@ public class DepartServlet extends HttpServlet {
 		}else if(m.equals("dutree")){//获取部门和用户组合的tree信息
 			this.dutree(request, response);
 		}else if(m.equals("getuser")){//获取单个用户信息
-			
+			this.getuser(request, response);
 		}else if(m.equals("getdepart")){//获取单个部门信息
 			
 		}else if(m.equals("saveuser")){//保存用户信息
@@ -52,6 +52,14 @@ public class DepartServlet extends HttpServlet {
 
 	public void init() throws ServletException {
 		// Put your code here
+	}
+	public void returnJson(HttpServletRequest request, HttpServletResponse response,ResultBean result)
+			throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		JSONObject r = JSONObject.fromObject(result);
+		out.print(r.toString());
+		out.flush();
+		out.close();
 	}
 	public void helloword(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -77,12 +85,18 @@ public class DepartServlet extends HttpServlet {
 		ResultBean result = new ResultBean();
 		result.setCode(0);
 		result.setData(list);
-		PrintWriter out = response.getWriter();
-		JSONObject r = JSONObject.fromObject(result);
-		out.print(r.toString());
-		out.flush();
-		out.close();
+		this.returnJson(request, response, result);
 		
+	}
+	public void getuser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String orgid = request.getParameter("orgid");
+		String userid = request.getParameter("id");
+		int org = orgid==null?0:Integer.parseInt(orgid);
+		ResultBean result = new ResultBean();
+		
+		
+		this.returnJson(request, response, result);
 	}
 
 }

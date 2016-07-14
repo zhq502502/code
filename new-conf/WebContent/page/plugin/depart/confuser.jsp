@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <style>
 .p-userwindow{
-	display: none;
-	position: absolute;
+	
 	width: 600px;
 	height: 600px;
-	margin: 0 auto;
+	margin: 5% auto;
 	background-color: #FFF;
 	border: 1px solid #ccc;
-	left:20%;
-	top:10%;
+	
 }
 .p-title{
 	height: 39px;
@@ -52,6 +50,7 @@
 	height:520px;
 	overflow-y: scroll;
 	box-sizing:border-box!important;  
+	padding: 5px;
 }
 .p-u-title{
 	height: 30px;
@@ -63,13 +62,21 @@
 	height: 20px;
 	line-height: 20px;
 }
-
+#p-conf-admin{
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+	top: 0;
+	left:0;
+}
 </style>
 
 <input type="hidden" id="confusertype" value="0" />
 <input type="hidden" id="confuserconfid" value="0" />
 <div id="p-conf-bg" style="position: absolute;top: 0;left: 0;background-color:#333;width:100%;height:100%;display: none;"></div>
-<div id="p-conf-admin" class="p-userwindow">
+<div id="p-conf-admin">
+<div class="p-userwindow">
 	<div class="p-title"><span id="confuserLabel" style="padding-left: 10px;">会议管理员选择</span><a href="javascript:void(0)" class="p-close">关闭</a></div>
 	<div class="p-content">
 		<div class="p-userlist">
@@ -84,8 +91,6 @@
 		</div>
 	</div>
 </div>
-<div id="p-conf-user" class="p-userwindow">
-
 </div>
 
 <script type="text/javascript">
@@ -130,8 +135,9 @@ function p_confadmin(){
 	confadmin($("#cid").val());
 }
 $(".p-close").click(function(){
-	$(this).parent().parent().hide();
+	$("#p-conf-admin").hide();
 	$("#p-conf-bg").hide();
+	$("#p-conf-user").hide();
 })
 </script>
 
@@ -187,9 +193,9 @@ function onCheck(e, treeId, treeNode) {
 		}
 	 }else if(treeNode.type==0){//department
 		 if($("#confusertype").val()=="0"){
-			saveconfuser_list(treeNode);
+			 f_saveconfuser_list(treeNode);
 		}else if($("#confusertype").val()=="1"){
-			saveconfadmin_list(treeNode);
+			f_saveconfadmin_list(treeNode);
 		}
 	 }
 	/*tree.expandNode(treeNode, treeNode.checked, false, false);*/
@@ -225,16 +231,43 @@ function hidep(th){
 }
 $("#ctitle").bind("click",function(){
 	cname=$("#title").val();
-	conflist();
+	//conflist();
 })
-function saveconfuser_list(treeNode){
-	var nodes = treeNode.children;
-	for(var i=0;i<nodes.length;i++){
-		saveconfuser(nodes[i]);
+function f_saveconfuser_list(treeNode){
+	var accounts = getchild(treeNode);
+	console.log("accounts:"+accounts);
+	if(accounts!=""){
+		accounts=accounts.substring(1,accounts.length);
+		saveconfuser_list(treeNode,accounts);
+	}else{
+		return;
 	}
 }
-function saveconfadmin_list(){
-	
+/**
+ * 获取子节点的account
+ */
+function getchild(treeNode){
+	var accounts = "";
+	var nodes = treeNode.children;
+	for(var i=0;i<nodes.length;i++){
+		var node = nodes[i];
+		if(node.isParent){
+			accounts+=getchild(node);
+		}else{
+			accounts+=","+node.account;
+		}
+	}
+	return accounts;
+}
+function f_saveconfadmin_list(treeNode){
+	var accounts = getchild(treeNode);
+	console.log("accounts:"+accounts);
+	if(accounts!=""){
+		accounts=accounts.substring(1,accounts.length);
+		saveconfadmin_list(treeNode,accounts);
+	}else{
+		return;
+	}
 }
 $(function(){
 	//$(".ui-state-default").removeClass("ui-state-disabled");

@@ -22,6 +22,9 @@
 	width:500px;
 	float: left;
 }
+.p-info{
+	display: none;
+}
 </style>
 <div id="wpbody-content">
 	<div class="wrap">
@@ -30,23 +33,24 @@
 				<div id="userdepart-ztree" class="p-user-left ztree" >
 					
 				</div>
-				<div class="p-user-right">
-					<div id="p-userinfo">
+				<div class="p-user-right" >
+					<div id="p-userinfo" class="p-info">
 						<table>
 							<tr><td>帐号</td><td><input id="user-account"/></td></tr>
-							<tr><td>密码</td><td><input id="user-password"/></td></tr>
+							<tr><td>密码</td><td><input id="user-password" type="password"/></td></tr>
 							<tr><td>昵称</td><td><input id="user-alias"/></td></tr>
 							<tr><td>电话</td><td><input id="user-tel"/></td></tr>
 							<tr><td>邮箱</td><td><input id="user-email"/></td></tr>
-							<tr><td>部门</td><td><input id="user-email"/></td></tr>
-							<tr><td>角色</td><td><input id="user-email"/></td></tr>
+							<tr><td>角色</td><td></td></tr>
+							<tr><td>排序</td><td><input id="user-order"/></td></tr>
 						</table>
 					</div>
-					<div id="p-departinfo" >
+					<div id="p-departinfo" class="p-info">
 						<table>
 							<tr><td>部门编号</td><td><input id="depart-num"/></td></tr>
 							<tr><td>部门名称</td><td><input id="depart-name"/></td></tr>
 							<tr><td>上级部门</td><td><input id="depart-pnum"/></td></tr>
+							<tr><td>部门排序</td><td><input id="depart-pnum"/></td></tr>
 						</table>
 					</div>
 				</div>
@@ -148,7 +152,21 @@ function expandNodes(nodes){
  * 获得单个用户信息
  */
 function getUserinfo(id){
-	
+	var url = "${basePath}departServlet?m=getuser&r="+Math.random();
+	var param={
+			id:id,
+			orgid:orgid
+	};
+	$.ajax({
+		url:url,
+		data:param,
+		type:"get",
+		success:function(data){
+			console.log(data);
+		},error:function(){
+			
+		}
+	});
 }
 /**
  * 获得单个部门信息

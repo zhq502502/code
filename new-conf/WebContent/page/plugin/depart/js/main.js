@@ -339,7 +339,7 @@ function confuser(id){
 		dataType : "jsonp"
 	});
 	confdebug("获取默认与会者列表：", url + param);
-	tree.checkAllNodes(false);
+	//tree.checkAllNodes(false);
 	$("#selectconfuser").empty();
 }
 /**
@@ -351,14 +351,14 @@ function back_confuser(users){
 	if(users.length==0){
 		return;
 	}
-	$("#selectconfuser").empty();
+	/*$("#selectconfuser").empty();*/
 	for(var i=0;i<users.length;i++){
 		var treeNode = tree.getNodeByParam("account",users[i],null);
 		console.log(treeNode);
 		if(treeNode==null){
 			continue;
 		}
-		tree.checkNode(treeNode,true,false,false)
+		tree.checkNode(treeNode,true,true,false)
 		var html = "<li id='user-" + treeNode.account + "'>";
 		html += treeNode.name;
 		html += "</li>";
@@ -395,21 +395,45 @@ function saveconfuser(treeNode){
 		dataType : "jsonp",
 		success:function(data){
 			if(data.msg==0){
-				confuser(id);
 				var html = "<li id='user-" + treeNode.account + "'>";
 				html += treeNode.name;
 				html += "</li>";
 				if (treeNode.checked) {
-					console.log($('#user-' + treeNode.account));
-					if($('#selectconfuser #user-' + treeNode.account)==null){
-						$("#selectconfuser").append(html);
-					}
+					$("#selectconfuser").append(html);
 				} else {
 					$("#user-" + treeNode.account).remove();
 				}
 			}else{
 				msg({code:data.msg,msg:errorMap.get(data.msg+"")})
 			}
+		}
+	});
+}
+/**
+ * 更新默认与会者
+ * @param treeNode
+ */
+function saveconfuser_list(treeNode,accounts){
+	var id = $("#confuserconfid").val();
+	var param = {
+		accessKey : token,
+		orgid : orgid,
+		cid : id,
+		commonList:accounts,
+		adminList:""
+	}
+	var url = apiurl + "/apis/conf/confuseraddbyname";
+	if(!treeNode.checked){
+		url = apiurl + "/apis/conf/confuserdelbyname";
+	}
+	$.ajax({
+		type : "get",
+		async : false,
+		url : url,
+		data : param,
+		dataType : "jsonp",
+		success:function(data){
+			confuser(id);
 		}
 	});
 }
@@ -437,7 +461,7 @@ function confadmin(id){
 		dataType : "jsonp"
 	});
 	confdebug("获取默认与会者列表：", url + param);
-	tree.checkAllNodes(false);
+	//tree.checkAllNodes(false);
 	$("#selectconfuser").empty();
 }
 /**
@@ -449,14 +473,14 @@ function back_confadmin(users){
 	if(users.length==0){
 		return;
 	}
-	$("#selectconfuser").empty();
+	/*$("#selectconfuser").empty();*/
 	for(var i=0;i<users.length;i++){
 		var treeNode = tree.getNodeByParam("account",users[i],null);
 		console.log(treeNode);
 		if(treeNode==null){
 			continue;
 		}
-		tree.checkNode(treeNode,true,false,false)
+		tree.checkNode(treeNode,true,true,false)
 		var html = "<li id='user-" + treeNode.account + "'>";
 		html += treeNode.name;
 		html += "</li>";
@@ -492,7 +516,6 @@ function saveconfadmin(treeNode){
 		dataType : "jsonp",
 		success:function(data){
 			if(data.msg==0){
-				//confadmin(id);
 				var html = "<li id='user-" + treeNode.account + "'>";
 				html += treeNode.name;
 				html += "</li>";
@@ -504,6 +527,34 @@ function saveconfadmin(treeNode){
 			}else{
 				msg({code:data.msg,msg:errorMap.get(data.msg+"")})
 			}
+		}
+	});
+}
+/**
+ * 保存会议管理员
+ * @param treeNode
+ */
+function saveconfadmin_list(treeNode,account){
+	var id = $("#confuserconfid").val();
+	var param = {
+			accessKey : token,
+			orgid : orgid,
+			cid : id,
+			commonList:"",
+			adminList:account
+	}
+	var url = apiurl + "/apis/conf/confuseraddbyname";
+	if(!treeNode.checked){
+		url = apiurl + "/apis/conf/confuserdelbyname";
+	}
+	$.ajax({
+		type : "get",
+		async : false,
+		url : url,
+		data : param,
+		dataType : "jsonp",
+		success:function(data){
+			confadmin(id);
 		}
 	});
 }
