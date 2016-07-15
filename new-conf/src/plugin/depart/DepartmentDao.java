@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.seegle.data.ConnMYSQL;
+import com.seegle.data.HttpClient;
 
 public class DepartmentDao {
 	private String setName = "set names utf8";	
@@ -128,7 +129,57 @@ public class DepartmentDao {
 		return map;
 	}
 	public boolean saveOrUpdateUser(Map<String,Object> user){
-		
+		int id=Integer.parseInt(user.get("id").toString());
+		String account=user.get("account").toString();
+		String password=user.get("password").toString();
+		String alias=user.get("alias").toString();
+		String email=user.get("email").toString();
+		String phone=user.get("phone").toString();
+		int role = Integer.parseInt(user.get("role").toString());
+		int departid = Integer.parseInt(user.get("departid").toString());;
+		int orders =Integer.parseInt(user.get("orders").toString());;
+		int orgid = Integer.parseInt(user.get("orgid").toString());;
+		StringBuffer sb = new StringBuffer();
+		if(id==0){
+			sb.append("insert into user(user_name,alias,role,name,account_email,account_mobile,password_md5,password_text,departid,orders,orgid) values(?,?,?,?,?,?,?,?,?,?)");
+		}else{
+			sb.append("update user set alias=?,role=?,account_email=?,account_mobile=?,password_md5=?,password_text=?,orders=? where id=?");
+		}
+		Connection conn = ConnMYSQL.getConnMYSQL();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(sb.toString());
+			if(id==0){
+				ps.setString(1, account);
+				ps.setString(2, alias);
+				ps.setInt(3, role);
+				ps.setString(4, alias);
+				ps.setString(5, email);
+				ps.setString(6, phone);
+				ps.setString(7, HttpClient.md5(password));
+				ps.setString(8, password);
+				ps.setInt(9, departid);
+				ps.setInt(10, orders);
+				ps.setInt(11, orgid);
+			}else{
+				ps.setString(1, alias);
+				ps.setInt(2, role);
+				ps.setString(3, alias);
+				ps.setString(4, email);
+				ps.setString(5, phone);
+				ps.setString(6, HttpClient.md5(password));
+				ps.setString(7, password);
+				ps.setInt(8, orders);
+				ps.setInt(9, id);
+			}
+			ps.executeQuery(setName);
+			return ps.executeUpdate()>0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			ConnMYSQL.closeResources(rs, ps, conn, orgid+"");
+		}
 		return false;
 	}
 	public boolean saveOrUpdateDepart(Map<String,Object> depart){
@@ -141,7 +192,7 @@ public class DepartmentDao {
 		if(id==0){
 			sb.append("insert into department(departpnum,departname,orders,orgid,sys) values(?,?,?,?,0)");
 		}else{
-			sb.append("update department set departpnum=?,departname=?,orders=?,orgid=? where id=?");
+			sb.append("update department set departpnum=?,departname=?,orders=? where id=?");
 		}
 		Connection conn = ConnMYSQL.getConnMYSQL();
 		PreparedStatement ps = null;
@@ -151,11 +202,44 @@ public class DepartmentDao {
 			ps.setInt(1, pid);
 			ps.setString(2, name);
 			ps.setInt(3, orders);
-			ps.setInt(4, orgid);
 			if(id>0){
-				ps.setInt(5, id);
+				ps.setInt(4, id);
+			}else{
+				ps.setInt(4, orgid);
 			}
 			ps.executeQuery(setName);
+			return ps.executeUpdate()>0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			ConnMYSQL.closeResources(rs, ps, conn, orgid+"");
+		}
+		return false;
+	}
+	public boolean deleteUser(String ids,int orgid){
+		StringBuffer sb = new StringBuffer();
+		sb.append("delete from user where id in("+ids+")");
+		Connection conn = ConnMYSQL.getConnMYSQL();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(sb.toString());
+			return ps.executeUpdate()>0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			ConnMYSQL.closeResources(rs, ps, conn, orgid+"");
+		}
+		return false;
+	}
+	public boolean deleteDepart(String ids,int orgid){
+		StringBuffer sb = new StringBuffer();
+		sb.append("delete from department where id in("+ids+")");
+		Connection conn = ConnMYSQL.getConnMYSQL();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(sb.toString());
 			return ps.executeUpdate()>0;
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -41,7 +41,7 @@
 							<tr><td>昵称</td><td><input id="user-alias"/></td></tr>
 							<tr><td>电话</td><td><input id="user-tel"/></td></tr>
 							<tr><td>邮箱</td><td><input id="user-email"/></td></tr>
-							<tr><td>角色</td><td></td></tr>
+							<tr><td>角色</td><td><input type="checkbox" name="user-role" value="3"/>用户管理员<input  name="user-role" type="checkbox" value="2" style="margin-left: 20px"/>会议管理员</td></tr>
 							<tr><td>排序</td><td><input id="user-order"/></td></tr>
 						</table>
 					</div>
