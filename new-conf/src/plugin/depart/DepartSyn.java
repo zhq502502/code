@@ -21,20 +21,22 @@ public class DepartSyn extends Thread {
 	private String sql_selectdepart = "select * from v_dept";
 	/**查询sqlserver库的用户*/
 	private String sql_selectuser = "select * from v_user";
+	
 	/**查询本地库的组织架构*/
 	private String selectdepart = "select * from department where id=?";
 	/**插入本地库的组织架构*/
-	private String insertdepart = "insert into department(id,departnum,departpnum,departname,orders,sys) values(?,?,?,?,orgid,1)";
+	private String insertdepart = "insert into department(id,departnum,departpnum,departname,orders,sys) values(?,?,?,?,"+orgid+",1)";
 	/**更新本地库的组织架构*/
 	private String updatedepart = "update department set departname=?,departpnum=?,orders=? where id=?";
 	/**删除本地库的组织架构*/
 	private String deletedepart = "delete department where sys=1 and departpnum not in(%s)";
+	
 	/**查询本地库的用户*/
 	private String selectuser = "select * from user where user_name=?";
 	/**插入本地库的用户*/
-	private String insertuser = "insert into user(user_name,alias,role,password_md5,dep_id,account_mobile,account_email,lastlogintime,logintag,orders,orgid,sys) values(?,?,4,?,?,'2000-12-12 12:12:12',1,1)";
+	private String insertuser = "insert into user(user_name,alias,role,password_md5,departid,account_mobile,account_email,lastlogintime,logintag,orders,orgid,sys) values(?,?,4,?,?,?,?,'2000-12-12 12:12:12',1,?,"+orgid+",1)";
 	/**更新本地库的用户*/
-	private String updateuser = "update user set alias=?,dep_id=?,account_mobile=?,account_email=?,orders";
+	private String updateuser = "update user set alias=?,departid=?,account_mobile=?,account_email=?,orders=? where user_name=?";
 	/**删除本地库的用户*/
 	private String deleteuser = "delete from user where sys=1 and user_name not in(%s)";
 	
@@ -110,10 +112,61 @@ public class DepartSyn extends Thread {
 						myps.executeUpdate();
 					}
 				}
+				//删除用户库中没有的组织架构
 				
 				/**
 				 * 遍历用户
 				 */
+				sqlps = sqlconn.prepareStatement(sql_selectuser);
+				sqlrs = sqlps.executeQuery();
+				String users = "";
+				while(sqlrs.next()){
+					String account = sqlrs.getString("account");
+					users+=",'"+account+"'";
+					String alias = sqlrs.getString("name");
+					int departid = sqlrs.getInt("departnum");
+					int orders = sqlrs.getInt("orders");
+					String tel = sqlrs.getString("tel");
+					String email = sqlrs.getString("email");
+					String password = sqlrs.getString("password");
+					
+					myps = myconn.prepareStatement(selectuser);
+					myps.setString(1, account);
+					myrs = myps.executeQuery();
+					if(myrs.next()){
+						int m_departid = myrs.getInt("departid");
+						String m_user_name = sqlrs.getString("user_name");
+						String m_alias = sqlrs.getString("alias");
+						int m_orders = sqlrs.getInt("orders");
+						if(!(isEq(alias,m_alias)&&(departid==m_departid)&&(orders==m_orders))){
+							//有字段更新
+							myps = myconn.prepareStatement(updateuser);
+							myps.setString(1, alias);
+							myps.setInt(2, departid);
+							myps.setString(3, tel);
+							myps.setString(4, email);
+							myps.setInt(5, orders);
+							myps.setString(6, account);
+							myps.executeQuery(setName);
+							myps.executeUpdate();
+							
+						}
+					}else{
+						//没有字段更新新增一条记录
+						myps = myconn.prepareStatement(insertuser);
+						myps.setString(1, account);
+						myps.setString(2, alias);
+						myps.setString(3, password);
+						myps.setInt(4, departid);
+						myps.setString(5, tel);
+						myps.setString(6, email);
+						myps.setInt(7, orders);
+						myps.executeQuery(setName);
+						myps.executeUpdate();
+					}
+				}
+				//删除用户库中没有的用户
+				
 				
 				
 				

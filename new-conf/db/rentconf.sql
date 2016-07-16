@@ -61,6 +61,7 @@ CREATE TABLE `user` (
   `departid` bigint(20)DEFAULT NULL COMMENT '部门ID',
   `orgid` bigint(20) DEFAULT NULL COMMENT '企业ID',
   `phonetype` smallint(5) unsigned DEFAULT '0' COMMENT '电话会议类型',
+  `orders` int(11) default NULL COMMENT '排序',
   `sys` int(11) default NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_orgid_unique` (`user_name`,`orgid`),
