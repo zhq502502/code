@@ -6,8 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 
+import org.apache.log4j.Logger;
+
 import com.seegle.data.ConnMYSQL;
 import com.seegle.util.PropUtil;
+import com.seegle.util.SeegleLog;
 
 public class DepartSyn extends Thread {
 	//同步时间设置
@@ -55,14 +58,19 @@ public class DepartSyn extends Thread {
 			System.out.println("数据同步未开始，企业ID未配置，请在config.properties文件中配置");
 			return;
 		}
+		Logger log = SeegleLog.getInstance().getLog(this.getClass(), orgid);
 		for(;;){
-			
+			log.info("开始同步");
 			Connection myconn = ConnMYSQL.getConnMYSQL();
 			Connection sqlconn = SqlServerUtil.getCon();
 			PreparedStatement myps = null;
 			ResultSet myrs = null;
 			PreparedStatement sqlps = null;
 			ResultSet sqlrs = null;
+			int countInsertDepart=0;
+			int countUpdateDepart=0;
+			int countInsertUser=0;
+			int countUpdateUser=0;
 			/**
 			 * 1、查询sqlsql数据库数据
 			 * 2、遍历循环查询本地数据库数据对比有差异就更新
@@ -98,7 +106,8 @@ public class DepartSyn extends Thread {
 							myps.setInt(4, departpnum);
 							myps.executeQuery(setName);
 							myps.executeUpdate();
-							
+							countUpdateDepart++;
+							log.info("更新部门:"+departname);
 						}
 					}else{
 						//没有字段更新新增一条记录
@@ -110,6 +119,8 @@ public class DepartSyn extends Thread {
 						myps.setInt(5, deptorders);
 						myps.executeQuery(setName);
 						myps.executeUpdate();
+						countInsertDepart++;
+						log.info("添加部门:"+departname);
 					}
 				}
 				//删除用户库中没有的组织架构
@@ -149,7 +160,8 @@ public class DepartSyn extends Thread {
 							myps.setString(6, account);
 							myps.executeQuery(setName);
 							myps.executeUpdate();
-							
+							countInsertUser++;
+							log.info("更新用户:"+account+","+alias);
 						}
 					}else{
 						//没有字段更新新增一条记录
@@ -163,6 +175,8 @@ public class DepartSyn extends Thread {
 						myps.setInt(7, orders);
 						myps.executeQuery(setName);
 						myps.executeUpdate();
+						countUpdateUser++;
+						log.info("添加用户:"+account+","+alias);
 					}
 				}
 				//删除用户库中没有的用户
@@ -174,8 +188,11 @@ public class DepartSyn extends Thread {
 				e1.printStackTrace();
 			}
 			
-			
-			
+			log.info("===== 数据同步信息======");
+			log.info("本次同步更新部门:"+countUpdateDepart);
+			log.info("本次同步新建部门:"+countInsertDepart);
+			log.info("本次同步更新用户:"+countUpdateUser);
+			log.info("本次同步新建用户:"+countInsertUser);
 			
 			
 			ConnMYSQL.closeResources(myrs, myps, myconn, orgid);
