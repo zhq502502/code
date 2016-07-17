@@ -28,7 +28,7 @@ public class DepartSyn extends Thread {
 	/**查询本地库的组织架构*/
 	private String selectdepart = "select * from department where id=?";
 	/**插入本地库的组织架构*/
-	private String insertdepart = "insert into department(id,departnum,departpnum,departname,orders,sys) values(?,?,?,?,"+orgid+",1)";
+	private String insertdepart = "insert into department(id,departnum,departpnum,departname,orders,orgid,sys) values(?,?,?,?,?,"+orgid+",1)";
 	/**更新本地库的组织架构*/
 	private String updatedepart = "update department set departname=?,departpnum=?,orders=? where id=?";
 	/**删除本地库的组织架构*/
@@ -94,16 +94,19 @@ public class DepartSyn extends Thread {
 					myrs = myps.executeQuery();
 					if(myrs.next()){
 						int m_departid = myrs.getInt("departnum");
-						String m_departname = sqlrs.getString("departname");
-						int m_departpnum = sqlrs.getInt("departpnum");
-						int m_deptorders = sqlrs.getInt("deptorders");
+						String m_departname = myrs.getString("departname");
+						int m_departpnum = myrs.getInt("departpnum");
+						int m_deptorders = myrs.getInt("orders");
+						if(departname.equals("人力资源部1")){
+							System.out.println(departname);
+						}
 						if(!(isEq(departname,m_departname)&&(departpnum==m_departpnum)&&(deptorders==m_deptorders))){
 							//有字段更新
 							myps = myconn.prepareStatement(updatedepart);
 							myps.setString(1, departname);
 							myps.setInt(2, departpnum);
 							myps.setInt(3, deptorders);
-							myps.setInt(4, departpnum);
+							myps.setInt(4, departid);
 							myps.executeQuery(setName);
 							myps.executeUpdate();
 							countUpdateDepart++;
@@ -145,10 +148,13 @@ public class DepartSyn extends Thread {
 					myps.setString(1, account);
 					myrs = myps.executeQuery();
 					if(myrs.next()){
+						/*if(alias.equals("肖光宁1")){
+							System.out.println(alias);
+						}*/
 						int m_departid = myrs.getInt("departid");
-						String m_user_name = sqlrs.getString("user_name");
-						String m_alias = sqlrs.getString("alias");
-						int m_orders = sqlrs.getInt("orders");
+						String m_user_name = myrs.getString("user_name");
+						String m_alias = myrs.getString("alias");
+						int m_orders = myrs.getInt("orders");
 						if(!(isEq(alias,m_alias)&&(departid==m_departid)&&(orders==m_orders))){
 							//有字段更新
 							myps = myconn.prepareStatement(updateuser);
@@ -160,7 +166,7 @@ public class DepartSyn extends Thread {
 							myps.setString(6, account);
 							myps.executeQuery(setName);
 							myps.executeUpdate();
-							countInsertUser++;
+							countUpdateUser++;
 							log.info("更新用户:"+account+","+alias);
 						}
 					}else{
@@ -175,7 +181,7 @@ public class DepartSyn extends Thread {
 						myps.setInt(7, orders);
 						myps.executeQuery(setName);
 						myps.executeUpdate();
-						countUpdateUser++;
+						countInsertUser++;
 						log.info("添加用户:"+account+","+alias);
 					}
 				}
