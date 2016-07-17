@@ -82,7 +82,7 @@ public class DepartmentDao {
 				map.put("telphone", rs.getString("account_mobile"));
 				map.put("email", rs.getString("account_email"));
 				map.put("username", rs.getString("user_name"));
-				map.put("password", "@@@@@@");
+				map.put("password", rs.getString("password_text"));
 				return map;
 			}
 		} catch (SQLException e) {
@@ -116,8 +116,8 @@ public class DepartmentDao {
 				map = new HashMap<String, Object>();
 				map.put("id", departid);
 				map.put("orgid", orgid);
-				map.put("name", rs.getInt("departname"));
-				map.put("pid", rs.getString("departpnum"));
+				map.put("name", rs.getString("departname"));
+				map.put("pid", rs.getInt("departpnum"));
 				map.put("orders", rs.getInt("orders"));
 				return map;
 			}
@@ -141,7 +141,7 @@ public class DepartmentDao {
 		int orgid = Integer.parseInt(user.get("orgid").toString());;
 		StringBuffer sb = new StringBuffer();
 		if(id==0){
-			sb.append("insert into user(user_name,alias,role,name,account_email,account_mobile,password_md5,password_text,departid,orders,orgid) values(?,?,?,?,?,?,?,?,?,?)");
+			sb.append("insert into user(user_name,alias,role,name,account_email,account_mobile,password_md5,password_text,departid,orders,orgid,lastlogintime,logintag) values(?,?,?,?,?,?,?,?,?,?,?,'2000-12-12 12:12:12',1)");
 		}else{
 			sb.append("update user set alias=?,role=?,account_email=?,account_mobile=?,password_md5=?,password_text=?,orders=? where id=?");
 		}
@@ -165,13 +165,12 @@ public class DepartmentDao {
 			}else{
 				ps.setString(1, alias);
 				ps.setInt(2, role);
-				ps.setString(3, alias);
-				ps.setString(4, email);
-				ps.setString(5, phone);
-				ps.setString(6, HttpClient.md5(password));
-				ps.setString(7, password);
-				ps.setInt(8, orders);
-				ps.setInt(9, id);
+				ps.setString(3, email);
+				ps.setString(4, phone);
+				ps.setString(5, HttpClient.md5(password));
+				ps.setString(6, password);
+				ps.setInt(7, orders);
+				ps.setInt(8, id);
 			}
 			ps.executeQuery(setName);
 			return ps.executeUpdate()>0;
@@ -218,7 +217,7 @@ public class DepartmentDao {
 	}
 	public boolean deleteUser(String ids,int orgid){
 		StringBuffer sb = new StringBuffer();
-		sb.append("delete from user where id in("+ids+")");
+		sb.append("delete from user where id in("+ids+") and sys<>1");
 		Connection conn = ConnMYSQL.getConnMYSQL();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -234,7 +233,7 @@ public class DepartmentDao {
 	}
 	public boolean deleteDepart(String ids,int orgid){
 		StringBuffer sb = new StringBuffer();
-		sb.append("delete from department where id in("+ids+")");
+		sb.append("delete from department where id in("+ids+")  and sys<>1");
 		Connection conn = ConnMYSQL.getConnMYSQL();
 		PreparedStatement ps = null;
 		ResultSet rs = null;

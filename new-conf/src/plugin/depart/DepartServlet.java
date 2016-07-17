@@ -47,7 +47,7 @@ public class DepartServlet extends HttpServlet {
 		}else if(m.equals("savebatchuser")){//批量保存用户信息
 			this.saveDepart(request, response);
 		}else if(m.equals("savedepart")){//保存部门信息
-			
+			this.saveDepart(request, response);
 		}else if(m.equals("deletedu")){//删除用户和部门信息
 			this.deletedu(request, response);
 		}
@@ -59,6 +59,7 @@ public class DepartServlet extends HttpServlet {
 	}
 	public void returnJson(HttpServletRequest request, HttpServletResponse response,ResultBean result)
 			throws ServletException, IOException {
+		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		JSONObject r = JSONObject.fromObject(result);
 		out.print(r.toString());
@@ -142,12 +143,12 @@ public class DepartServlet extends HttpServlet {
 		ResultBean result = new ResultBean();
 		boolean flag = false;
 		if(dids!=null){
-			if(DepartmentDao.dao.deleteUser(dids, orgid)){
+			if(DepartmentDao.dao.deleteDepart(dids, orgid)){
 				flag = true;
 			}
 		}
 		if(uids!=null){
-			if(DepartmentDao.dao.deleteDepart(uids, orgid)){
+			if(DepartmentDao.dao.deleteUser(uids, orgid)){
 				flag = true;
 			}
 		}
@@ -156,8 +157,9 @@ public class DepartServlet extends HttpServlet {
 	}
 	public void saveUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		int id = this.getInt(request.getParameter("id"));
-		int orgid = this.getInt(request.getParameter("orgid"));
+		int orgid = this.getInt(request.getSession().getAttribute("orgid"));
 		int departid = this.getInt(request.getParameter("departid"));
 		int orders = this.getInt(request.getParameter("orders"));
 		int role = this.getInt(request.getParameter("role"));
@@ -185,10 +187,10 @@ public class DepartServlet extends HttpServlet {
 	public void saveDepart(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int id = this.getInt(request.getParameter("id"));
-		int orgid = this.getInt(request.getParameter("orgid"));
+		int orgid = this.getInt(request.getSession().getAttribute("orgid"));
 		int pid = this.getInt(request.getParameter("pid"));
 		int orders = this.getInt(request.getParameter("orders"));
-		String name = request.getParameter("pid");
+		String name = request.getParameter("name");
 		
 		ResultBean result = new ResultBean();
 		Map<String,Object> data = new HashMap<String, Object>();

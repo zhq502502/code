@@ -97,7 +97,9 @@ public class StartWithTomcat extends HttpServlet {
 		application.setAttribute("errorCodeList_zh_tw", CenterUtil.getErrorList_zh_tw());
 		application.setAttribute("errorCodeList_en", CenterUtil.getErrorList_en());
 		initOnlyOneOrgid();
-		new DepartSyn().start();
+		if(PropUtil.getInstance().getValue("zh.syn").equals("1")){
+			new DepartSyn().start();
+		}
 	}
 	/**
 	 * 检查中心是否只有一个企业，如果是默认填充orgid为该企业
