@@ -22,7 +22,7 @@ if(PropUtil.getInstance().getValue("orgid")!=null&&!PropUtil.getInstance().getVa
 	orgid = PropUtil.getInstance().getValue("orgid");
 }
 String u = request.getParameter("u");
-String p = request.getParameter("p");
+String p = "";
 String k = request.getParameter("k");
 String state = request.getParameter("state");
 String urlalias = request.getParameter("alias");
@@ -51,11 +51,16 @@ c3.set(Calendar.MINUTE, c3.get(Calendar.MINUTE)+30);
 String key1 = c1.getTimeInMillis()+key;
 String key2 = cal.getTimeInMillis()+key;
 String key3 = c3.getTimeInMillis()+key;
+
+System.out.println(key);
+System.out.println(key1);
+System.out.println(key2);
+System.out.println(key3);
 if(k==null){
 	out.write("<script>alert('密钥不存在!');</script>");
 	out.flush();
 	return;
-}else if(!(key.equals(HttpClient.md5(key1))||key.equals(HttpClient.md5(key2))||key.equals(HttpClient.md5(key3)))){
+}else if(!(k.equals(HttpClient.md5(key1))||k.equals(HttpClient.md5(key2))||k.equals(HttpClient.md5(key3)))){
 	out.write("<script>alert('密钥不正确!');</script>");
 	out.flush();
 	return;
