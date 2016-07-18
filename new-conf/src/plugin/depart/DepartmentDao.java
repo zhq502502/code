@@ -217,7 +217,7 @@ public class DepartmentDao {
 	}
 	public boolean deleteUser(String ids,int orgid){
 		StringBuffer sb = new StringBuffer();
-		sb.append("delete from user where id in("+ids+") and sys<>1");
+		sb.append("delete from user where id in("+ids+") and (sys<>1 or isnull(sys) )");
 		Connection conn = ConnMYSQL.getConnMYSQL();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -233,7 +233,7 @@ public class DepartmentDao {
 	}
 	public boolean deleteDepart(String ids,int orgid){
 		StringBuffer sb = new StringBuffer();
-		sb.append("delete from department where id in("+ids+")  and sys<>1");
+		sb.append("delete from department where id in("+ids+")  and  (sys<>1 or isnull(sys) )");
 		Connection conn = ConnMYSQL.getConnMYSQL();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
