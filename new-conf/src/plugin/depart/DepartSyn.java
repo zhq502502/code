@@ -135,11 +135,18 @@ public class DepartSyn extends Thread {
 				sqlrs = sqlps.executeQuery();
 				String users = "";
 				while(sqlrs.next()){
+					try{
+					
 					String account = sqlrs.getString("account");
 					users+=",'"+account+"'";
 					String alias = sqlrs.getString("name");
 					int departid = sqlrs.getInt("departnum");
-					int orders = sqlrs.getInt("orders");
+					int orders = 0;
+					try{
+						orders = sqlrs.getInt("orders");
+					}catch(Exception e1){
+						log.info("用户同步出错:"+account);
+					}
 					String tel = sqlrs.getString("tel");
 					String email = sqlrs.getString("email");
 					String password = sqlrs.getString("password");
@@ -185,6 +192,11 @@ public class DepartSyn extends Thread {
 						log.info("添加用户:"+account+","+alias);
 					}
 				}
+				catch (Exception e2) {
+					
+				}
+			}
+				
 				//删除用户库中没有的用户
 				
 				
