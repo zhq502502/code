@@ -37,7 +37,7 @@ public class DepartSyn extends Thread {
 	/**查询本地库的用户*/
 	private String selectuser = "select * from user where user_name=?";
 	/**插入本地库的用户*/
-	private String insertuser = "insert into user(user_name,alias,role,password_md5,departid,account_mobile,account_email,lastlogintime,logintag,orders,orgid,sys) values(?,?,4,?,?,?,?,'2000-12-12 12:12:12',1,?,"+orgid+",1)";
+	private String insertuser = "insert into user(user_name,alias,role,password_md5,departid,account_mobile,account_email,lastlogintime,logintag,orders,orgid,sys,proxyaddr,proxyport,proxyuser,proxypass) values(?,?,4,?,?,?,?,'2000-12-12 12:12:12',1,?,"+orgid+",1,'','','','')";
 	/**更新本地库的用户*/
 	private String updateuser = "update user set alias=?,departid=?,account_mobile=?,account_email=?,orders=? where user_name=?";
 	/**删除本地库的用户*/

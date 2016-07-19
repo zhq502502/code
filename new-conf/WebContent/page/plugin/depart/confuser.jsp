@@ -114,9 +114,23 @@ function msg(data){
 
 
 <script>
+//js获取项目根路径，如： http://localhost:8083/uimcardprj
+function getRootPath(){
+    //获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+    var curWwwPath=window.document.location.href;
+    //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+    var pathName=window.document.location.pathname;
+    var pos=curWwwPath.indexOf(pathName);
+    //获取主机地址，如： http://localhost:8083
+    var localhostPaht=curWwwPath.substring(0,pos);
+    //获取带"/"的项目名，如：/uimcardprj
+    var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+    return(localhostPaht+projectName);
+}
 token = "${token}";
 userpass = "${userpass}";
 username = "${userid}";
+//apiurl = getRootPath()+"/opm4j";
 apiurl = "${apiurl}";
 md5userpass = "${userpassmd5}";
 orgid = ${orgid};
@@ -126,15 +140,15 @@ function p_confcommon(){
 	$("#p-conf-bg").show();
 	$("#p-conf-user").hide();
 	$("#p-conf-admin").show();
-	confuser($("#cid").val());
 	tree.checkAllNodes(false);
+	confuser($("#cid").val());
 }
 function p_confadmin(){
 	$("#p-conf-bg").show();
 	$("#p-conf-user").hide();
 	$("#p-conf-admin").show();
-	confadmin($("#cid").val());
 	tree.checkAllNodes(false);
+	confadmin($("#cid").val());
 }
 $(".p-close").click(function(){
 	$("#p-conf-admin").hide();

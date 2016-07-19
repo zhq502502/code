@@ -330,6 +330,7 @@ function confuser(id){
 		accessKey : token,
 		cid : id
 	}
+	$("#selectconfuser").empty();
 	var url = apiurl + "/apis/conf/confcommonlist?callback=back_confuser";
 	$.ajax({
 		type : "get",
@@ -337,10 +338,13 @@ function confuser(id){
 		url : url,
 		data : param,
 		dataType : "jsonp"
+		/*success:function(data){
+			console.log(data);
+			back_confuser(data);
+		}*/
 	});
 	confdebug("获取默认与会者列表：", url + param);
 	//tree.checkAllNodes(false);
-	$("#selectconfuser").empty();
 }
 /**
  * 默认与会者回调
@@ -452,7 +456,9 @@ function confadmin(id){
 		accessKey : token,
 		cid : id
 	}
+	$("#selectconfuser").empty();
 	var url = apiurl + "/apis/conf/confadminlist?callback=back_confadmin";
+	console.log(url+"&accessKey="+token+"&cid"+id);
 	$.ajax({
 		type : "get",
 		async : false,
@@ -462,7 +468,6 @@ function confadmin(id){
 	});
 	confdebug("获取默认与会者列表：", url + param);
 	//tree.checkAllNodes(false);
-	$("#selectconfuser").empty();
 }
 /**
  * 添加会议管理员回调

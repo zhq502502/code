@@ -141,7 +141,7 @@ public class DepartmentDao {
 		int orgid = Integer.parseInt(user.get("orgid").toString());;
 		StringBuffer sb = new StringBuffer();
 		if(id==0){
-			sb.append("insert into user(user_name,alias,role,name,account_email,account_mobile,password_md5,password_text,departid,orders,orgid,lastlogintime,logintag) values(?,?,?,?,?,?,?,?,?,?,?,'2000-12-12 12:12:12',1)");
+			sb.append("insert into user(user_name,alias,role,name,account_email,account_mobile,password_md5,password_text,departid,orders,orgid,lastlogintime,logintag,sys,proxyaddr,proxyport,proxyuser,proxypass) values(?,?,?,?,?,?,?,?,?,?,?,'2000-12-12 12:12:12',1,0,'','','','')");
 		}else{
 			sb.append("update user set alias=?,role=?,account_email=?,account_mobile=?,password_md5=?,password_text=?,orders=? where id=?");
 		}
