@@ -219,7 +219,7 @@ var showitem = "${menu_default}";
 									<div class="title" id="5"><%=lu.getLanguage(language,"confpage.menu.videomanage","录像管理") %></div>
 									<div class="menu" id="opt_5">
 										<ul>
-											<li><span id='server_video_list'><span class=""><%=nbsp_left%></span><a href="<%=siteurl %>/ConfPage.go?inc=ServerVideoList"><%=lu.getLanguage(language,"confpage.menu.servervideolist","服务器录像列表") %></a><span class="sel-div"><%=nbsp_right%></span></span><div class="left-sep"></div></li>																					   
+											<li style="display: none"><span id='server_video_list'><span class=""><%=nbsp_left%></span><a href="<%=siteurl %>/ConfPage.go?inc=ServerVideoList"><%=lu.getLanguage(language,"confpage.menu.servervideolist","服务器录像列表") %></a><span class="sel-div"><%=nbsp_right%></span></span><div class="left-sep"></div></li>																					   
 											<li><span id='video_list'><span class=""><%=nbsp_left%></span><a href="<%=siteurl %>/ConfPage.go?inc=VideoList"><%=lu.getLanguage(language,"confpage.menu.videolist","录像列表") %></a><span class="sel-div"><%=nbsp_right%></span></span></li>	
 											<c:if test="${userid eq applicationScope.account_admin}">
 											<li><div class="left-sep"><span class=""><%=nbsp_left%></span></div><span id='video_upload'><a href="<%=siteurl %>/ConfPage.go?inc=VideoUpload"><%=lu.getLanguage(language,"confpage.menu.videoupload","上传录像") %></a><span class="sel-div"><%=nbsp_right%></span></span></li>		
@@ -236,7 +236,7 @@ var showitem = "${menu_default}";
 											<li><span id='orglogo'><span class=""><%=nbsp_left%></span><a class="user_exist" href="<%=siteurl %>/ConfPage.go?inc=ChangeLogo"><%=lu.getLanguage(language,"changelogo.upload","上传logo") %></a><span class="sel-div"><%=nbsp_right%></span></span><div class="left-sep"></div></li>										
 											<li><span id='emailconfg'><span class=""><%=nbsp_left%></span><a class="user_exist" href="<%=siteurl %>/ConfPage.go?inc=EmailConfig"><%=lu.getLanguage(language,"emailconfig.emailconfig","邮箱配置") %></a><span class="sel-div"><%=nbsp_right%></span></span></li>										
 											<%if(soft_version.equals("购买版")){ %>
-											<li><span id='backup'><span class=""><%=nbsp_left%></span><a class="user_exist" href="<%=siteurl %>/ConfPage.go?inc=Backup"><%=lu.getLanguage(language,"backup.backuporrecovery","备份/还原") %></a><span class="sel-div"><%=nbsp_right%></span></span></li>										
+											<li  style="display: none"><span id='backup'><span class=""><%=nbsp_left%></span><a class="user_exist" href="<%=siteurl %>/ConfPage.go?inc=Backup"><%=lu.getLanguage(language,"backup.backuporrecovery","备份/还原") %></a><span class="sel-div"><%=nbsp_right%></span></span></li>										
 											<%} %>
 											<!-- 
 											<c:if test="${0 eq applicationScope.test_open}">
@@ -247,7 +247,7 @@ var showitem = "${menu_default}";
 									</div>
 								</div>
 								</c:if>
-								<div class="space_02">
+								<div class="space_02"  style="display: none">
 									<div class="title" id="7"><%=lu.getLanguage(language,"confpage.menu.phoneconf","电话会议") %></div>
 									<div class="menu" id="opt_7">
 										<ul>
@@ -271,7 +271,7 @@ var showitem = "${menu_default}";
 									</div>
 								</div>
 								<c:if test="${sessionScope.userid eq applicationScope.account_admin || phonetype ==applicationScope.phonetype_public}">
-								<div class="space_02">
+								<div class="space_02"  style="display: none">
 									<div class="title" id="8"><%=lu.getLanguage(language,"confpage.menu.phoneconsume","通话记录") %></div>
 									<div class="menu" id="opt_8">
 										<ul>
