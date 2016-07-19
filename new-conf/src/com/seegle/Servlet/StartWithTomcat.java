@@ -114,6 +114,9 @@ public class StartWithTomcat extends HttpServlet {
 				params.add(new BasicNameValuePair("begin", "0"));
 				params.add(new BasicNameValuePair("count", "2"));
 				JSONArray jsonarr = hc.getJArray("orglist", params);
+				if(jsonarr==null){
+					return;
+				}
 				int size = jsonarr.size();
 				if(size==1){
 					JSONObject obj = (JSONObject)jsonarr.get(0);
