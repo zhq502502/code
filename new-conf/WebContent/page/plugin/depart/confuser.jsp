@@ -127,12 +127,14 @@ function p_confcommon(){
 	$("#p-conf-user").hide();
 	$("#p-conf-admin").show();
 	confuser($("#cid").val());
+	tree.checkAllNodes(false);
 }
 function p_confadmin(){
 	$("#p-conf-bg").show();
 	$("#p-conf-user").hide();
 	$("#p-conf-admin").show();
 	confadmin($("#cid").val());
+	tree.checkAllNodes(false);
 }
 $(".p-close").click(function(){
 	$("#p-conf-admin").hide();
