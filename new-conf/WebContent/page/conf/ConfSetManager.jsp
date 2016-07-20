@@ -51,7 +51,7 @@ LanguageUtil lu = new LanguageUtil();
 								<c:forEach var="user" items="${cmList}" varStatus="id">
 								<tr id="${user.userId}">
 								    <td width="6%"><input name="usernames" type="checkbox" class="checkchil" value="${user.userName}"/></td>
-									<td width="47%">${user.userName}</td>
+									<td width="47%">${user.alias}[${user.userName}]</td>
 									<td width="47%">
 									<span>
 										<img src='images_gb/del.gif' width='16' height='16' class='img_tab' />
@@ -154,6 +154,7 @@ LanguageUtil lu = new LanguageUtil();
 		<tr height="20">
 			<td width="190" align="center">
 				<a id="addall" href="javascript:addall()"><%=lu.getLanguage(language,"button.addall","全部添加") %></a>
+				<div class="p-u-title"><input id="search_text" style="width: 120px;"/><button onclick="search_user()">搜索</button></div>
 			</td>
 			<td width="20">
 			</td>
@@ -166,7 +167,7 @@ LanguageUtil lu = new LanguageUtil();
 				<div id="linkman_left" class="bd_upload" style="border: 1px solid #C6D5E1;width: 100%;height: 280px;overflow: auto;">
 					<ul id="leftUl">
 					      <c:forEach var="user1" items="${ucmList}" varStatus="id">                                    
-                               <li onclick="leftClick(this)"><span  id="${user1.userName}" class="m_text">${user1.userName}</span><img class="m_img" align="absmiddle" src="images_gb/bot_add.gif"></li>                          
+                               <li onclick="leftClick(this)"><span  id="${user1.userName}" class="m_text">${user1.alias}[${user1.userName}]</span><img class="m_img" align="absmiddle" src="images_gb/bot_add.gif"></li>                          
                           </c:forEach>
 					</ul>
 				</div>
@@ -195,6 +196,21 @@ LanguageUtil lu = new LanguageUtil();
 	<script type="text/javascript" src="js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
 	<script type="text/javascript">
+	function search_user(){
+		var text = $("#search_text").val();
+		if(text==null||text==""){
+			$("#leftUl li").show();
+			return;
+		}
+		$("#leftUl li").show();
+		$("#leftUl li").each(function(){
+			var html = $(this).find("span").html();
+			if(html.indexOf(text)<0){
+				$(this).hide();
+			}
+		})
+		
+	}
 	$( "#tabs" ).tabs({cookie:{ expires: 11}});
 	$(document).ready(function() {
 		$(".ui-tabs-selected a").click();
