@@ -24,7 +24,7 @@ public class DepartmentDao {
 		StringBuffer sb = new StringBuffer();
 		sb.append(" select id as realid,-1*id as id,-1*departpnum as pid,departname as name,'' as account,0 as type,'images_gb/045.png' as icon from department where orgid=? ");
 		sb.append(" UNION ");
-		sb.append(" select id as realid,id as id,-1*departid as pid,alias as name,user_name as account,1 as type,'images_gb/005.png' as icon from user where orgid=? and user_name <> 'admin' ");
+		sb.append(" select id as realid,id as id,-1*departid as pid,CONCAT(alias,'[',user_name,']') as name,user_name as account,1 as type,'images_gb/005.png' as icon from user where orgid=? and user_name <> 'admin' ");
 		System.out.println(sb.toString());
 		Connection conn = ConnMYSQL.getConnMYSQL();
 		PreparedStatement ps = null;
