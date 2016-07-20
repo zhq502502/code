@@ -3,7 +3,7 @@
 .p-userwindow{
 	
 	width: 600px;
-	height: 600px;
+	height: 630px;
 	margin: 5% auto;
 	background-color: #FFF;
 	border: 1px solid #ccc;
@@ -47,7 +47,7 @@
 	border-left:1px solid #ddd; 
 }
 #selectconfuser{
-	height:520px;
+	height:550px;
 	overflow-y: scroll;
 	box-sizing:border-box!important;  
 	padding: 5px;
@@ -81,6 +81,7 @@
 	<div class="p-content">
 		<div class="p-userlist">
 			<div class="p-u-title">组织结构</div>
+			<div class="p-u-title"><input id="search_text" /><button onclick="search_ztree('userdepart-ztree', 'search_text')">搜索</button></div>
 			<div id="userdepart-ztree" style="width: 100%" class="ztree"></div>
 		</div>
 		<div class="p-suserlist">
@@ -110,6 +111,7 @@ function msg(data){
 <script type="text/javascript" src="${basePath }page/plugin/depart/js/main.js"></script>
 
 <script type="text/javascript" src="plugin/ztree/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="${basePath }page/plugin/depart/js/search_tree.js"></script>
 <link rel="stylesheet" href="plugin/ztree/zTreeStyle/zTreeStyle.css" />
 
 
@@ -130,8 +132,8 @@ function getRootPath(){
 token = "${token}";
 userpass = "${userpass}";
 username = "${userid}";
-//apiurl = getRootPath()+"/opm4j";
-apiurl = "${apiurl}";
+apiurl = getRootPath()+"/opm4j";
+//apiurl = "${apiurl}";
 md5userpass = "${userpassmd5}";
 orgid = ${orgid};
 $("#p-conf-bg").css({'opacity':'0.4'});

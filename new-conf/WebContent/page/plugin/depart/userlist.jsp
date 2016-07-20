@@ -7,6 +7,7 @@
 <script type="text/javascript" src="${basePath }js/jquery.cookie.js"></script>	
 <script type="text/javascript" src="${basePath }plugin/ztree/jquery.ztree.all-3.5.min.js"></script>
 <link rel="stylesheet" href="${basePath }plugin/ztree/zTreeStyle/zTreeStyle.css" />
+<script type="text/javascript" src="${basePath }page/plugin/depart/js/search_tree.js"></script>
 <style>
 .p-pagecontent{
 	box-sizing:border-box!important;  
@@ -42,6 +43,7 @@
 			<div class="p-pagecontent">
 				<div class="p-user-left">
 					<button onclick="deleteall()">批量删除用户</button>
+					<div class="p-u-title"><input id="search_text" style="width: 150px;"/><button onclick="search_ztree('userdepart-ztree', 'search_text')">搜索</button></div>
 					<div id="userdepart-ztree" class=" ztree" >
 						
 					</div>
