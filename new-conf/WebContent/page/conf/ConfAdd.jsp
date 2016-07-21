@@ -115,9 +115,9 @@ datelang=language.replace('_', '-');
                  </c:forEach>
 			 </select><font color="#FF0000">  *</font>
 		</td>
-	   <td style="text-align: right;"><label for="captchatype"><%=lu.getLanguage(language,"phone.addvcode","添加验证码") %></label></td>
-       <td><input type="radio"  name="captcha_flag" value="1" onclick="createCaptcha()" checked=checked /><%=lu.getLanguage(language,"button.yes","是") %>
-           <input type="radio"  name="captcha_flag" value="0" onclick="createCaptcha()"/><%=lu.getLanguage(language,"button.no","否") %>
+	   <td style="text-align: right;display:none " ><label for="captchatype"><%=lu.getLanguage(language,"phone.addvcode","添加验证码") %></label></td>
+       <td style="display: none"><input type="radio"  name="captcha_flag" value="1" onclick="createCaptcha()" /><%=lu.getLanguage(language,"button.yes","是") %>
+           <input type="radio"  name="captcha_flag" value="0" onclick="createCaptcha()" checked=checked /><%=lu.getLanguage(language,"button.no","否") %>
            </td>
 	</tr>	
 	<tr id="captcha2" style="display:none">

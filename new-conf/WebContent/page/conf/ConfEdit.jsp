@@ -150,8 +150,8 @@ datelang=language.replace('_', '-');
                               </c:forEach>
 			              </select><font color="#FF0000">  *</font>
 		               </td>
-		               <td style="text-align: right;"><label for="captcha"><%=lu.getLanguage(language,"phone.verifycode","验证码") %></label></td>
-				       <td> 
+		               <td style="text-align: right;display:none "><label for="captcha"><%=lu.getLanguage(language,"phone.verifycode","验证码") %></label></td>
+				       <td style="display:none "> 
 				            <input type="hidden" name="c_btime" id="c_btime" value="${btime}"/>
 				            <input type="hidden" name="c_etime" id="c_etime" value="${etime}"/>
 				            <input type="hidden" name="codeid" id="codeid" value="${code.id}"/>
@@ -214,7 +214,7 @@ datelang=language.replace('_', '-');
 				    </tr>								
 					<tr>
 						<td colspan="8" valign="middle" style="height:40px; text-align:center;">
-							<input type="submit" id="btnSearch" value="<%=lu.getLanguage(language,"button.modify","修改") %>" class="sbutton" />
+							<input type="button" onclick="subconf()" id="btnSearch" value="<%=lu.getLanguage(language,"button.modify","修改") %>" class="sbutton" />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						    <input type="button" id="reset_btn" value="<%=lu.getLanguage(language,"button.cancel","取消") %>" class="sbutton" />
 						</td>
@@ -227,7 +227,7 @@ datelang=language.replace('_', '-');
 		</div><!--space_03完结-->
 	</div><!--wrap完结-->
 </div><!--wpbody-content完结-->
-<script type="text/javascript" src="js/stringRes.js"></script>
+<script type="text/javascript" src="${siteurl }/js/stringRes.js"></script>
 	<script type="text/javascript">
 	jQuery( "#tabs" ).tabs({cookie:{ expires: 1}});	
     function getValue(name){
@@ -239,176 +239,181 @@ datelang=language.replace('_', '-');
 	    }
 	    return item_id;
   }
+
+    
+    function subconf(){
+    	var siteurl = $('#siteurl').val();
+			var cid = $('#cid').val();
+			var confname = $('#confname').val();
+			var btime = $('#btime').val();
+			var etime = $('#etime').val();
+			var confpass = $('#confpass').val();
+			var confpass1 = $('#confpass1').val();
+			var maxconfuser = $('#maxconfuser').val();
+			var managepass = $('#managepass').val();
+			var managepass1 = $('#managepass1').val();
+			var maxconfspokesman = $('#maxconfspokesman').val();
+			var maxconftourist = $('#maxconftourist').val();
+			var grouptype = $('#grouptype').val();
+		    var numberRegex = /^[+]?\d+$/;
+		    var cnameRegex = /^[a-zA-Z0-9\u0391-\uFFE5]+(([\-\_ ][a-zA-Z0-9\u0391-\uFFE5 ])?[a-zA-Z0-9\u0391-\uFFE5]*)*$/; 	
+		    var open_flag = getValue("open_flag");			    			   
+		    var all_can_visible = getValue("all_can_visible");	    
+		    var description = $('#description').val();		    
+		    var lock_flag = $('#lock_flag').val();
+		    var auto_clear_flag = $('#auto_clear_flag').val();	   
+		    var download_mode = $('#download_mode').val();
+		    var open_audit = $('#open_audit').val();
+
+	        var record_module = "data:";
+	        var auto_record = getValue("auto_record");
+	        var checkbox = document.getElementsByName("recordMode");
+	        if(auto_record==1){
+	            if(checkbox!=null){
+	            	for (var i=0;i<checkbox.length;i++){
+	            		if(checkbox[i].checked){
+	            			record_module = record_module+checkbox[i].value+",";
+	            		}
+	            	}
+                } 
+	        }
+	        
+            var confsetting = $('#confsetting').val();
+		    	    
+			if(confname==""){
+				jQuery('#l_msg').text(getMsg(ERR_NO_CONFNAME));
+				jQuery('#confname').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+		    if (!confname.match(cnameRegex)) {
+		    	jQuery('#l_msg').text(getMsg(ERR_NON_STANDARD_CHARACTERS));
+		    	jQuery('#confname').focus();
+		    	jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+		        return false;
+		    }
+			if(confpass!=confpass1){
+				jQuery('#l_msg').text(getMsg(ERR_CONFPASS_UNPAIR));
+				jQuery('#confpass').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			} 
+			if(managepass!=managepass1){
+				jQuery('#l_msg').text(getMsg(ERR_MANAGEPASS_UNPAIR));
+				jQuery('#managepass').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+			if(maxconfuser==""){
+				jQuery('#l_msg').text(getMsg(ERR_NO_MAXCONFUSER));
+				jQuery('#maxconfuser').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+			if(!maxconfuser.match(numberRegex)){
+				jQuery('#l_msg').text(getMsg(ERR_MAXCONFUSER_ERROR));
+				jQuery('#maxconfuser').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+		    if (!(maxconfuser>=1 & maxconfuser<=1000)){
+		    	jQuery('#l_msg').text(getMsg(ERR_MAXCONFUSER_RENGE_ERROR));
+		    	jQuery('#maxconfuser').focus();
+		    	jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+		        return false;
+		    }
+			if(maxconfspokesman==""){
+				jQuery('#l_msg').text(getMsg(ERR_NO_SPOKESMAN));
+				jQuery('#maxconfspokesman').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+			if(!maxconfspokesman.match(numberRegex)){
+				jQuery('#l_msg').text(getMsg(ERR_SPOKESMAN_ERROR));
+				jQuery('#maxconfspokesman').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+		    if (!(maxconfspokesman>=1 & maxconfspokesman<=20)){
+		    	jQuery('#l_msg').text(getMsg(ERR_SPOKESMAN_RENGE_ERROR));
+				jQuery('#maxconfspokesman').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+		        return false;
+		    }
+			if(Number(maxconfspokesman) > Number(maxconfuser)){
+				jQuery('#l_msg').text(getMsg(ERR_SPOKESMAN_BIGER));
+				jQuery('#maxconfspokesman').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+			if(maxconftourist==""){
+				jQuery('#l_msg').text(getMsg(ERR_NO_TOURIST));
+				jQuery('#maxconftourist').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+			if(!maxconftourist.match(numberRegex)){
+				jQuery('#l_msg').text(getMsg(ERR_TOURIST_ERROR));
+				jQuery('#maxconftourist').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+		    if (!(maxconftourist>=0 & maxconftourist<=1000)){
+		    	jQuery('#l_msg').text(getMsg(ERR_TOURIST_RENGE_ERROR));
+		    	jQuery('#maxconftourist').focus();
+		    	jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+		        return false;
+		    }
+			if(Number(maxconftourist) > Number(maxconfuser)){
+				jQuery('#l_msg').text(getMsg(ERR_TOURIST_BIGER));
+				jQuery('#maxconftourist').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+			if(description!=null&&description.length>100){
+				jQuery('#l_msg').text(getMsg(ERR_DESCRIPTION_LENGTH));
+				jQuery('#description').focus();
+				jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
+				return false;
+			}
+			else {
+				$("#l_msg").hide();
+				$.post(siteurl+"/CheckRoleServlet", { _: new Date().getTime() } ,function(rs) {
+					if(rs==null||rs==""){
+						alert(getMsg(ERR_CURRENT_USER_UNEXIST));
+						location.href = siteurl+'/logout';
+					}
+					else if(rs==1 || rs==2){
+						$.post(siteurl+"/conf/mod", {cid: cid, confname: confname, btime: btime, etime: etime, confpass: confpass, managepass: managepass, maxconfuser: maxconfuser, maxconftourist: maxconftourist, maxconfspokesman: maxconfspokesman, grouptype: grouptype, confpass: confpass, open_flag: open_flag, lock_flag: lock_flag, auto_clear_flag: auto_clear_flag, all_can_visible: all_can_visible, description: description,auto_record: auto_record, record_module: record_module, download_mode: download_mode, open_audit: open_audit, confsetting: confsetting, _: new Date().getTime() } ,function(rs) {
+							if(rs==0){
+								alert(getMsg(MOD_SUCESS));
+								var page = "${nowPage}";
+								location.href=siteurl+'/ConfPage.go?inc=ConfEdit&confid='+cid+'&page='+page;
+							} 
+							else {
+								alert(getMsg(MOD_FAILURE));
+								return false;
+							}
+						});
+					} 
+					else {
+						alert(getMsg(ERR_NO_PERMISSION));
+						//location.href = siteurl+'/ConfPage.go?inc=ConfList';
+						location.href = siteurl+'/logout';
+						return false;
+					}
+				});
+				
+				return false;
+			}
+			return false;
+    }
+    
 		$(document).ready(function() {
 			//jQuery(".ui-tabs-selected a").click();
 			$('#conf_manage').addClass("sel_tag");
 			var siteurl = $('#siteurl').val();
-			$('#form').submit(function(){
-				var cid = $('#cid').val();
-				var confname = $('#confname').val();
-				var btime = $('#btime').val();
-				var etime = $('#etime').val();
-				var confpass = $('#confpass').val();
-				var confpass1 = $('#confpass1').val();
-				var maxconfuser = $('#maxconfuser').val();
-				var managepass = $('#managepass').val();
-				var managepass1 = $('#managepass1').val();
-				var maxconfspokesman = $('#maxconfspokesman').val();
-				var maxconftourist = $('#maxconftourist').val();
-				var grouptype = $('#grouptype').val();
-			    var numberRegex = /^[+]?\d+$/;
-			    var cnameRegex = /^[a-zA-Z0-9\u0391-\uFFE5]+(([\-\_ ][a-zA-Z0-9\u0391-\uFFE5 ])?[a-zA-Z0-9\u0391-\uFFE5]*)*$/; 	
-			    var open_flag = getValue("open_flag");			    			   
-			    var all_can_visible = getValue("all_can_visible");	    
-			    var description = $('#description').val();		    
-			    var lock_flag = $('#lock_flag').val();
-			    var auto_clear_flag = $('#auto_clear_flag').val();	   
-			    var download_mode = $('#download_mode').val();
-			    var open_audit = $('#open_audit').val();
-
-		        var record_module = "data:";
-		        var auto_record = getValue("auto_record");
-		        var checkbox = document.getElementsByName("recordMode");
-		        if(auto_record==1){
-		            if(checkbox!=null){
-		            	for (var i=0;i<checkbox.length;i++){
-		            		if(checkbox[i].checked){
-		            			record_module = record_module+checkbox[i].value+",";
-		            		}
-		            	}
-	                } 
-		        }
-		        
-                var confsetting = $('#confsetting').val();
-			    	    
-				if(confname==""){
-					jQuery('#l_msg').text(getMsg(ERR_NO_CONFNAME));
-					jQuery('#confname').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-			    if (!confname.match(cnameRegex)) {
-			    	jQuery('#l_msg').text(getMsg(ERR_NON_STANDARD_CHARACTERS));
-			    	jQuery('#confname').focus();
-			    	jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-			        return false;
-			    }
-				if(confpass!=confpass1){
-					jQuery('#l_msg').text(getMsg(ERR_CONFPASS_UNPAIR));
-					jQuery('#confpass').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				} 
-				if(managepass!=managepass1){
-					jQuery('#l_msg').text(getMsg(ERR_MANAGEPASS_UNPAIR));
-					jQuery('#managepass').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-				if(maxconfuser==""){
-					jQuery('#l_msg').text(getMsg(ERR_NO_MAXCONFUSER));
-					jQuery('#maxconfuser').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-				if(!maxconfuser.match(numberRegex)){
-					jQuery('#l_msg').text(getMsg(ERR_MAXCONFUSER_ERROR));
-					jQuery('#maxconfuser').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-			    if (!(maxconfuser>=1 & maxconfuser<=1000)){
-			    	jQuery('#l_msg').text(getMsg(ERR_MAXCONFUSER_RENGE_ERROR));
-			    	jQuery('#maxconfuser').focus();
-			    	jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-			        return false;
-			    }
-				if(maxconfspokesman==""){
-					jQuery('#l_msg').text(getMsg(ERR_NO_SPOKESMAN));
-					jQuery('#maxconfspokesman').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-				if(!maxconfspokesman.match(numberRegex)){
-					jQuery('#l_msg').text(getMsg(ERR_SPOKESMAN_ERROR));
-					jQuery('#maxconfspokesman').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-			    if (!(maxconfspokesman>=1 & maxconfspokesman<=20)){
-			    	jQuery('#l_msg').text(getMsg(ERR_SPOKESMAN_RENGE_ERROR));
-					jQuery('#maxconfspokesman').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-			        return false;
-			    }
-				if(Number(maxconfspokesman) > Number(maxconfuser)){
-					jQuery('#l_msg').text(getMsg(ERR_SPOKESMAN_BIGER));
-					jQuery('#maxconfspokesman').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-				if(maxconftourist==""){
-					jQuery('#l_msg').text(getMsg(ERR_NO_TOURIST));
-					jQuery('#maxconftourist').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-				if(!maxconftourist.match(numberRegex)){
-					jQuery('#l_msg').text(getMsg(ERR_TOURIST_ERROR));
-					jQuery('#maxconftourist').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-			    if (!(maxconftourist>=0 & maxconftourist<=1000)){
-			    	jQuery('#l_msg').text(getMsg(ERR_TOURIST_RENGE_ERROR));
-			    	jQuery('#maxconftourist').focus();
-			    	jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-			        return false;
-			    }
-				if(Number(maxconftourist) > Number(maxconfuser)){
-					jQuery('#l_msg').text(getMsg(ERR_TOURIST_BIGER));
-					jQuery('#maxconftourist').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-				if(description!=null&&description.length>100){
-					jQuery('#l_msg').text(getMsg(ERR_DESCRIPTION_LENGTH));
-					jQuery('#description').focus();
-					jQuery("#l_msg").fadeIn('fast').animate({opacity: 1.0}, 3000).fadeOut('fast');
-					return false;
-				}
-				else {
-					$("#l_msg").hide();
-					$.post(siteurl+"/CheckRoleServlet", { _: new Date().getTime() } ,function(rs) {
-						if(rs==null||rs==""){
-							alert(getMsg(ERR_CURRENT_USER_UNEXIST));
-							location.href = siteurl+'/logout';
-						}
-						else if(rs==1 || rs==2){
-							$.post(siteurl+"/conf/mod", {cid: cid, confname: confname, btime: btime, etime: etime, confpass: confpass, managepass: managepass, maxconfuser: maxconfuser, maxconftourist: maxconftourist, maxconfspokesman: maxconfspokesman, grouptype: grouptype, confpass: confpass, open_flag: open_flag, lock_flag: lock_flag, auto_clear_flag: auto_clear_flag, all_can_visible: all_can_visible, description: description,auto_record: auto_record, record_module: record_module, download_mode: download_mode, open_audit: open_audit, confsetting: confsetting, _: new Date().getTime() } ,function(rs) {
-								if(rs==0){
-									alert(getMsg(MOD_SUCESS));
-									var page = "${nowPage}";
-									location.href=siteurl+'/ConfPage.go?inc=ConfEdit&confid='+cid+'&page='+page;
-								} 
-								else {
-									alert(getMsg(MOD_FAILURE));
-									return false;
-								}
-							});
-						} 
-						else {
-							alert(getMsg(ERR_NO_PERMISSION));
-							//location.href = siteurl+'/ConfPage.go?inc=ConfList';
-							location.href = siteurl+'/logout';
-							return false;
-						}
-					});
-					
-					return false;
-				}
-				return false;
-			});	
+			
 			
 		 	$("#rebuild").click(function() {
 				var cid = $('#cid').val();
