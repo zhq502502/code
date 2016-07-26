@@ -51,7 +51,7 @@ LanguageUtil lu = new LanguageUtil();
 								<c:forEach var="user" items="${umList}" varStatus="id">
 								<tr id="${user.userId}">
 								    <td width="6%"><input name="usernames" type="checkbox" class="checkchil" value="${user.userName}"/></td>
-									<td width="47%">${user.alias}[${user.userName}]</td>
+									<td width="47%" data="${user.userName}">${user.alias}[${user.userName}]</td>
 									<td width="47%">
 									<span>
 										<img src='images_gb/del.gif' width='16' height='16' class='img_tab' />
@@ -231,7 +231,7 @@ LanguageUtil lu = new LanguageUtil();
 			});
 			$('.removeadmin').click(function(){
 				if(confirm(getMsg(CONFIRM_CANCEL))){
-					var account = $(this).parent('span').parent('td').prev().text();
+					var account = $(this).parent('span').parent('td').prev().attr("data");
 					$.post(siteurl+"/user/update", { action:'changeUserrole', account: account, operation: "cancel",_: new Date().getTime() } ,function(rs) {
 						if(rs==0){
 							alert(getMsg(CANCEL_USERADMIN_SUCCESS));
@@ -367,7 +367,7 @@ LanguageUtil lu = new LanguageUtil();
 			var rightLi = $("#rightUl span");
 			var names="";
 			rightLi.each(function(i,n){
-				var name = $(this).text();
+				var name = $(this).attr("id");
 				names+=","+name;
 			})
 			names = names.substring(1,names.length)            
