@@ -144,6 +144,8 @@ function p_confcommon(){
 	$("#p-conf-admin").show();
 	tree.checkAllNodes(false);
 	confuser($("#cid").val());
+	$("#search_text").val("");
+	search_ztree('userdepart-ztree', 'search_text');
 }
 function p_confadmin(){
 	$("#p-conf-bg").show();
@@ -151,6 +153,8 @@ function p_confadmin(){
 	$("#p-conf-admin").show();
 	tree.checkAllNodes(false);
 	confadmin($("#cid").val());
+	$("#search_text").val("");
+	search_ztree('userdepart-ztree', 'search_text');
 }
 $(".p-close").click(function(){
 	$("#p-conf-admin").hide();

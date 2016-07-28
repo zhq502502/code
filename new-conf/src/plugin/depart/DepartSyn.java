@@ -162,7 +162,9 @@ public class DepartSyn extends Thread {
 						String m_user_name = myrs.getString("user_name");
 						String m_alias = myrs.getString("alias");
 						int m_orders = myrs.getInt("orders");
-						if(!(isEq(alias,m_alias)&&(departid==m_departid)&&(orders==m_orders))){
+						String m_email = myrs.getString("account_email");
+						log.info("服务器用户邮箱："+email+",本地用户邮箱："+m_email);
+						if(!(isEq(alias,m_alias)&&(departid==m_departid)&&(orders==m_orders)&&(isEq(email,m_email)))){
 							//有字段更新
 							myps = myconn.prepareStatement(updateuser);
 							myps.setString(1, alias);

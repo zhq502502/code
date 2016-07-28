@@ -216,7 +216,7 @@ datelang=language.replace('_', '-');
 						<td colspan="8" valign="middle" style="height:40px; text-align:center;">
 							<input type="button" onclick="subconf()" id="btnSearch" value="<%=lu.getLanguage(language,"button.modify","修改") %>" class="sbutton" />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						    <input type="button" id="reset_btn" value="<%=lu.getLanguage(language,"button.cancel","取消") %>" class="sbutton" />
+						    <input type="button" id="reset_btn" onclick="history.go(-1)" value="<%=lu.getLanguage(language,"button.cancel","取消") %>" class="sbutton" />
 						</td>
 					</tr>
 					</form>	

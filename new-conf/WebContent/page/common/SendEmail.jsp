@@ -106,6 +106,7 @@ String userManage = request.getSession().getAttribute("userManage").toString();
 		<tr height="20">
 			<td width="190" align="center">
 				<a id="addall" href="javascript:addall()"><%=lu.getLanguage(language,"button.addall","全部添加") %></a>
+				<div class="p-u-title"><input id="search_text" style="width: 120px;"/><button onclick="search_user()">搜索</button></div>
 			</td>
 			<td width="20">
 			</td>
@@ -143,6 +144,24 @@ String userManage = request.getSession().getAttribute("userManage").toString();
 <script type="text/javascript" src="js/jquery.ui.dialog.js"></script>
 <script src="js/date/WdatePicker.js"></script>
 	<script type="text/javascript">
+	function search_user(){
+		var text = $("#search_text").val();
+		if(text==null||text==""){
+			$("#leftUl li").show();
+			return;
+		}
+		$("#leftUl li").show();
+		$("#leftUl li").each(function(){
+			var html = $(this).find("span").html();
+			if(html.indexOf(text)<0){
+				$(this).hide();
+			}
+		})
+		
+	}
+	
+	
+	
 		//var emailmes="收件人邮箱以逗号隔开，如：zhang@seegle.com,gong@seegle.com";
 		var emailmes=getMsg(ADDRESSEE_EXAMPLE);
 		var siteurl = $('#siteurl').val();
