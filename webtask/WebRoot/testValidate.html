@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>testValidate.html</title>
+
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="description" content="this is my page">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+  <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+<style>
+input{
+	padding: 0px;
+}
+.input-error{
+	border:1px red dashed;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
+<body>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<form action="">
+<table cellpadding="1" cellspacing="1" border="1" style="width: 1000px;margin: 0 auto;">
+	<tr>
+		<td>0.32-0.9的数<input validate="must,float_0.32|0.9"/></td>
+		<td>0-999的整数<input validate="must,int_0|999" /></td>
+		<td>emai<input validate="email" /></td>
+	</tr>
+	<tr>
+		<td>-122至-2101的两位有效位小数<input validate="must,float_-2101|-122_2" selfmsg="输入错误"/></td>
+		<td>小于100的整数<input validate="must,int_100" /></td>
+		<td>http地址<input validate="http" /></td>
+	</tr>
+	<tr>
+		<td>描述小于必填10-20个数</td>
+		<td colspan="2"><textarea validate="self" selfmsg="必填项123" selfregex="^(?:https|http):\/\/[\w-\.]+$" rows="5" cols="50"></textarea></td>
+	</tr>
+	<tr>
+		<td><button type="button" onclick="validate()" value="提交">提交</button></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+</form>
+</body>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript">
+$.cookie('proxytype', '123', {path: '/'});
+if($.cookie('proxytype')==""){
+	alert("null");
+}else{
+	alert($.cookie('proxytype'));
+}
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>test.html</title>
+</head>
+<script type='text/javascript' src='js/init.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/jquery-1.4.4.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="js/conf.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+<script type="text/javascript">
+function GetHostVerifyByJsop() {
+    $.getJSON("http://meetingtel.sct.yuantel.net/SeegleService.svc/HostVerify?jsoncallback=?",{orgid:"889210",name:"summit@yuantel.com",passcode:"1119771765"}, 
+    function (data) {
+        alert(data);
+    });
+}
+GetHostVerifyByJsop();
+</script>
+<body>
+  
+</body>
+</html>

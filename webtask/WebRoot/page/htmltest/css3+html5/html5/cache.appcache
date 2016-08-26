@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# 2015-05-13 可通过修改这个文件的注释达到更新缓存的目的
+#缓存文件
+CACHE:
+cache.html
+
+#需要联网
+NETWORK:
+../css/cache.css
+
+#文件找不到时，用后面的取代
+FALLBACK:
+#../css/cache.css http://www.baidu.com

@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>canvas.html</title>
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="description" content="this is my page">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+  <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+</body>
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/json.js"></script>
+<script type="text/javascript">
+var a = [
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-1952-4754-6491&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-7801-2274-1665&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-0335-7621-4374&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-0289-2279-4004&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-4398-7704-8375&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-0789-2585-4668&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-5379-2961-6139&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-4104-6793-4255&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-1886-6638-4983&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-0554-3064-1801&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-4370-1144-5292&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-0889-4511-6827&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-8974-9599-6139&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-4403-8429-2707&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-2376-6604-3920&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-6644-4316-6449&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-5251-2538-6224&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-7973-7645-3114&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-4718-2625-2738&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-0948-1883-2493&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-6767-2450-4258&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-4569-6862-1395&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-9342-4201-4374&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-1522-4363-6730&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-6658-3107-2973&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-4286-9393-5694&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-9237-1282-7789&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-3890-5917-8898&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-8277-3822-3292&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-4642-0728-9089&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-7742-3657-1542&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-6382-8082-1857&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-3202-1996-2336&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-5509-6913-2715&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-5025-5536-7153&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-2658-9520-1414&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-5331-4148-5053&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-8060-8146-8163&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-7517-8581-9391&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-0552-7702-8622&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-8036-5127-6407&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-7994-5722-8456&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-7327-7554-9338&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-5468-7919-7071&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-1167-0724-2264&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-8100-5780-3073&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-6769-5852-2327&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-6773-1957-8606&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-1761-1892-0074&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-0622-5986-7683&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-8372-8949-1671&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-1818-6615-5442&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-3751-7944-8196&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-9760-8126-5838&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-1261-6472-5534&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-2010-8718-3112&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-1093-7446-2698&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-2887-0401-6612&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-3288-8262-5485&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198",
+"http://s.webcgi.163.com/tianyu-active-code/activate_code?callback=jQuery1640863468879262528_1427771942380&urs=zhq_502502@126.com&urs_confirm=zhq_502502@126.com&code=RA24-7905-6272-2894&phone=18627137905&server_id=5&r=0.10345050499253083&_=1427772078198"
+
+
+
+
+         ];
+var i=0;
+
+setTimeout(aa,2000);
+function aa(){
+	$.ajax({
+		type : "get",
+		async:false,
+		url :a[i],
+		dataType : "jsonp"
+	});
+	i+=1;
+	if(i<a.length){
+		setTimeout(aa,2000);
+	}
+}
+function jQuery1640863468879262528_1427771942380(a){
+	$("body").append(JSON.stringify(a)+"<br/>")
+}
+</script>
+</html>

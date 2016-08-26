@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>云会议jsonp调用示例1.0</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type='text/javascript' src='js/jquery-1.4.4.min.js'></script>
+<script type='text/javascript' src='js/map.js'></script>
+<script type="text/javascript" src="js/base64.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/conf.js"></script>
+<body>
+<div id="isdebug" style="display: top:5px;right: 15px;position: absolute;border: 1px solid #F9B3D5;background-color: #FFE7F4;cursor: pointer;z-index: 1000"><input type="checkbox" id="debug"/><span>打印调试信息</span></div>
+<div id="loding" onclick="closeloding()" style="display: none;background-color: #ffffff;position: absolute;width: 20%;height: auto;left:40%;top:40%;z-index: 101;border: 3px #eeeeee outset;line-height: 30px;text-align: center;">加载中......</div>
+<div id="background" style="display: none;background-color: #000000;position: absolute;width: 100%;height: 100%;left:0;top:0;z-index: 10;"></div>
+<div id="main">
+	<ul id="left">
+		<li class="li-title">会议管理</li>
+		<li class="li-item" onclick="conflist()">企业会议列表</li>
+		<li class="li-item" onclick="userconflist()">个人会议列表</li>
+		<li class="li-item" onclick="confadd()">新建会议室</li>
+		<li class="li-item" onclick="confgroup()">获取会议集群信息</li>
+		<li class="li-item" onclick="relogin()">重新登录</li>
+	</ul>
+	<div id="right">
+		
+	</div>
+</div>
+<div id="footer" style="display: ">2013-2014 视高视频会议版权所有<span style="float: right;margin-right: 20px"><a href="javascript:void(0)" onclick="hidecopyright()">隐藏底部</a></span></div>
+<div id="login" style="display: none;background-color:white;position: absolute;left:30%;top: 30%;width: 40%;height: auto;border: 5px #eeeeee outset;z-index: 100 ">
+	<table width="100%">
+		<tr>
+			<td height="30" align="center" colspan="2" >用户登录</td>
+			
+		</tr>
+		<tr>
+			<td align="right" width="30%">api地址：</td><td width="70%"><input class="input-login" name="apiurl" id="apiurl"/></td>
+		</tr>
+		<tr>
+			<td align="right">企业ID：</td><td><input class="input-login" name="orgid" id="orgid"/></td>
+		</tr>
+		<tr>
+			<td align="right">用户昵称：</td><td><input class="input-login" name="nname" id="nname"/></td>
+		</tr>
+		<tr>
+			<td align="right">用户名：</td><td><input class="input-login" name="username" id="username"/></td>
+		</tr>
+		<tr>
+			<td align="right">密码：</td><td><input class="input-login" name="userpass" id="userpass" type="password"/></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><button onclick="click_login();">登录</button><a style="margin-left: 20px" href="javascript:void(0)" onclick="click_openvcode()">验证码入会</a></td>
+		</tr>
+	</table>
+</div>
+<div id="confadd" style="display: none">
+	<table width="100%" border="1">
+		<tr>
+			<td height="30" align="center" colspan="2" >新建会议室</td>
+			<input name="cid" type="hidden" id="cid" value="123"/>
+		</tr>
+		<tr>
+			<td align="right" width="30%">会议名称：</td><td width="70%"><input class="input-login" name="confname" id="confname" value="测试会议室"/></td>
+		</tr>
+		<tr>
+			<td align="right">会议开始时间：</td><td><input class="input-login" name="begintime" id="begintime" value="2014-01-01 00:00:00"/>2012-01-01 00:00:00</td>
+		</tr>
+		<tr>
+			<td align="right">会议结束时间：</td><td><input class="input-login" name="endtime" id="endtime" value="2015-01-01 00:00:00"/>2016-01-01 00:00:00</td>
+		</tr>
+		<tr>
+			<td align="right">会议密码：</td><td><input class="input-login" name="conf_password_md5" id="conf_password_md5" type="password"/></td>
+		</tr>
+		<tr>
+			<td align="right">会议管理员密码：</td><td><input class="input-login" name="manage_password_md5" id="manage_password_md5" type="password"/></td>
+		</tr>
+		<tr>
+			<td align="right">会议集群：</td><td><input class="input-login" name="grouptype" id="grouptype"  value="1"/>请先调用获取会议集群信息接口，选取一个集群ID</td>
+		</tr>
+		<tr>
+			<td align="right">最大与会人数：</td><td><input class="input-login" name="max_conf_user" id="max_conf_user"  value="10"/></td>
+		</tr>
+		<tr>
+			<td align="right">最大主席人数：</td><td><input class="input-login" name="max_conf_spokesman" id="max_conf_spokesman"  value="1"/></td>
+		</tr>
+		<tr>
+			<td align="right">最大游客人数：</td><td><input class="input-login" name="max_conf_tourist" id="max_conf_tourist"  value="1"/></td>
+		</tr>
+		<tr>
+			<td align="right">所有人可见：</td><td><input class="input-login" name="all_can_visible" id="all_can_visible"  value="0"/>0：所有人可见，1：非所有人可见</td>
+		</tr>
+		<tr>
+			<td align="right">会议类型：</td><td><input class="input-login" name="conftype" id="conftype"  value="0"/>0：单位会议室，3：个人会议室</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><button onclick="click_confadd();">确定</button></td>
+		</tr>
+	</table>
+</div>
+<div id="vcodelogin" style="display: none;background-color:white;position: absolute;left:30%;top: 30%;width: 40%;height: auto;border: 5px #eeeeee outset;z-index: 100 ">
+	<table width="100%">
+		<tr>
+			<td height="30" align="center" colspan="2" >验证码入会</td>
+		</tr>
+		<tr>
+			<td align="right" width="30%">api地址：</td><td width="70%"><input class="input-login" name="apiurl" id="apiurl1"/></td>
+		</tr>
+		<tr>
+			<td align="right">用户昵称：</td><td><input class="input-login" name="nname" id="nname1"/></td>
+		</tr>
+		<tr>
+			<td align="right">验证码：</td><td><input class="input-login" name="vcode" id="vcode"/></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><button onclick="click_vcodelogin();">验证码入会</button><a style="margin-left: 20px" href="javascript:void(0)" onclick="click_closevcode()">返回登录</a></td>
+		</tr>
+	</table>
+</div>
+<div id="install" style="position: absolute;top: 0;left: 0;width:100%;z-index: 11;display: none">
+<div style="width:280px;border: 5px solid #dddddd;background-color: #ffffff;margin: 80px auto">
+	<table border="0" cellpadding="10" cellspacing="0" style="width: 100%">
+		<tr>
+			<td colspan="2" align="center">检查到客户端未安装，安装完后请重新打开</td>
+		</tr>
+		<tr>
+			<td align="center"><a href="javascript:download(1)">在线安装</a></td><td align="center"><a href="javascript:download(0)">下载安装包</a></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><a href="javascript:showinstall(false);">关闭窗口</a></td>
+		</tr>
+	</table>
+</div>
+</div>
+</body>
+</html>

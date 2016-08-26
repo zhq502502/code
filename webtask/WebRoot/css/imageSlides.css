@@ -1,0 +1,45 @@
+div{
+	border: solid 1px #cccccc;	
+}
+#div-imageSlides-main{
+	width: 800px;
+	height: 550px;
+	margin: 0 auto;
+}
+#div-imageSlides-show{
+	width: 95%;
+	height:400px;
+	margin: 0 auto;
+}
+#div-imageSlides-oper{
+	width: 95%;
+	height:100px;
+	margin: 0 auto;
+}
+#div-imageSlides-oper-prev{
+	width: 120px;
+	height:100px;
+	float: left;
+}
+#div-imageSlides-oper-items{
+	width: 500px;
+	height:100px;
+	float: left;
+	overflow-x: scroll ;
+	overflow-y: hidden;
+}
+#div-imageSlides-oper-next{
+	width: 120px;
+	height:100px;
+	float: left;
+}
+#div-imageSlides-oper-item{
+	width: 1200px;
+	height:100px;
+	float: left;
+}
+.div-imageSlides-oper-image{
+	width: 100px;
+	height:80px;
+	float: left;
+}

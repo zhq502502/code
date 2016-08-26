@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>视高可视协同平台</title>
+
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="description" content="this is my page">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+  <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<link rel='stylesheet' href='css/style_gb.css' type='text/css'>
+<script type='text/javascript' src='js/jquery-1.4.4.min.js' charset='utf-8'></script>
+
+</head>
+
+<body>
+	<div id="wrapper">
+	<form id="loginform" name="loginform" action="ConfPage.go">
+			<table width="1000" height="620" border="0" align="center" cellpadding="0" cellspacing="0" class="login_table" style="table-layout:inherit;">
+				<tr>
+					<td height="200" colspan="2" align="left" valign="top" class="login_top">
+						<table width="100%" border="0">
+							<tr>
+								<td width="5%"></td>
+								<td width="90%"></td>
+								<td width="5%"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="550" height="185"></td>
+					<td width="450" valign="top" align="left">
+						<div class="space_030">
+						<table width="300" height="185" border="0" cellspacing="0" cellpadding="0" style="float: left">							
+							<tr>
+								<td colspan="3" height="10"></td>
+							</tr>
+							<tr id="tr1">
+								<td width="79" height="22" class="font_010">服务器IP:</td>
+								<td width="231" colspan="2"><INPUT type="text" class="input" id="ip"
+									name="orgid" value=""></td>
+							</tr>
+							<tr>
+								<td colspan="3" height="10"></td>
+							</tr>
+							<tr id="tr1">
+								<td width="79" height="22" class="font_010">单位账号:</td>
+								<td width="231" colspan="2"><INPUT type="text" class="input" id="orgid"
+									name="orgid" value=""></td>
+							</tr>
+							<tr>
+								<td colspan="3" height="10"></td>
+							</tr>
+							<tr>
+								<td width="69" height="22" class="font_010">用户账号:</td>
+								<td width="231" colspan="2"><INPUT type="text" class="input"
+									id="username" name="username" value=""></td>
+							</tr>
+							<tr>
+								<td colspan="3" height="10"></td>
+							</tr>
+							<tr>
+								<td height="22" class="font_010">登录密码:</td>
+								<td colspan="2"><INPUT class="input" id="password"
+									type="password" name="userpass"
+									onpaste="return false"></td>
+							</tr>
+							<tr>
+								<td height="8" colspan="3" class="font_010"></td>
+							</tr>
+							<tr>
+								<td class="font_010"></td>
+								<td colspan="2" width="121" class="font_03"><span><a href='#' id="top-search-button" onclick="sub()"></a></span></td>
+							</tr>
+							<tr>
+								<td height="8" colspan="3" class="font_010"></td>
+							</tr>
+							<tr>
+								<td height="8" colspan="3" class="font_010"><img class="img_tab" width="16" height="16" src="images_gb/download.gif"><a href="http://www.seegletop.com/seegletop.exe">视高可视办公平台下载</a></td>
+							</tr>
+						</table>
+						</div>											
+					</td>
+				</tr>
+				<tr>
+					<td width=450></td>
+					<td height="50" style="vertical-align:top;">
+					<div id="msg_div"><span id="l_msg" class="error"></span></div>
+					</td>
+				</tr>
+				<tr><td colspan="2" valign="top"><table width="100%" border="0">
+				<tr>
+					<td width="6%"></td>
+					<td width="88%">
+					<div style="font-size:12px"><font color="#056fb9" >
+					   </font>
+					</div>
+					</td>
+					<td width="6%"></td>
+				</tr>
+			</table></td></tr>
+				<tr>
+					<td height="100" colspan="2" align="left" valign="top">
+						<table width="100%" border="0">
+							<tr>
+								<td width="45%" height="50"></td>
+								<td width="55%" class="login_footer"></td>
+							</tr>
+							<tr>
+								<td width="45%"></td>
+								<td width="55%" class="login_footer"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table></form>			
+	</div>
+</body>
+<script type="text/javascript">
+var client_registry = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Seegle Team Office Platform";
+var client_confname = "seegletop.exe";
+</script>
+<script type='text/javascript' src='js/conf.js' charset='utf-8'></script>
+<script type="text/javascript">
+$(function(){
+	if (seegletop_installFlag == '0' || seegletop_installFlag == '1')
+    {
+		if(browser.versions.iPad){
+			seegletop_installFlag = "4";
+		}
+		else if(browser.versions.iPhone){
+			seegletop_installFlag = "5";
+		}
+		else if(browser.versions.android){
+			seegletop_installFlag = "3";
+		}
+		else{
+			Seegle.postCheckSeegletop(9090, client_registry, "InstallPath");	
+		}	
+    }
+})
+function sub(){
+	/*var ip = "116.255.142.37";
+	var orgid = "800923";
+	var username = "1000";
+	var password = "1000";
+	var port = "2800";*/
+	var ip = $("#ip").val();
+	var orgid = $("#orgid").val();;
+	var username = $("#username").val();
+	var password = $("#password").val();
+	var port = "2800";
+	if(seegletop_installFlag=='0'||seegletop_installFlag=='1')
+	{	
+		alert("视高可视协同办公平台未安装");						
+	}
+	else            
+	{
+		Seegle.startseegletop(client_registry,"InstallPath",client_confname,ip,orgid,username,password,port);	
+	}
+}
+</script>
+</html>

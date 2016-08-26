@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>ztreeTest.html</title>
+
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="description" content="this is my page">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+  <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+<link rel="stylesheet" type="text/css" href="css/zTreeStyle/zTreeStyle.css">
+<style>
+#ztreee{
+	width: 300px;
+	height: 500px;
+	border: solid 1px #cccccc;
+	float: left;
+}
+#ztreee-oper{
+	width: 300px;
+	height: 500px;
+	border: solid 1px #cccccc;
+	float: left;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/ztree/jquery.ztree.all-3.5.min.js"></script>
+<script>
+var zt;
+var setting = {
+	check: {
+		enable: true
+	},
+	data: {
+		simpleData: {
+			enable: true
+		}
+	}
+};
+
+var zNodes =[
+	{ id:1, pId:0, name:"随意勾选 1", open:true},
+	{ id:11, pId:1, name:"随意勾选 1-1", open:true},
+	{ id:111, pId:11, name:"随意勾选 1-1-1"},
+	{ id:12, pId:1, name:"随意勾选 1-2", open:true},
+	{ id:121, pId:12, name:"随意勾选 1-2-1"},
+	{ id:122, pId:12, name:"随意勾选 1-2-2"},
+	{ id:2, pId:0, name:"随意勾选 2", checked:true, open:true},
+	{ id:21, pId:2, name:"随意勾选 2-1"},
+	{ id:22, pId:2, name:"随意勾选 2-2", open:true},
+	{ id:221, pId:22, name:"随意勾选 2-2-1", checked:true},
+	{ id:222, pId:22, name:"随意勾选 2-2-2"},
+	{ id:112, pId:11, name:"随意勾选 1-1-2"},
+	{ id:23, pId:2, name:"随意勾选 2-3"}
+];
+$(function(){
+	zt = $.fn.zTree.init($("#ztreee"), setting, zNodes);
+})
+function f1(){
+	zt.checkAllNodes(true);
+}
+function f2(){
+	zt.checkAllNodes(false);
+}
+function f3(){
+	var nodes = zt.getCheckedNodes(true);
+	var str = "";
+	for(var i=0;i<nodes.length;i++){
+		if(i==0){
+			str+=nodes[i].id;
+		}else{
+			str+=","+nodes[i].id;
+		}
+	}
+	alert(str);
+}
+function f4(){
+	var nodes = zt.getSelectedNodes();
+	alert(nodes[0].id);
+}
+</script>
+<body>
+<dir id="ztreee"  class="ztree">
+
+</dir>
+<dir id="ztreee-oper"  class="ztree">
+<button onclick="f1()">选中所有</button>
+<button onclick="f2()">取消所有</button>
+<button onclick="f3()">获取所有被选中向</button>
+<button onclick="f4()">获取当前项</button>
+</dir>
+</body>
+</html>

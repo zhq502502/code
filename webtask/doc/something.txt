@@ -1,0 +1,5 @@
+http://oa.seegle.com:5000/logincheck.php?UNAME=Zhangqing&PASSWORD=ldh502502&UI=0&submit=%B5%C7+%C2%BC
+submit=µÇ Â¼
+
+http://oa.seegle.com:5000/general/attendance/personal/duty/submit.php?REGISTER_TYPE=2
+

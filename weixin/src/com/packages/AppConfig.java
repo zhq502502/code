@@ -33,7 +33,7 @@ public class AppConfig extends JFinalConfig{
 	public void configRoute(Routes me) {
 		me.add("/test1", IndexController.class);
 		me.add("/test", TestController.class);
-		me.add("/", WeixinMsgController.class);
+		me.add("/msg", WeixinMsgController.class);
         /*me.add("/api", WeixinApiController.class, "/api");
         me.add("/pay", WeixinPayController.class);*/
 				

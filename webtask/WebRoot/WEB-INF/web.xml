@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+ <!--  <servlet>
+    <description>dwr</description>
+    <display-name>dwr</display-name>
+    <servlet-name>DwrTest</servlet-name>
+    <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+    <init-param> 
+    <param-name>config-1</param-name>
+    <param-value>WEB-INF/dwr.xml</param-value>
+    </init-param> 
+	<init-param>  
+	<param-name>activeReverseAjaxEnabled</param-name>  
+	<param-value>true</param-value>  
+	</init-param>  
+	<init-param>
+    <description>开启DWR反转功能(开启“推”技术)</description>
+    <param-name>pollAndCometEnabled</param-name>
+    <param-value>true</param-value>
+    </init-param>
+    <init-param>
+    <param-name>allowGetForSafariButMakeForgeryEasier</param-name>
+    <param-value>true</param-value>
+    </init-param>
+	<init-param>  
+	<param-name>maxWaitAfterWrite</param-name>  
+	<param-value>-1</param-value>  
+	</init-param> 
+	<init-param> 
+	<param-name>debug</param-name>
+	<param-value>true</param-value> 
+	</init-param> 
+	<load-on-startup>1</load-on-startup>  
+  </servlet>
+  <servlet>
+    <servlet-name>InitDwr</servlet-name>
+    <servlet-class>greendog.dwr.test.InitDwr</servlet-class>
+	<load-on-startup>100</load-on-startup>  
+  </servlet>-->
+  <servlet>
+    <servlet-name>UserLogin</servlet-name>
+    <servlet-class>greendog.dwr.test.UserLogin</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ExportExcel</servlet-name>
+    <servlet-class>greendog.office.ExportExcel</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Weixin</servlet-name>
+    <servlet-class>greendog.weixin.servlet.Weixin</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ExceptionServlet</servlet-name>
+    <servlet-class>greendog.exception.ExceptionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ErrorHandler</servlet-name>
+    <servlet-class>greendog.exception.ErrorHandler</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+  <!-- <servlet-mapping>
+    <servlet-name>DwrTest</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InitDwr</servlet-name>
+    <url-pattern>/dwrInit</url-pattern>
+  </servlet-mapping>-->
+  <servlet-mapping>
+    <servlet-name>UserLogin</servlet-name>
+    <url-pattern>/UserLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExportExcel</servlet-name>
+    <url-pattern>/ExportExcel</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Weixin</servlet-name>
+    <url-pattern>/weixin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExceptionServlet</servlet-name>
+    <url-pattern>/eServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ErrorHandler</servlet-name>
+    <url-pattern>/ErrorHandler</url-pattern>
+  </servlet-mapping>
+  
+  
+  <error-page>
+  	<error-code>403</error-code>
+  	<location>/ErrorHandler</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/ErrorHandler</location>
+  </error-page>
+  <error-page>  
+    <exception-type>java.lang.Throwable</exception-type >
+    <location>/ErrorHandler</location>
+  </error-page>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>

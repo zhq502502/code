@@ -1,0 +1,247 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>canvas.html</title>
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="description" content="this is my page">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+  <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="600" style="border:1px solid #c3c3c3;float:left">
+Your browser does not support the canvas element.
+</canvas>
+<div>
+<button onclick="fillrect()">填充方形</button>
+<button onclick="strokerect()">画方框</button>
+<button onclick="clearrect()">擦除方形</button>
+<button onclick="fillarc()">画圆</button>
+<button onclick="fillline()">画直线</button>
+<button onclick="fillcurve()">画曲线线</button>
+<button onclick="changecolor()">改变颜色</button>
+<button onclick="fillcolor()">填充渐变颜色</button>
+<button onclick="translate()">移动</button>
+<button onclick="scale()">缩放</button>
+<button onclick="rotate()">旋转</button>
+<button onclick="composite()">重叠</button>
+<button onclick="shadow()">阴影</button>
+<button onclick="drawimage()">绘图</button> 
+<button onclick="drawimage_repeat()">绘图平铺</button> 
+<button onclick="clip()">裁剪</button> 
+<button onclick="saveimage()">保存</button> 
+<button onclick="saveimage1()">还原</button> 
+<button onclick="saveimageToURL()">保存图片到链接</button> 
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/json.js"></script>
+<script type="text/javascript">
+var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext("2d");
+var color1 = "rgba(255,100,100,1)";
+function changecolor(){
+	color1 = "rgba(255,0,0,1)";
+	context.fillStyle = "rgba(255,0,0,1)"; 
+	context.fillRect(0,0,200,200);
+}
+/**
+ * 画方形
+ */
+function fillrect(){
+	context.fillStyle = color1; 
+	context.fillRect(0,0,200,200);
+}
+/**
+ * 画方框
+ */
+function strokerect(){
+	context.strokeStyle = "rgba(255,100,100,1)"; 
+	context.strokeRect(230,0,200,200);
+}
+/**
+ * 擦除方形
+ */
+function clearrect(){
+	context.clearRect(0,0,200,200);
+}
+
+/**
+ * 画圆
+ */
+function fillarc(){
+	context.beginPath();
+	context.arc(200,200,100,Math.PI*1,Math.PI*0.5,false);
+	context.closePath();
+	context.fillStyle = "rgba(255,0,0,1)";
+	context.strokeStyle="rgba(0,255,0,1)";
+	context.fill();
+	context.stroke();
+}
+/**
+ * 画直线
+ */
+function fillline(){
+	context.fillStyle="rgba(0,255,0,1)";
+	context.strokeStyle="rgba(0,0,0,1)";
+	context.beginPath();
+	context.moveTo(0,0);
+	context.lineTo(0,100);
+	context.lineTo(100,100);
+	context.lineTo(100,0);
+	context.lineTo(0,0);
+	context.closePath();
+	context.fill();
+	context.stroke();
+}
+/**
+ * 画曲线
+ */
+function fillcurve(){
+	context.beginPath();
+	context.moveTo(0,0);
+	context.bezierCurveTo(400,0,0,400,400,400);
+	context.closePath();
+	context.stroke();
+	/*context.fillStyle="rgba(0,0,255,1)";
+	context.strokeStyle="rgba(0,0,0,1)";
+	context.beginPath();
+	context.moveTo(200,200);
+	context.quadraticCurveTo(200,300,300,300);
+	context.quadraticCurveTo(400,300,400,200);
+	context.quadraticCurveTo(400,100,300,100);
+	context.quadraticCurveTo(200,100,200,200);
+	context.closePath();
+	context.stroke();
+	context.fill();*/
+}
+function fillcolor(){
+	var cl = context.createLinearGradient(0,0,0,100);
+	cl.addColorStop(0,"rgb(255,0,0)");
+	cl.addColorStop(0.5,"rgb(0,255,0)");
+	cl.addColorStop(1,"rgb(0,0,255)");
+	context.fillStyle = cl;
+	context.fillRect(0,0,100,100);
+	
+}
+/**
+ * 移动
+ */
+function translate(){
+	context.translate(10,10);
+	context.fillRect(0,0,100,100);
+}
+/**
+ * 缩放
+ */
+function scale(){
+	context.scale(1.5,1.5);
+	context.fillRect(0,0,100,100);
+}
+/**
+ * 旋转
+ */
+function rotate(){
+	context.rotate(Math.PI*0.1);
+	context.fillRect(0,0,100,100);
+}
+/**
+ * 组合图像
+ */
+function composite(){
+	var oprtns = new Array(
+		"source-over",
+		"destination-over",
+		"source-in",
+		"destination-in",
+		"source-out",
+		"destination-out",
+		"source-atop",
+		"destination-atop",
+		"lighter",
+		"xor",         
+		"copy"
+	);
+	var i = 0;
+	var x = 100;
+	var y = 0;
+	for(;i<oprtns.length;i++){
+		context.beginPath();
+		context.globalCompositeOperation = oprtns[i];
+		context.fillStyle="rgb(255,0,0)";
+		context.fillRect(0,0,60,60);
+	
+		context.fillStyle="rgb(0,255,0)";
+		context.arc(60,60,30,0,Math.PI*2,false);
+		
+		context.fill();
+		context.closePath();
+		context.translate(x,y);
+		if(i!=0&&i%6==0){
+			context.translate(x-x-700,y+100);
+		}
+	}
+}
+/**
+ * 阴影
+ */
+function shadow(){
+	context.fillStyle="rgb(255,0,0)";
+	context.shadowColor = "rgba(100,100,100,0.5)";
+	context.shadowOffsetX = 20;
+	context.shadowOffsetY = 20;
+	context.shadowBlur = 10;
+	context.fillRect(100,100,200,200);
+}
+/**
+ * 绘图
+ */
+function drawimage(){
+	context.fillStyle = "rgb(255,0,0)";
+	context.fillRect(0, 0, 400, 300);
+	var img = new Image();
+	img.onload = function(){
+		clip();
+		context.drawImage(img,0,0);
+	}
+	img.src="../image/1.jpg";
+}
+/**
+ * 图形平铺
+ */
+function drawimage_repeat(){
+	var img = new Image();
+	img.src="../image/2.jpg";
+	img.onload = function(){
+		var ptrn = context.createPattern(img,"repeat");
+		context.fillStyle = ptrn;
+		clip();
+		context.fillRect(0,0,500,500);
+		
+	}
+}
+/**
+ * 裁剪
+ */
+function clip(){
+	context.beginPath();
+	context.arc(100, 150, 100, 0, Math.PI * 2, true);
+	context.closePath();
+	context.clip;
+}
+/**
+ * 保存图片
+ */
+function saveimage(){
+	context.save();
+}
+function saveimage1(){
+	context.restore();
+}
+function saveimageToURL(){
+	imageObject.crossOrigin='anonymous';
+	  var w=window.open(canvas.toDataURL("image/jpeg"),"smallwin","width=600,height=600");
+}
+</script>
+</html>

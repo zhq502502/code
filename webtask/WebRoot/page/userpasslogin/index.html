@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>直播密钥进入会议室</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+body table{
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+}
+body{
+	/*background-color: #eeeeee;*/
+}
+.input{
+	width: 160px;
+}
+.input2{
+	width: 120px;
+}
+.bu{
+	width: 80px;
+}
+input
+</style>
+<script type='text/javascript' src='js/init.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/jquery-1.4.4.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/jQuery.md5.js' charset='utf-8'></script>
+<script type="text/javascript" src="js/conf.js"></script>
+<script type="text/javascript" src="js/base64.js"></script>
+</head>
+<body style="margin: 0">
+<center>
+<div style="width: 500px;margin: 0 auto;height: 150px;background-color: #eeeeee;">
+<form action="" style="margin: 0 auto">
+<table width="90%" cellspacing="5" style="margin: 0 auto" border="0">
+	<tbody id="orgtbody" style="display: none">
+	<tr>
+		<td width="50%" align="right" style="" colspan="2"><span style="margin-right: 30px">企业id</span></td><td width="50%"  colspan="2"><input class="input" id="orgid"/></td>
+	</tr>
+	</tbody>
+	<tr>
+		<td align="right" style="" colspan="2"><span style="margin-right: 30px">直播密钥</span></td><td colspan="2"><input class="input" id="verifycode"/></td>
+	</tr>
+	<tr>
+		<td width="50%" align="right" style="" colspan="2"><span style="margin-right: 30px">省市姓名</span></td><td width="50%"  colspan="2"><input  class="input" id="nname"/></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="4"><input class="bu" style="margin-left: 20px;" type="button" value="登录" onclick="login()"/></td>
+	</tr>
+	<tbody id="proxy" style="display: none">
+	<tr>
+		<td align="right" width="16%"  style="">代理类型</td>
+		<td  colspan="3"><select id="proxytype">
+		<option value="0">--无代理--</option>
+		<option value="1">socket 4</option>
+		<option value="2">socket 5</option>
+		<option value="3">http</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td align="right" style="" width="16%" >代理地址</td><td><input id="proxyip" class="input2"/></td>
+		<td align="right" style="" width="16%" >端口</td><td><input id="proxyport" class="input2"/></td>
+	</tr>
+	<tr>
+		<td align="right" style="">用户名</td><td><input id="proxyuser" class="input2"/></td>
+		<td align="right" style="">密码</td><td><input id="proxypass" class="input2"/></td>
+	</tr>
+	</tbody>
+</table>
+</form>
+</div>
+</center>
+</body>
+
+<script type="text/javascript">
+
+var token = "";
+var verifycode = "";
+var nname = "";
+var proxytype = "";
+var proxyip = "";
+var proxyport = "";
+var proxyuser = "";
+var proxypass = "";
+var username = "";
+var password = "";
+if(orgid==null||orgid==""){
+	$("#orgtbody").show();	
+}else{
+	$("#orgid").val(orgid);	
+}
+
+if (g_installFlag == '0' || g_installFlag == '1')
+{
+	if(browser.versions.iPad){
+		g_installFlag = "4";
+	}
+	else if(browser.versions.iPhone){
+		g_installFlag = "5";
+	}
+	else if(browser.versions.android){
+		g_installFlag = "3";
+	}
+	else{
+		Seegle.postsgsvr(9090, 1, Seegle.client_registry, "InstallPath");	
+	}	
+}
+/**
+ * 点击参加会议按钮
+ */
+function login(){
+	proxytype = $("#proxytype").val();
+	proxyip = $("#proxyip").val();
+	proxyport = $("#proxyport").val();
+	proxyuser = $("#proxyuser").val();
+	proxypass = $("#proxypass").val();
+	verifycode = $("#verifycode").val();
+	nname = $("#nname").val()+"";
+	orgid = $("#orgid").val();
+	if(orgid==""||orgid==null){
+		alert("请输入企业id");
+		return ;
+	}if(nname==""||nname==null){
+		alert("请输入省市姓名");
+		return ;
+	}if(verifycode==""||verifycode==null){
+		alert("请输入直播密钥");
+		return ;
+	}
+	if(verifycode.indexOf(" ")<0){
+		alert("输入直播密钥有误");
+		return ;
+	}
+	var verifycodes = verifycode.split(" ");
+	username = verifycodes[0];
+	password = verifycodes[1];
+	pass = password;
+	password = $.md5(password); 
+	
+	var url =  apiurl+"/apis/token?orgid="+orgid+"&u="+username+"&p="+password+"&callback=inittoken";
+	$.ajax({
+		type : "get",
+		async:false,
+		url :url,
+		dataType : "jsonp"
+	});
+}
+function inittoken(data){
+	token = data.token;
+	if(token<8){
+		alert("登录出错直播密钥错误");
+		return ;
+	}
+	getconfids()
+}
+function getconfids(){
+	//alert(verifycode);
+	$.ajax({
+		type : "get",
+		async:false,
+		url : apiurl+"/apis/conf/list?accessKey="+token+"&orgid="+orgid+"&callback=getConfoInfo",
+		dataType : "jsonp"
+	});
+}
+function getConfoInfo(data){
+	if(data.length>0){
+		var confid = data[0].cid;
+		$.ajax({
+			type : "get",
+			async:false,
+			url : apiurl+"/apis/conf/login?accessKey="+token+"&cid="+confid+"&callback=loginconf",
+			dataType : "jsonp"
+		});
+	}else{
+		alert("获取不到会议室信息");
+	}
+}
+function loginconf(data){
+	if(data.rid !="" && data.rid != null)
+	{
+		if(g_installFlag=='0'||g_installFlag=='1')
+		{		
+			alert("客户端未安装");					
+		}
+		else            
+		{
+			var base64unick = base64encode(utf16to8(nname)); //昵称base64编码
+			var runandroid = "mtcmtc://startConference.app?ConfID="+data.rid+"&ServerAddrAndPort="+data.ips+"&UserAccount="+orgid+data.userid+"&Nick="+nname+"&LoginMode=LoginByUserID&Password="+pass;
+			var runipad = "SCConferenceiPad://?user="+orgid+data.userid+"&pass="+pass+"&conference="+data.rid+"&server="+data.ips+"&nick="+base64unick+"&loginMode=LoginByUserID";
+			var runiphone = "SCConferenceiPhone://?user="+orgid+data.userid+"&pass="+pass+"&conference="+data.rid+"&server="+data.ips+"&nick="+base64unick+"&loginMode=LoginByUserID";
+			if(browser.versions.iPad){
+				location.href=runipad;
+			}
+			else if(browser.versions.iPhone){
+				location.href=runiphone;
+			}
+			else if(browser.versions.android){
+				location.href=runandroid;
+			}
+			else{
+				Seegle.startconf(data.rid, data.ips, orgid, data.userid, pass, nname,"",'2',Seegle.client_registry,"InstallPath",Seegle.client_confname,proxytype,proxyip,proxyport,proxyuser,proxypass);
+				$("#verifycode").val("");
+			}
+		}
+	}else{
+		alert("获取会议登录参数出错");
+	}
+}
+function setting(){
+	$("#proxy").toggle();
+}
+</script>
+</html>

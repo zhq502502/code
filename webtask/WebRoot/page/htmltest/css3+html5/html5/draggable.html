@@ -1,0 +1,97 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>draggable.html</title>
+
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="description" content="this is my page">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+  <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+<style>
+.div{
+	width: 400px;
+	height: 400px;
+	float:left;
+}
+#div3{
+	width: 200px;
+	height: 200px;
+	float:left;
+	background-color: red;
+}
+#div1{
+	background-color: #ccc;
+}
+#div2{
+	background-color:#999999;
+}
+#image{
+	width:600px;
+	height: 600px;
+	background-color: blue;	
+	padding-top:400px;
+}
+</style>
+<body>
+	<div id="div1" class="div"></div>
+	<div id="div2" class="div"></div>
+	<img id="div3"  scr=""/>
+	<div id="msg" style="float: left;"></div>
+	<div id="image" ></div>
+
+</body>
+<script type="text/javascript">
+var div1,div2,div3,msg,div_all,div_image;
+window.onload = function(){
+	div1 = document.getElementById("div1");
+	div2 = document.getElementById("div2");
+	div3 = document.getElementById("div3");
+	div_image = document.getElementById("image");
+	msg = document.getElementById("msg");
+	div_all = document.getElementsByClassName("div");
+	for(var div in div_all){
+		div_all[div].ondragover = function(e){
+			e.preventDefault();
+		}
+		div_all[div].ondrop = imm;
+	}
+	div3.ondragstart = function(e){		
+		e.dataTransfer.setData("id","div3");
+	}
+	div_image.ondrop = function(e){
+		e.preventDefault();
+		var files = e.dataTransfer.files;
+		for(var file in files){
+			var filereader = new FileReader();
+			filereader.readAsDataURL(files[file]);
+			filereader.onload = function(e){
+				//showObj(e.target);
+				var img = new Image();
+				img.src = e.target.result;
+				img.width = 100;
+				div_image.appendChild(img);
+			}
+		}
+	}
+	div_image.ondragover = function(e){
+		e.preventDefault();
+	}
+
+}
+function imm(e){
+	showObj(e);
+	var div = document.getElementById(e.dataTransfer.getData("id"));
+	e.target.appendChild(div);
+}
+function showObj(obj){
+	var s = "";
+	for(var k in obj){
+		s+=k+":"+obj[k]+"<br/>";
+	}
+	msg.innerHTML = s;
+}
+</script>
+</html>

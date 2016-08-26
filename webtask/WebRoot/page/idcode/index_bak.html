@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>视高科技 会议室登陆</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='js/init.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/jquery-1.9.1.min.js'></script>
+<script type="text/javascript" src="js/conf.js"></script>
+<script type="text/javascript" src="js/base64.js"></script>
+<script type="text/javascript" src="js/jquery.md5.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+<script type="text/javascript">
+var confid = "";
+var userid = "";
+var userpass = "";
+var type = "";
+var proxytype = "0";
+var proxyip = "";
+var proxyport = "";
+var proxyuser = "";
+var proxypass = "";
+var ualias = "";
+var md5pass = $.md5(userpass);
+
+if(orgid==null||orgid==""){
+	alert("请设置企业ID");
+}
+
+if (g_installFlag == '0' || g_installFlag == '1')
+{
+	if(browser.versions.iPad){
+		g_installFlag = "4";
+	}
+	else if(browser.versions.iPhone){
+		g_installFlag = "5";
+	}
+	else if(browser.versions.android){
+		g_installFlag = "3";
+	}
+	else{
+		Seegle.postsgsvr(9090, 1, Seegle.client_registry, "InstallPath");	
+	}	
+}
+
+$(function() {
+	/**
+	 * 点击参加会议按钮
+	 */
+	$("#login_v").click(function() {
+		confid = 108439;
+		code = $("#code").val();
+		userid = "SG"+Math.round(Math.random(0)*1000)+1;
+		//ualias = $("#ualias_v").val();
+		if(code==""||code==null){
+			alert("请输入验证码");
+			return ;
+		}
+		var url =  apiurl+"/apis/token?type=2&orgid="+orgid+"&u="+userid+"&p="+md5pass+"&callback=inittoken";
+		$.ajax({
+			type : "get",
+			async:false,
+			url :url,
+			dataType : "jsonp"
+		});
+	});
+});
+
+function inittoken(data){
+	token = data.token;
+	if(token<8){
+		alert("登录错误，错误代码"+token);
+		return ;
+	}else{
+		getconfinfo();
+	}
+}
+
+function getconfinfo(data){
+	$.ajax({
+		type : "get",
+		async:false,
+		url : apiurl+"/apis/conf/login?cid="+confid+"&accessKey="+token+"&callback=loginconf",
+		dataType : "jsonp"
+	});
+}
+function loginconf(data){
+	if(data.rid !="" && data.rid != null)
+	{
+		
+		if(g_installFlag=='0'||g_installFlag=='1')
+		{		
+			showinstall();
+		}
+		else            
+		{
+			var base64unick = base64encode(utf16to8(ualias)); //昵称base64编码
+			var runandroid = "mtcmtc://startConference.app?ConfID="+data.rid+"&ServerAddrAndPort="+data.ips+"&UserAccount="+orgid+data.userid+"&Nick="+ualias+"&LoginMode=LoginByUserID&Password="+userpass;
+			var runipad = "SCConferenceiPad://?user="+orgid+data.userid+"&pass="+userpass+"&conference="+data.rid+"&server="+data.ips+"&nick="+base64unick+"&loginMode=LoginByUserID";
+			var runiphone = "SCConferenceiPhone://?user="+orgid+data.userid+"&pass="+userpass+"&conference="+data.rid+"&server="+data.ips+"&nick="+base64unick+"&loginMode=LoginByUserID";
+			if(browser.versions.iPad){
+				location.href=runipad;
+			}
+			else if(browser.versions.iPhone){
+				location.href=runiphone;
+			}
+			else if(browser.versions.android){
+				location.href=runandroid;
+			}
+			else{
+				Seegle.startconf(data.rid, data.ips, orgid, data.userid, userpass, ualias,"",'2',Seegle.client_registry,"InstallPath",Seegle.client_confname,proxytype,proxyip,proxyport,proxyuser,proxypass);
+			}
+		}
+	}else{
+		alert("获取会议登录参数出错,错误代码"+data.msg);
+	}
+}
+
+function showinstall(){
+	$("#install,#install_bg").toggle();
+	$("#install_bg").css({'opacity':'0.4'});
+}
+function download(flag){
+	if(flag==1){
+		window.open ('installonline/webinstall.html','newwindow','height=300, width=515, top=50, left=50, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no');
+		window.history.go(0);
+	}else{
+		location.href=download_URL;		
+	}
+}
+</script>
+</head>
+<body style="height: 100%">
+
+
+
+<div id='div_v' style="height: auto !important;min-height: 100%;margin: 0 auto -60px;">
+	<!-- <table width="100%" background="images/topbg.png" border="0" cellpadding="0" cellspacing="0">
+		<tr width="271"><td><img src="images/left.png" width="271" height="94" /></td>
+		<td width=""><img src="images/topbg.png" width="" height="94" /></td>
+	</table>
+	 -->
+	<div style="max-width:400px;margin: 1% auto; text-align: ;">
+		<h1 style="text-align: left;">云会议</h1>
+	
+		<h3 style="text-align: left;margin-top: 20px;">会议验证码：</h3>
+		<input type="input" class="form-control input-lg" id="code" style="font-size: 24px;margin: 3% auto;" placeholder="" />
+		<button type="button" class=" btn btn-lg btn-info" style=";margin: 3% auto;" id="login_v">参加会议 <span class="glyphicon glyphicon-chevron-right"></span></button>
+	</div>		   
+</div>
+<div id="footer" style="width: 100%;height: 60px;text-align: center;background-color: #eeeeee;font-size: 14px;">
+<div class="container">
+    <p style="margin:   20px;">会议网 版权所有 2003-2014 www.huiyiwang.net</p>
+    </div>
+</div>
+<div id="install" style="position: absolute;top: 0;left: 0;width:100%;z-index: 11;display: none">
+<div style="width:280px;border: 5px solid #dddddd;background-color: #ffffff;margin: 280px auto">
+	<table border="0" cellpadding="10" cellspacing="0" style="width: 100%">
+		<tr>
+			<td colspan="2" align="center">检查到客户端未安装，安装完后请重新打开</td>
+		</tr>
+		<tr>
+			<td align="center"><a href="javascript:download(1)">在线安装</a></td><td align="center"><a href="javascript:download(0)">下载安装包</a></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><a href="javascript:showinstall();">关闭窗口</a></td>
+		</tr>
+	</table>
+</div>
+</div>
+<div id="install_bg" style="width: 100%;height: 100%;z-index: 10;position: absolute;background-color: #999999;top:0;left:0;display: none"></div>  
+</body>
+</html>

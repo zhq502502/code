@@ -1,0 +1,408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>验证码启动会议客户端</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+body table{
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+}
+body{
+	/*background-color: #eeeeee;*/
+}
+.input{
+	width: 160px;
+}
+.input2{
+	width: 120px;
+}
+.bu{
+	width: 80px;
+}
+input
+</style>
+<script type='text/javascript' src='js/init.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/jquery-1.4.4.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="js/conf.js"></script>
+<script type="text/javascript" src="js/base64.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+</head>
+<body style="margin: 0">
+<center>
+<div style="width: 500px;margin: 0 auto;height: 280px;background-color: #eeeeee;">
+<div style=""><img src="img/bg_logo.jpg" style="width: 100%" /></div>
+<form action="" style="margin: 0 auto">
+<table width="90%" cellspacing="0" style="margin: 0 auto" border="0">
+	<tbody id="orgtbody" style="display: none">
+	<tr>
+		<td width="50%" align="right" style="" colspan="2"><span style="margin-right: 30px">企业id</span></td><td width="50%"  colspan="2"><input class="input" id="orgid"/></td>
+	</tr>
+	</tbody>
+	<tbody id="type0">
+	<tr>
+		<td width="50%" align="right" style="" colspan="2"><span style="margin-right: 30px">姓名</span></td><td width="50%"  colspan="2"><input  class="input" id="nname"/></td>
+	</tr>
+	<tr>
+		<td align="right" style="" colspan="2"><span style="margin-right: 30px">会议密码</span></td><td colspan="2"><input class="input" id="verifycode"/></td>
+	</tr>
+	</tbody>
+	<tbody id="type1"  style="display: none">
+	<tr>
+		<td width="50%" align="right" style="" colspan="2"><span style="margin-right: 30px">帐号</span></td><td width="50%"  colspan="2"><input  class="input" id="username"/></td>
+	</tr>
+	<tr>
+		<td width="50%" align="right" style="" colspan="2"><span style="margin-right: 30px">密码</span></td><td width="50%"  colspan="2"><input  class="input" type="password" id="password"/></td>
+	</tr>
+	</tbody>
+	<tr>
+		<td align="right" style="" colspan="2"><span style="margin-right: 10px"><input type="radio" name="login_type" checked="checked" value="0"/>普通登录</span></td><td colspan="2"><input name="login_type" type="radio" value="1"/>主持人登录</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="4"><input type="button" class="bu" value="设置" onclick="setting()" style="margin-right: 20px;"/><input class="bu" style="margin-left: 20px;" type="button" value="登录" onclick="login()"/></td>
+	</tr>
+	<tbody id="proxy" style="display: none">
+	<tr>
+		<td align="right" width="16%"  style="">代理类型</td>
+		<td  colspan="3"><select id="proxytype">
+		<option value="0">--无代理--</option>
+		<option value="1">socket 4</option>
+		<option value="2">socket 5</option>
+		<option value="3">http</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td align="right" style="" width="16%" >代理地址</td><td><input id="proxyip" class="input2"/></td>
+		<td align="right" style="" width="16%" >端口</td><td><input id="proxyport" class="input2"/></td>
+	</tr>
+	<tr>
+		<td align="right" style="">用户名</td><td><input id="proxyuser" class="input2"/></td>
+		<td align="right" style="">密码</td><td><input id="proxypass" class="input2"/></td>
+	</tr>
+	</tbody>
+</table>
+</form>
+</div>
+<div id="install" style="position: absolute;top: 0;left: 0;width:100%;z-index: 11;display: none">
+<div style="width:280px;border: 5px solid #dddddd;background-color: #ffffff;margin: 80px auto">
+	<table border="0" cellpadding="10" cellspacing="0" style="width: 100%">
+		<tr>
+			<td colspan="2" align="center">检查到客户端未安装，安装完后请重新打开</td>
+		</tr>
+		<tr>
+			<td align="center"><a href="javascript:download(1)">在线安装</a></td><td align="center"><a href="javascript:download(0)">下载安装包</a></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><a href="javascript:showinstall();">关闭窗口</a></td>
+		</tr>
+	</table>
+</div>
+</div>
+<div id="install_bg" style="width: 100%;height: 100%;z-index: 10;position: absolute;background-color: #999999;top:0;left:0;display: none"></div>
+</center>
+</body>
+
+<script type="text/javascript">
+var token = "";
+var verifycode = "";
+var nname = "";
+var proxytype = "";
+var proxyip = "";
+var proxyport = "";
+var proxyuser = "";
+var proxypass = "";
+var maxuser = 0;
+var loginuser = "";
+var loginp = pass;
+var loginpass = md5pass;
+if(orgid==null||orgid==""){
+	$("#orgtbody").show();	
+}else{
+	$("#orgid").val(orgid);	
+}
+
+if (g_installFlag == '0' || g_installFlag == '1')
+{
+	if(browser.versions.iPad){
+		g_installFlag = "4";
+	}
+	else if(browser.versions.iPhone){
+		g_installFlag = "5";
+	}
+	else if(browser.versions.android){
+		g_installFlag = "3";
+	}
+	else{
+		Seegle.postsgsvr(9090, 1, Seegle.client_registry, "InstallPath");	
+	}	
+}
+/**
+ * 点击参加会议按钮
+ */
+function login(){
+	token = "";
+	verifycode = "";
+	nname = "";
+	proxytype = "";
+	proxyip = "";
+	proxyport = "";
+	proxyuser = "";
+	proxypass = "";
+	maxuser = 0;
+	loginuser = "";
+	loginp = "";
+	loginpass = md5pass;
+	proxytype = $("#proxytype").val();
+	proxyip = $("#proxyip").val();
+	proxyport = $("#proxyport").val();
+	proxyuser = $("#proxyuser").val();
+	proxypass = $("#proxypass").val();
+	verifycode = $("#verifycode").val();
+	nname = $("#nname").val()+"";
+	orgid = $("#orgid").val();
+	if(orgid==""||orgid==null){
+		alert("请输入企业id");
+		return ;
+	}
+	if(verifycode.length>12){
+		alert("验证码长度错误");
+		return ;
+	}
+	var type = "type=2";
+	if(login_type==0){
+		if(nname==""||nname==null){
+			alert("请输入姓名");
+			return ;
+		}if(verifycode==""||verifycode==null){
+			alert("请输入会议密码");
+			return ;
+		}
+	}else{
+		loginuser = $("#username").val();
+		if(loginuser==""||loginuser==null){
+			alert("主持人帐号不能为空");
+			return ;
+		}
+		loginp = $("#password").val();
+		loginpass = hex_md5(loginp);
+		nname="主持人_"+loginuser;
+		
+		type="Privilege=1";
+	}
+	
+	var vlen = verifycode.length<10?"0"+verifycode.length:verifycode.length;
+	var vcode = verifycode;
+	for(var i = 12;i>verifycode.length;i--){
+		vcode = "0"+vcode;
+	}
+	verifycode = "7"+vlen+vcode;
+	
+	var url =  apiurl+"/apis/token?orgid="+orgid+"&u="+loginuser+"&p="+loginpass+"&callback=inittoken&"+type;
+	$.ajax({
+		type : "get",
+		async:false,
+		url :url,
+		dataType : "jsonp"
+	});
+}
+function inittoken(data){
+	token = data.token;
+	if(token<8){
+		alert("用户名或密码错误");
+		return ;
+	}
+	if(login_type==0){
+		getconfid();
+	}else{
+		GetHostVerifyByJsop();
+	}
+}
+/**
+ * 获取会议id
+ */
+function getconfid(){
+	//alert(verifycode);
+	$.ajax({
+		type : "get",
+		async:false,
+		url : apiurl+"/apis/phoneconf/getconfidbycode?verifycode="+verifycode+"&accessKey="+token+"&codetype=1&callback=getConfoInfo",
+		dataType : "jsonp"
+	});
+}
+/**
+ * 获取会议登录参数
+ */
+function getConfoInfo(data){
+	var confid = data.confid;
+	if(confid==0||confid==""||confid==null){
+		if(login_type==0){
+			alert("输入会议密码错误");
+			return ;
+		}else{
+			addconf();
+			return ;
+		}
+	}
+	$.ajax({
+		type : "get",
+		async:false,
+		url : apiurl+"/apis/conf/login?cid="+confid+"&accessKey="+token+"&callback=loginconf",
+		dataType : "jsonp"
+	});
+}
+/**
+ * 添加会议
+ */
+function addconf(){
+	var confname = $("#username").val();
+	var begintime = gettime(0);
+	var endtime = gettime(1);
+	var grouptype = 1;
+	var max_conf_user = maxuser;
+	var max_conf_tourist = maxuser;
+	var max_conf_spokesman = maxuser;
+	var conf_password_md5 = "";
+	var manage_password_md5 = "";
+	var description = "";
+	$.ajax({
+		type : "get",
+		async:false,
+		url : apiurl+"/apis/conf/add?accessKey="+token+"&orgid="+orgid+"&confname="+confname+"&begintime="+begintime+"&endtime="+endtime+"&grouptype="+grouptype+"&max_conf_user="+max_conf_user+"&max_conf_tourist="+max_conf_tourist+"&max_conf_spokesman="+max_conf_spokesman+"&conf_password_md5="+conf_password_md5+"&manage_password_md5="+manage_password_md5+"&description="+description+"&callback=addvcode",
+		dataType : "jsonp"
+	});
+}
+var tempcid = 0;
+function addvcode(data){
+	if(data.msg!=0){
+		alert("创建会议室失败");
+		return ;
+	}
+	var cid = data.confid;
+	tempcid = cid;
+	$.ajax({
+		type : "get",
+		async:false,
+		url : apiurl+"/apis/phoneconf/enableconf?accessKey="+token+"&cid="+cid+"&verifycode="+verifycode+"&callback=addconfuser",
+		dataType : "jsonp"
+	});
+}
+function addconfuser(data){
+	if(data.msg==0){
+		$.ajax({
+			type : "get",
+			async:false,
+			url : apiurl+"/apis/conf/confuseraddbyname?accessKey="+token+"&orgid="+orgid+"&cid="+cid+"&adminList="+loginuser+"&commonList=&callback=getconfid",
+			dataType : "jsonp"
+		});
+	}
+	
+}
+/**
+ * 获取用户对应验证码
+ */
+function GetHostVerifyByJsop() {
+	
+    //$.getJSON(telurl,{orgid:orgid,name:loginuser,passcode:loginp}, 
+    $.getJSON(telurl,{orgid:orgid,name:"summit@yuantel.com",passcode:"1119771765"}, 
+    function (data) {
+        if(data==null){
+			alert("用户不存在");
+        }else{
+        	var d = data.split(",");
+        	verifycode = d[0];
+        	maxuser = d[1];
+        	getconfid();
+        }
+        
+    });
+}
+/**
+ * 参会
+ */
+function loginconf(data){
+	if(data.rid !="" && data.rid != null)
+	{
+		
+		if(g_installFlag=='0'||g_installFlag=='1')
+		{		
+			showinstall();
+			//alert("客户端未安装");	
+			//window.open ('installonline/webinstall.html','newwindow','height=300, width=515, top=50, left=50, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=n o, status=no');
+		}
+		else            
+		{
+			var base64unick = base64encode(utf16to8(nname)); //昵称base64编码
+			var runandroid = "mtcmtc://startConference.app?ConfID="+data.rid+"&ServerAddrAndPort="+data.ips+"&UserAccount="+orgid+data.userid+"&Nick="+nname+"&LoginMode=LoginByUserID&Password="+pass;
+			var runipad = "SCConferenceiPad://?user="+orgid+data.userid+"&pass="+pass+"&conference="+data.rid+"&server="+data.ips+"&nick="+base64unick+"&loginMode=LoginByUserID";
+			var runiphone = "SCConferenceiPhone://?user="+orgid+data.userid+"&pass="+pass+"&conference="+data.rid+"&server="+data.ips+"&nick="+base64unick+"&loginMode=LoginByUserID";
+			if(browser.versions.iPad){
+				location.href=runipad;
+			}
+			else if(browser.versions.iPhone){
+				location.href=runiphone;
+			}
+			else if(browser.versions.android){
+				location.href=runandroid;
+			}
+			else{
+				Seegle.startconf(data.rid, data.ips, orgid, data.userid, loginp, nname,"",'2',Seegle.client_registry,"InstallPath",Seegle.client_confname,proxytype,proxyip,proxyport,proxyuser,proxypass);
+			}
+		}
+	}else{
+		alert("获取会议登录参数出错,错误代码"+data.msg);
+	}
+}
+function setting(){
+	$("#proxy").toggle();
+}
+function showinstall(){
+	$("#install,#install_bg").toggle();
+	$("#install_bg").css({'opacity':'0.4'});
+}
+/**
+ * 在线安装
+ */
+function download(flag){
+	if(flag==1){
+		window.open ('installonline/webinstall.html','newwindow','height=300, width=515, top=50, left=50, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=n o, status=no');
+		window.history.go(0);
+	}else{
+		window.open (download_URL,'newwindow','height=300, width=515, top=50, left=50, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=n o, status=no');
+		
+	}
+}
+var login_type = 0;
+$(":radio").bind("click",function(){
+	login_type = $(this).val();
+	if(login_type==0){
+		$("#type1").hide();
+		$("#type0").show();
+	}else{
+		$("#type0").hide();
+		$("#type1").show();
+	}
+})
+$(function(){
+	login_type = $(":radio:checked").val();
+	if(login_type==0){
+		$("#type1").hide();
+		$("#type0").show();
+	}else{
+		$("#type0").hide();
+		$("#type1").show();
+	}
+});
+function gettime(i){
+	var date = new Date();
+	var y = date.getFullYear()+i;
+	var mo = (date.getMonth()+1)<10?"0"+(date.getMonth()+1):(date.getMonth()+1);
+	var d = date.getDate()<10?"0"+date.getDate():date.getDate();
+	var h = date.getHours()<10?"0"+date.getHours():date.getHours();
+	var m = date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes();
+	var s = date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds();
+	return y+"-"+mo+"-"+d+" "+h+":"+m+":"+s;
+}
+</script>
+</html>

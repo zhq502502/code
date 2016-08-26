@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>index.html</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="bsie2/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="bsie2/html5shiv.min.js"></script>
+  <script src="bsie2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div style="width: 1100px;min-height: 30px;margin: 0px auto;" >
+
+</div>
+<div style="width: 1100px;min-height: 125px;margin: 0 auto;" class=" ">
+<img alt="" src="image/bg_logo.jpg">
+</div>
+<div style="width: 1100px;min-height: 600px;margin: 10px auto;" class="panel">
+	<div class="panel-group text-center" style="float: left;width: 150px"  id="accordion" >
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+		        	我的会议
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse1" class="panel-collapse collapse in">
+		      <div class="panel-body">
+		        <ul class="nav nav-pills nav-stacked">
+				  <li><a href="#" target="iframe1">会议列表</a></li>
+				  <li><a href="#" target="iframe1">会议统计</a></li>
+				  <li><a href="#" target="iframe1">用户统计</a></li>
+				  <li><a href="#" target="iframe1">软件下载</a></li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+		        	个人资料
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse2" class="panel-collapse collapse">
+		      <div class="panel-body">
+		        <ul class="nav nav-pills nav-stacked">
+				  <li><a href="#" target="iframe1">个人资料</a></li>
+				  <li><a href="#" target="iframe1">修改密码</a></li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+		        	用户管理
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse3" class="panel-collapse collapse">
+		      <div class="panel-body">
+		        <ul class="nav nav-pills nav-stacked">
+				  <li><a href="#" target="iframe1">权限设置</a></li>
+				  <li><a href="#" target="iframe1">帐号管理</a></li>
+				  <li><a href="#" target="iframe1">添加帐号</a></li>
+				  <li><a href="#" target="iframe1">批量添加</a></li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+		        	会议管理
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse4" class="panel-collapse collapse">
+		      <div class="panel-body">
+		        <ul class="nav nav-pills nav-stacked">
+				  <li><a href="#" target="iframe1">新建会议</a></li>
+				  <li><a href="#" target="iframe1">会议管理</a></li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+	</div>
+	
+	<div id="maindiv" class="panel panel-primary" style="width: 938px;min-height: 550px;float: left; margin: 0 0 20px 10px;padding: 0 0 10px 0">
+		<div class="panel-heading"><span>会议列表</span></div>
+		<div class="panel panel-info" style="margin: 5px auto;width: 928px">
+			<div class="panel-body" style="padding: 2px;float: right;">
+				<form class="navbar-form navbar-left" role="search">
+			      <div class="form-group">
+			        <input type="text" class="form-control" placeholder="Search">
+			      </div>
+			      <button type="submit" class="btn btn-default">Submit</button>
+			    </form>
+		    </div>
+			<table class="table table-hover">
+				<tr  class="warning">
+					<th width="10%">会议id</th>
+					<th width="25%">会议名称</th>
+					<th class="text-center" width="10%">在线人数</th>
+					<th class="text-center" width="20%">开始时间</th>
+					<th class="text-center" width="20%">结束时间</th>
+					<th class="text-center" width="15%">操作</th>
+				</tr>
+				<tbody>
+				<tr>
+					<td>125478</td>
+					<td>测试会议</td>
+					<td class="text-center">12</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">
+					  <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-log-in"></span>参加
+					  </button>
+					  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-share"></span>邀请
+					  </button>
+					</td>
+				</tr>
+				<tr>
+					<td>125478</td>
+					<td>测试会议</td>
+					<td class="text-center">12</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">
+					  <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-log-in"></span>参加
+					  </button>
+					  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-share"></span>邀请
+					  </button>
+					</td>
+				</tr>
+				<tr>
+					<td>125478</td>
+					<td>测试会议</td>
+					<td class="text-center">12</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">
+					  <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-log-in"></span>参加
+					  </button>
+					  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-share"></span>邀请
+					  </button>
+					</td>
+				</tr>
+				<tr>
+					<td>125478</td>
+					<td>测试会议</td>
+					<td class="text-center">12</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">
+					  <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-log-in"></span>参加
+					  </button>
+					  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-share"></span>邀请
+					  </button>
+					</td>
+				</tr>
+				<tr>
+					<td>125478</td>
+					<td>测试会议</td>
+					<td class="text-center">12</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">2014-10-10 11:00:00</td>
+					<td class="text-center">
+					  <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-log-in"></span>参加
+					  </button>
+					  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+					    <span class="glyphicon glyphicon-share"></span>邀请
+					  </button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div style="margin: 0 auto;" class="text-center">
+			<ul class="pagination" style="margin: 0 auto">
+			  <li class="disabled"><a href="#">&laquo;</a></li>
+			  <li class="active"><a href="#">1</a></li>
+			  <li><a href="#">2</a></li>
+			  <li><a href="#">3</a></li>
+			  <li><a href="#">4</a></li>
+			  <li><a href="#">5</a></li>
+			  <li><a href="#">&raquo;</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+$(function(){
+	$("#accordion li").bind("click",function(){
+		$("#accordion li").removeClass("active");
+		$(this).addClass("active");
+	});
+})
+</script>
+</html>

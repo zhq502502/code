@@ -1,0 +1,126 @@
+HTML {
+	MIN-HEIGHT: 100%; HEIGHT: auto
+}
+BODY {
+	MARGIN: 0px; FONT: 12px/150% 宋体
+}
+.clear {
+	MARGIN-TOP: -1px !important; VISIBILITY: hidden; CLEAR: both; BORDER-TOP: transparent 1px solid
+}
+.clearFloat:after {
+	DISPLAY: block; HEIGHT: 0px; VISIBILITY: hidden; CLEAR: both; CONTENT: "."
+}
+.clearFloat {
+	DISPLAY: inline-block
+}
+* HTML .clearfix {
+	HEIGHT: 1%
+}
+FORM {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+UL LI {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+P {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+UL LI {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+.clearFloat {
+	DISPLAY: block
+}
+TD {
+	FONT: 12px/150% 宋体
+}
+P {
+	FONT: 12px/150% 宋体
+}
+INPUT {
+	FONT: 12px/150% 宋体
+}
+A {
+	FONT: 12px/150% tahoma; COLOR: #000; TEXT-DECORATION: none
+}
+A:visited {
+	FONT: 12px/150% tahoma; COLOR: #000; TEXT-DECORATION: none
+}
+A:hover {
+	FONT: 12px/150% tahoma; COLOR: #06c; TEXT-DECORATION: underline
+}
+A.smaller {
+	FONT-SIZE: 11px
+}
+A.email:link {
+	COLOR: #c30101; TEXT-DECORATION: underline
+}
+A.email:hover {
+	COLOR: #333; TEXT-DECORATION: none
+}
+SELECT {
+	FONT: 12px/150% 宋体
+}
+.stress {
+	FONT-WEIGHT: bold
+}
+IMG {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: medium none; BORDER-RIGHT: medium none; PADDING-TOP: 0px
+}
+DIV {
+	ZOOM: 1
+}
+UL {
+	ZOOM: 1
+}
+DIV:after {
+	DISPLAY: block; HEIGHT: 0px; CLEAR: both; CONTENT: "\0020"
+}
+UL:after {
+	DISPLAY: block; HEIGHT: 0px; CLEAR: both; CONTENT: "\0020"
+}
+#container {
+	BORDER-BOTTOM: #cbd7e9 1px solid; POSITION: absolute; BORDER-LEFT: #cbd7e9 1px solid; MARGIN: -259px auto 0px -457px; WIDTH: 914px; BACKGROUND: url(../images/bg.png) repeat-x center top; HEIGHT: 518px; BORDER-TOP: #cbd7e9 1px solid; TOP: 50%; BORDER-RIGHT: #cbd7e9 1px solid; LEFT: 50%
+}
+.main {
+	POSITION: relative;
+	overflow: hidden;
+}
+#logo {
+	POSITION: ; WIDTH: 100%; HEIGHT: 94px; TOP: 0px; LEFT: 0px;background:url(../images/topbg.png) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.form {
+	POSITION: ;margin:5% auto; WIDTH: 671px; HEIGHT: 172px; TOP: ; LEFT: ;background:url(../images/kbg.png) no-repeat;
+}
+#copy {
+	POSITION: absolute; WIDTH: 450px; FONT-FAMILY: Tahoma, Geneva, sans-serif; TOP: 483px; LEFT: 374px
+}
+#notice {
+	POSITION: absolute; PADDING-LEFT: 49px; WIDTH: 450px; BACKGROUND: url(../images/notice.png) no-repeat left 0px; HEIGHT: 48px; TOP: 411px; PADDING-TOP: 2px; LEFT: 377px
+}
+#notice A {
+	COLOR: #06c; TEXT-DECORATION: underline
+}
+
+#title-center{
+	FONT: 宋体;
+	font-size:	18px;
+	font-weight:bold;
+	color:#003399;
+}
+#label1{
+	FONT: 宋体;
+	font-size:	14px;
+	font-weight:bold;
+}
+.input {border:#809db9 0px solid; background:url(../images/sr.png)  no-repeat;color:#333333; width:245px;height:40px;PADDING-LEFT:10px}
+.input:focus {border:#809db9 0px solid; background:url(../images/srred.png)  no-repeat;color:#333333; width:245px;height:40px;PADDING-LEFT:10px}
+.font_03 a:link,.font_03 a:visited{background:url(../images/jinru.png) no-repeat; width:91px; height:37px;border:0px;display:inline-block;}
+.font_03 a:hover,.font_03 a:active{background:url(../images/jinru2.png) no-repeat; width:91px; height:37px;border:0px;display:inline-block;} 
+a#login_v{   		/*-------he-----*/
+background:transparent url(../images/jinru.png) no-repeat;}
+a#login_v:hover{ 	/*-------he-----*/
+background:transparent url(../images/jinru2.png) no-repeat;}

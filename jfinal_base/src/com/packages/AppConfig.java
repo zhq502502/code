@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import com.packages.controller.IndexController;
+import com.packages.controller.*;
 import com.packages.handler.JspHandler;
 import com.packages.model.*;
 import com.packages.util.PropUtil;
@@ -38,6 +39,7 @@ public class AppConfig extends JFinalConfig{
 	@Override
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class);
+		me.add("/test", TestController.class);
 				
 	}
 
@@ -58,6 +60,7 @@ public class AppConfig extends JFinalConfig{
 		
 		//arp.addMapping("testuser", Testuser.class);
 		//arp.addMapping("goods", Goods.class);
+		arp.addMapping("tb1", T1.class);
 		
 	}
 
