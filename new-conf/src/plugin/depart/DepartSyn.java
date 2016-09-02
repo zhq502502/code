@@ -9,6 +9,7 @@ import java.util.Calendar;
 import org.apache.log4j.Logger;
 
 import com.seegle.data.ConnMYSQL;
+import com.seegle.data.HttpClient;
 import com.seegle.util.PropUtil;
 import com.seegle.util.SeegleLog;
 
@@ -149,8 +150,8 @@ public class DepartSyn extends Thread {
 					}
 					String tel = sqlrs.getString("tel");
 					String email = sqlrs.getString("email");
-					String password = sqlrs.getString("password");
-					
+					//String password = sqlrs.getString("password");
+					String password = HttpClient.md5(PropUtil.getInstance().getValue("default.password"));
 					myps = myconn.prepareStatement(selectuser);
 					myps.setString(1, account);
 					myrs = myps.executeQuery();
