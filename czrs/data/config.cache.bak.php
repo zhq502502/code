@@ -1,12 +1,12 @@
 <?php
-$cfg_basehost = 'http://localhost';
+$cfg_basehost = 'http://www.czrs.net';
 $cfg_cmspath = '';
-$cfg_cookie_encode = 'eOvBows1BNT2WATDuQWKMKas2Mw6';
+$cfg_cookie_encode = 'iGLoKeoR7F50x61HNVqVedSh6bbDGKwp';
 $cfg_indexurl = '/';
 $cfg_backup_dir = 'backupdata';
 $cfg_indexname = '主页';
-$cfg_webname = 'test1';
-$cfg_adminemail = 'zhq_502502@126.com';
+$cfg_webname = '我的网站';
+$cfg_adminemail = 'admin@dedecms.com';
 $cfg_html_editor = 'ckeditor';
 $cfg_arcdir = '/a';
 $cfg_medias_dir = '/uploads';

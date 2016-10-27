@@ -11,12 +11,19 @@
  */
 require_once(dirname(__FILE__)."/../include/common.inc.php");
 require_once(DEDEINC."/arc.searchview.class.php");
+if ( file_exists(DEDEINC."/baidusitemap.func.php") ) require_once(DEDEINC."/baidusitemap.func.php");
 
 $pagesize = (isset($pagesize) && is_numeric($pagesize)) ? $pagesize : 10;
 $typeid = (isset($typeid) && is_numeric($typeid)) ? $typeid : 0;
 $channeltype = (isset($channeltype) && is_numeric($channeltype)) ? $channeltype : 0;
 $kwtype = (isset($kwtype) && is_numeric($kwtype)) ? $kwtype : 0;
 $mid = (isset($mid) && is_numeric($mid)) ? $mid : 0;
+$mobile = (isset($mobile) && is_numeric($mobile)) ? $mobile : 0;
+
+if ( $mobile==1 )
+{
+    define('DEDEMOB', 'Y');
+}
 
 if(!isset($orderby)) $orderby='';
 else $orderby = preg_replace("#[^a-z]#i", '', $orderby);
@@ -31,6 +38,37 @@ if(!isset($keyword)){
 
 $oldkeyword = $keyword = FilterSearch(stripslashes($keyword));
 
+if ( function_exists('baidu_get_setting') )
+{
+    $site_id = baidu_get_setting('site_id');
+    $lastuptime_all = baidu_get_setting('lastuptime_all');
+    
+    $addquery='';
+    if ( $searchtype =='title' )
+    {
+        $addquery ='&stp=1';
+    }
+    // 需要提交全量索引后5个小时内才能够进行跳转
+    if ( !empty($site_id) AND time()-$lastuptime_all>60*60*5)
+    {
+        $row = $dsql->GetOne("SELECT spwords FROM `#@__search_keywords` WHERE keyword='".addslashes($keyword)."'; ");
+        if(!is_array($row))
+        {
+            $inquery = "INSERT INTO `#@__search_keywords`(`keyword`,`spwords`,`count`,`result`,`lasttime`)
+          VALUES ('".addslashes($keyword)."', '".addslashes($keyword)."', '1', '0', '".time()."'); ";
+            $dsql->ExecuteNoneQuery($inquery);
+        }
+        else
+        {
+            $dsql->ExecuteNoneQuery("UPDATE `#@__search_keywords` SET count=count+1,lasttime='".time()."' WHERE keyword='".addslashes($keyword)."'; ");
+        }
+
+        $keyword = urlencode($keyword);
+        $baidu_search_url = "http://zhannei.baidu.com/cse/search?s={$site_id}&entry=1&q={$keyword}{$addquery}";
+        header("Location:{$baidu_search_url}");
+        exit;
+    }
+}
 
 //查找栏目信息
 if(empty($typeid))
@@ -44,6 +82,7 @@ if(empty($typeid))
         $dsql->Execute();
         while($row = $dsql->GetArray())
         {
+            $row['typename'] = HtmlReplace($row['typename']);
             fwrite($fp, "\$typeArr[{$row['id']}] = '{$row['typename']}';\r\n");
         }
         fwrite($fp, '?'.'>');
@@ -68,7 +107,6 @@ if(empty($typeid))
 }
 
 $keyword = addslashes(cn_substr($keyword,30));
-$typeid = intval($typeid);
 
 if($cfg_notallowstr !='' && preg_match("#".$cfg_notallowstr."#i", $keyword))
 {

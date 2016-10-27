@@ -87,6 +87,9 @@ a{
 	line-height: 50px;
 	text-align: center;
 	cursor:pointer;
+	border-top: 2px solid #fff;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
 }
 #top_menu ul li a{
 	color: #666;
@@ -95,15 +98,15 @@ a{
 	height: 100%;
 }
 .top_menu_moveon_action{
-	border-top: 2px solid #0092d7;
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
+	border-top: 2px solid #0092d7!important;
+	border-left: 1px solid #ccc!important;
+	border-right: 1px solid #ccc!important;
 	background-color: #eee;
 }
 .top_menu_moveon{
-	border-top: 2px solid #0092d7;
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
+	border-top: 2px solid #0092d7!important;
+	border-left: 1px solid #ccc!important;
+	border-right: 1px solid #ccc!important;
 	background-color: #eee;
 }
 #top_menu ul li a{
