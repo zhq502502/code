@@ -40,7 +40,7 @@
 	      	{/dede:channel}
 		</ul>
 		{dede:channelartlist typeid='1' row='6'}
-			<div id="d_tab{dede:field name='id'/}" class="itemcontent swiper-container sw{dede:field name='id'/}" style="display: none;padding: 20px 0 20px 0;height: 220px">
+			<div id="d_tab{dede:field name='id'/}" class="itemcontent swiper-container sw{dede:field name='id'/}" style="display: none;padding: 20px 0 20px 0;height: 180px">
 	      	<div class="swiper-wrapper" style="">
 	      	{dede:arclist typt='son' limit='0,20'  flag='h'}
 			<div class="item2 swiper-slide">
@@ -75,8 +75,8 @@
 			</script>
       	{/dede:channelartlist}
 	</div>
-	<div style="width: 1000px;height: 30px;line-height:30px;margin: -35px auto;">
-	<div style="margin-right: 10px;cursor: pointer;border: 1px solid #333;width: 80px;text-align: center;float: right" onclick="javascript:location.href='{dede:global.cfg_cmsurl/}/plus/list.php?tid=1';">更多</div>
+	<div style="width: 1000px;height: 30px;line-height:30px;margin: 0px auto;">
+	<div style="margin-right: 10px;cursor: pointer;border: 1px solid #333;width: 80px;text-align: center;float: right;cursor:pointer;" onclick="javascript:location.href='{dede:global.cfg_cmsurl/}/plus/list.php?tid=1';">更多</div>
 	</div>
 </div>
 
@@ -87,7 +87,7 @@
 	</div>
 	<div class="index_model2_2">
 		<ul class="content" style="position: relative; width: 415px; height: 223px;">
-		{dede:channel typeid='3' type='son' row='6'}
+		{dede:channel typeid='7' type='son' row='6'}
 			<li style="position: absolute; width: 415px; left: 0px; top: 0px; display: list-item;">
 				<h3 style="padding-bottom: 20px">[field:typename/]</h3>
 				<p style="color: #eee;font-size: 13px;">[field:description/]</p>
@@ -95,7 +95,7 @@
 		{/dede:channel}
 		</ul>
 		<ul class="botton" style="width: 100%;height: 2px;">
-		{dede:channel typeid='3' type='son' row='6'}
+		{dede:channel typeid='7' type='son' row='6'}
 			<li style="width: 30px;float: left;height: 2px;margin-left: 3px;" class="lion1">&nbsp;</li>
 		{/dede:channel}
 		</ul>
@@ -106,32 +106,39 @@
 </div>
 
 <!-- 关于我们，资讯中心 -->
-<div class="index_model3" style="display: none">
+<div class="index_model3" >
 	<div class="index_model3_left">
-		<div class="model3_left_title">关于我们</div>
 		<div class="model3_left_img">
-		<img src="{dede:global.cfg_templets_skin/}/images/logo.png"/>
+		<img src="{dede:global.cfg_templets_skin/}/images/about_me.png"/>
 		</div>
+		<div class="model3_left_title">关于我们</div>
 		<div class="model3_left_content">
-		{dede:autochannel partsort='5' typeid='0'}
+		{dede:type typeid="11"}
 		<p>
-		 <!-- [field:description/] -->
-		 </p>
-		{/dede:autochannel}
+			[field:description/]
+		</p>
+		{/dede:type}
 		</div>
 		<div class="model3_left_more">
-		<a href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=5" style="display: block;padding: 5px 10px;border: 1px solid #333;float: left;">更多</a>
+		<a href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=11" style="display: block;padding: 5px 10px;border: 1px solid #333;float: left;">更多</a>
 		</div>
 	</div>
 	<div class="index_model3_right">
 		<div class="model3_right_title">
-		<div></div>
+			<div class="title">公司动态<br/><span>DYNAMIC MEDIA</span></div>
+			<div class="more"><a href="{dede:global.cfg_cmsurl/}/plus/list.php?tid=10">更多+</a></div>
 		</div>
-		<div class="model3_right_img"></div>
+		<div class="model3_right_img">
+			<img src="{dede:global.cfg_templets_skin/}/images/news_center.png"/>
+		</div>
 		<div class="model3_right_content">
+		<marquee behavior="scroll" direction="up" scrolldelay="300" onmouseover=this.stop() onmouseout=this.start() >
 			<ul>
-			<li><div class="i_title"></div><div class="i_time"></div></li>
+			{dede:arclist typeid='10' limit='0,20' }
+			<li><a href="[field:arcurl/]"><div class="i_title">[field:title/]</div><div class="i_time">[field:pubdate function=MyDate('Y-m-d',@me)/]</div></a></li>
+			{/dede:arclist}
 			</ul>
+		</marquee>
 		</div>
 	</div>
 </div>
@@ -140,10 +147,10 @@
 <div class="index_model1" style="background-color: #ececec">
 	<div class="index_model1_title" style="line-height: 30px;color: #333">CUSTOMER CASE<br/>客户案例</div>
 	<div style="height: 2px;width: 100%;background-color: #eee;margin-top: 20px"></div>
-	<div class="center w_main swiper-container sw2" style="height: 180px;">
+	<div class="center w_main swiper-container sw2" style="height: 180px;overflow: visible;">
       	<div class="itemcontent swiper-wrapper" style="">
-      	{dede:arclist typeid='4' limit='0,5'  flag='h'}
-		<div class="item2 swiper-slide">
+      	{dede:arclist typeid='13' limit='0,5'  flag='h'}
+		<div class="item2 swiper-slide" style="border-color: #ececec">
 			<div class="item1_img">
 				<a href='[field:arcurl/]'><img alt="" src='[field:picname/] '/></a>
 			</div>
@@ -158,7 +165,7 @@
 	    <div class="swiper-button-next"></div>
 	</div>
 	<div style="width: 1000px;height: 30px;line-height:30px;margin: 0 auto;text-align: center">
-	<div style="margin:0 auto;cursor: pointer;border: 1px solid #333;width: 80px;" onclick="javascript:location.href='{dede:global.cfg_cmsurl/}/plus/list.php?tid=4';">更多</div>
+	<div style="margin:10px auto;cursor: pointer;border: 1px solid #333;width: 80px;" onclick="javascript:location.href='{dede:global.cfg_cmsurl/}/plus/list.php?tid=4';">更多</div>
 	</div>
 </div>
 
@@ -170,14 +177,12 @@
 <script>
 //$($(".model_menu li")[0]).addClass("active_tab_top");
 $("#d_"+$($(".model_menu li")[0]).attr("id")).addClass("active1");
-$(".model_menu li").hover(
+$(".model_menu li").click(
 	function(){
 		$(".model_menu li").removeClass("active_tab_top");
 		$(this).addClass("active_tab_top");
 		$(".itemcontent").removeClass("active1");
 		$("#d_"+$(this).attr("id")).addClass("active1");
-	},function(){
-		
 	}
 );
 var model2=0;

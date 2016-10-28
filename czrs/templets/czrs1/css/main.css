@@ -286,6 +286,10 @@ a{
 	width: 705px;
 	padding: 20px;
 	margin-bottom: 20px;
+	transition: all 0.3s;
+}
+.article_list_item:HOVER{
+	box-shadow: 2px 2px 10px #ccc;
 }
 .article_list_item_new{
 	border-bottom:1px solid #eee;
@@ -316,7 +320,7 @@ a{
 }
 .list_content img{
 	max-width: 100%;
-	max-height: 150px;
+	max-height: 100%;
 }
 
 .article_list_item .item_image{
@@ -331,7 +335,7 @@ a{
 	float: left;
 }
 .article_list_item .item_text{
-	width: 450px;
+	width: 520px;
 	float: right;
 }
 .article_list_item .item_title{

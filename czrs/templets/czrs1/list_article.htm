@@ -67,7 +67,8 @@ function list_hover(){
 				<div class="listbox">
 				   <div class="list_all">
 				    {dede:list pagesize='10'}
-				    <div class="article_list_item [field:global function=MagicVar('list_item1','')/]">
+				    <!--  [field:global function=MagicVar('list_item1','')/] -->
+				    <div class="article_list_item">
 				    	<div class="item_image">[field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<a href='{@me['arcurl']}' class='preview'><img src='{@me['litpic']}'/></a>"); [/field:array]</div>
 				    	<div class="item_text">
 				    		<div class="item_title"><a href="[field:arcurl/]" rel="[field:title/]" title="[field:title/]" class="title">[field:title function=' ( strlen("@me")>40?cn_substr("@me",38)."…" : "@me" )'/]</a> </div>
