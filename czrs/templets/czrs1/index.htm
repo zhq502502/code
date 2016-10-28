@@ -132,10 +132,10 @@
 			<img src="{dede:global.cfg_templets_skin/}/images/news_center.png"/>
 		</div>
 		<div class="model3_right_content">
-		<marquee behavior="scroll" direction="up" scrolldelay="300" onmouseover=this.stop() onmouseout=this.start() >
+		<marquee behavior="scroll" direction="up" style="height:100%" scrolldelay="300" onmouseover=this.stop() onmouseout=this.start() >
 			<ul>
-			{dede:arclist typeid='10' limit='0,20' }
-			<li><a href="[field:arcurl/]"><div class="i_title">[field:title/]</div><div class="i_time">[field:pubdate function=MyDate('Y-m-d',@me)/]</div></a></li>
+			{dede:arclist typeid='10' limit='0,20' titlelen='50' }
+			<li><a href="[field:arcurl/]"><div class="i_title">[field:title /]</div><div class="i_time">[field:pubdate function=MyDate('Y-m-d',@me)/]</div></a></li>
 			{/dede:arclist}
 			</ul>
 		</marquee>
@@ -147,7 +147,7 @@
 <div class="index_model1" style="background-color: #ececec">
 	<div class="index_model1_title" style="line-height: 30px;color: #333">CUSTOMER CASE<br/>客户案例</div>
 	<div style="height: 2px;width: 100%;background-color: #eee;margin-top: 20px"></div>
-	<div class="center w_main swiper-container sw2" style="height: 180px;overflow: visible;">
+	<div class="center w_main swiper-container sw2" style="height: 180px;overflow-y: visible;">
       	<div class="itemcontent swiper-wrapper" style="">
       	{dede:arclist typeid='13' limit='0,5'  flag='h'}
 		<div class="item2 swiper-slide" style="border-color: #ececec">

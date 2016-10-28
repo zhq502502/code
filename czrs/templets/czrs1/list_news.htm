@@ -68,7 +68,7 @@ function list_hover(){
 				   <ul class="list_all">
 				    {dede:list pagesize='10'}
 				    <li class="article_list_item_new">
-			    		<div class="item_title_new"><a href="[field:arcurl/]" rel="[field:title/]" title="[field:title/]" >[field:title function=' ( strlen("@me")>40?cn_substr("@me",38)."…" : "@me" )'/]</a> </div>
+			    		<div class="item_title_new"><a href="[field:arcurl/]" rel="[field:title/]" title="[field:title/]" >[field:title function=' ( strlen("@me")>80?cn_substr("@me",75)."…" : "@me" )'/]</a> </div>
 			    		<div class="item_time_new">[field:pubdate function="GetDateTimeMK(@me)"/] </div>
 				    </li>
 				    {/dede:list}

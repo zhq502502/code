@@ -57,7 +57,7 @@ function list_hover(){
 		<div class="list_right">
 			<div class="list_top">
 				<div class="list_title">
-					{dede:field.title/}
+					{dede:field.title function=' ( strlen("@me")>50?cn_substr("@me",47)."…" : "@me" )'/}
 				</div>
 				<div class="list_position">
 					{dede:field name='position'/}
