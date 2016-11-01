@@ -42,7 +42,8 @@ public class PropUtil {
     	info = null;
     	info = new OrderedProperties();
     	try {
-    		is = new FileInputStream(this.getClass().getResource("/config.properties").getPath());
+    		//is = new FileInputStream(this.getClass().getResource("/config.properties").getPath());
+    		is = this.getClass().getResourceAsStream("/config.properties");
     		info.load(is);
     		is.close();
     	} catch (IOException e) {
