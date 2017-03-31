@@ -2,6 +2,7 @@ package plugin.depart;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,13 +12,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.simple.JSONArray;
+
+import com.seegle.data.GetConfigFile;
+import com.seegle.data.HttpClient;
+import com.seegle.data.SQLOperation;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.InterningXmlVisitor;
 
 import net.sf.json.JSONObject;
 
 @SuppressWarnings("serial")
 public class DepartServlet extends HttpServlet {
-
+	private GetConfigFile gcf = new GetConfigFile();//读取配置
+	private String url = gcf.getConfig("apiUrl");  //API服务器的地址 ，例如："http://www.seegle.cn"
+	SQLOperation so = new SQLOperation();
 	public DepartServlet() {
 		super();
 	}
@@ -164,7 +174,7 @@ public class DepartServlet extends HttpServlet {
 		int orders = this.getInt(request.getParameter("orders"));
 		int role = this.getInt(request.getParameter("role"));
 		String account = request.getParameter("account");
-		String alias = request.getParameter("alias");
+		String alias1 = request.getParameter("alias");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		String password = request.getParameter("password");
@@ -177,11 +187,61 @@ public class DepartServlet extends HttpServlet {
 		data.put("orders", orders);
 		data.put("role", role);
 		data.put("account", account);
-		data.put("alias", alias);
+		data.put("alias", alias1);
 		data.put("email", email);
 		data.put("phone", phone);
 		data.put("password", password);
 		result.setCode(DepartmentDao.dao.saveOrUpdateUser(data)?0:1);
+		
+		/**在中心服务器中加入用户的权限*/
+		Object token = request.getSession().getAttribute("token");
+		String userid = "";
+		String flag = "1";
+		//查询中心服务器中是否存在此用户
+		HttpClient hc = new HttpClient(url,orgid+"");
+		List<NameValuePair> param = new ArrayList<NameValuePair>();
+		param.add(new BasicNameValuePair("accessKey", token.toString()));
+		param.add(new BasicNameValuePair("orgid", orgid+""));
+		param.add(new BasicNameValuePair("type", "get")); 
+		param.add(new BasicNameValuePair("useraccount", account));
+		JSONArray jsonarr = hc.getJArray("edituser", param);
+		for(int i=0; i<jsonarr.size();i++){
+			org.json.simple.JSONObject json = (org.json.simple.JSONObject)jsonarr.get(i);
+			String useraccount = json.get("useraccount").toString();
+			if(useraccount.equalsIgnoreCase(account)){
+				userid = json.get("userid").toString();
+			}			
+		}
+		
+		//如果存在此用户，更新用户权限为会议管理员
+		if(role==2||role==1){
+			if(!userid.equals("")){
+				List<NameValuePair> param1 = new ArrayList<NameValuePair>();
+				param1.add(new BasicNameValuePair("accessKey", token.toString()));
+				param1.add(new BasicNameValuePair("orgid", orgid+""));
+				param1.add(new BasicNameValuePair("type", "set")); 
+				param1.add(new BasicNameValuePair("useraccount", account));
+				param1.add(new BasicNameValuePair("userid", userid));
+				param1.add(new BasicNameValuePair("usertype", "2"));
+				org.json.simple.JSONObject json1 = hc.getJObject("edituser", param1);
+				flag = json1.get("msg").toString();	
+			}else{
+				//如果不存在此用户，添加用户，且权限为会议管理员
+				String alias = alias1;
+				List<NameValuePair> param2 = new ArrayList<NameValuePair>();
+				param2.add(new BasicNameValuePair("accessKey", token.toString()));
+				param2.add(new BasicNameValuePair("orgid", orgid+""));
+				param2.add(new BasicNameValuePair("useraccount", account));
+				param2.add(new BasicNameValuePair("username", account));
+				param2.add(new BasicNameValuePair("alias", alias));
+				param2.add(new BasicNameValuePair("passwordmd5", HttpClient.md5(password)));
+				param2.add(new BasicNameValuePair("usertype", "2"));
+				org.json.simple.JSONObject json2 = hc.getJObject("adduser", param2);
+				flag = json2.get("msg").toString();
+			}
+		}
+		/***/
+		
 		this.returnJson(request, response, result);
 	}
 	public void saveDepart(HttpServletRequest request, HttpServletResponse response)
