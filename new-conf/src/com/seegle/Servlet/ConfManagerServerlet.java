@@ -81,8 +81,50 @@ public class ConfManagerServerlet extends HttpServlet {
     				JSONObject json1 = hc.getJObject("edituser", param1);
     				flag = json1.get("msg").toString();	
     			}else{
+    				
+    				
+
+    				//获取token
+    				String passwordmd5 = so.getUserpass(orgid.toString(), newAccount[j]);
+    				List<NameValuePair> params3 = new ArrayList<NameValuePair>();
+    				params3.add(new BasicNameValuePair("orgid", orgid+"")); 
+    				params3.add(new BasicNameValuePair("u", account)); 
+    				params3.add(new BasicNameValuePair("p",  HttpClient.md5(passwordmd5)));
+    				org.json.simple.JSONObject jsonObject = hc.getJObject("token", params3);	
+    				String token3 = jsonObject.get("token").toString();
+    				
+    				
+    				//获取用户信息
+    				List<NameValuePair> param4 = new ArrayList<NameValuePair>();
+    				param4.add(new BasicNameValuePair("accessKey", token.toString()));
+    				param4.add(new BasicNameValuePair("orgid", orgid+""));
+    				param4.add(new BasicNameValuePair("type", "get")); 
+    				param4.add(new BasicNameValuePair("useraccount", account));
+    				JSONArray jsonarr4 = hc.getJArray("edituser", param4);
+    				for(int i=0; i<jsonarr4.size();i++){
+    					org.json.simple.JSONObject json = (org.json.simple.JSONObject)jsonarr4.get(i);
+    					String useraccount = json.get("useraccount").toString();
+    					if(useraccount.equalsIgnoreCase(account)){
+    						userid = json.get("userid").toString();
+    					}			
+    				}
+    				
+    				
+    				//再更新
+    				List<NameValuePair> param1 = new ArrayList<NameValuePair>();
+    				param1.add(new BasicNameValuePair("accessKey", token.toString()));
+    				param1.add(new BasicNameValuePair("orgid", orgid+""));
+    				param1.add(new BasicNameValuePair("type", "set")); 
+    				param1.add(new BasicNameValuePair("useraccount", account));
+    				param1.add(new BasicNameValuePair("userid", userid));
+    				param1.add(new BasicNameValuePair("usertype", "2"));
+    				org.json.simple.JSONObject json1 = hc.getJObject("edituser", param1);
+    				flag = json1.get("msg").toString();	
+    				
+    				
+    				
     				//如果不存在此用户，添加用户，且权限为会议管理员
-    				String alias = so.getUsername(orgid.toString(), newAccount[j]);
+    				/*String alias = so.getUsername(orgid.toString(), newAccount[j]);
     				String passwordmd5 = so.getUserpass(orgid.toString(), newAccount[j]);
     				List<NameValuePair> param2 = new ArrayList<NameValuePair>();
     				param2.add(new BasicNameValuePair("accessKey", token.toString()));
@@ -93,7 +135,7 @@ public class ConfManagerServerlet extends HttpServlet {
     				param2.add(new BasicNameValuePair("passwordmd5", passwordmd5));
     				param2.add(new BasicNameValuePair("usertype", "2"));
     				JSONObject json2 = hc.getJObject("adduser", param2);
-    				flag = json2.get("msg").toString();
+    				flag = json2.get("msg").toString();*/
     			}
     			if(flag.equals("0")){
     				int oldrole = Integer.parseInt(so.getUserrole(orgid.toString(), newAccount[j]));
